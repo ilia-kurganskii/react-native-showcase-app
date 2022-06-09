@@ -7,6 +7,12 @@ export class AuthStore {
   constructor() {
     makeAutoObservable(this);
   }
+
+  loginByPassword(params: { login: string; password: string }) {
+    let { login, password } = params;
+    console.log(`Login: ${login} ${password}`);
+    this.state = 'signedId';
+  }
 }
 
 export const authStoreSingleton = new AuthStore();

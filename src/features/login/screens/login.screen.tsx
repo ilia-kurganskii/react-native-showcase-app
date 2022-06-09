@@ -1,6 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import { Button } from 'react-native-nucleus-ui';
+import { useLoginController } from './login.controller';
 
 export function LoginScreen() {
-  return <Text>Login</Text>;
+  const { login } = useLoginController();
+  return (
+    <View>
+      <Text>Login</Text>
+      <Button onPress={login} title="Login" />
+    </View>
+  );
 }
