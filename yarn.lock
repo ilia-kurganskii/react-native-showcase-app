@@ -5322,6 +5322,11 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.6"
 
+mobx-react-lite@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-3.4.0.tgz#d59156a96889cdadad751e5e4dab95f28926dfff"
+  integrity sha512-bRuZp3C0itgLKHu/VNxi66DN/XVkQG7xtoBVWxpvC5FhAqbOCP21+nPhULjnzEqd7xBMybp6KwytdUpZKEgpIQ==
+
 mobx@^6.6.0:
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.6.0.tgz#617ca1f3b745a781fa89c5eb94a773e3cbeff8ae"
@@ -6002,6 +6007,11 @@ react-native-gradle-plugin@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.6.tgz#b61a9234ad2f61430937911003cddd7e15c72b45"
   integrity sha512-eIlgtsmDp1jLC24dRn43hB3kEcZVqx6DUQbR0N1ABXGnMEafm9I3V3dUUeD1vh+Dy5WqijSoEwLNUPLgu5zDMg==
+
+react-native-nucleus-ui@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-nucleus-ui/-/react-native-nucleus-ui-0.1.2.tgz#ccfc50cc9f5f64890233999691904774aa0aa983"
+  integrity sha512-PNBv43hWS5w0BNdAUf3rmOi3at2k+yUERIA84MY5LraH89P8vNjU05XOEswh23qFUAMO5uz33xq2Aht0OH0tfw==
 
 react-native-safe-area-context@^4.3.1:
   version "4.3.1"
