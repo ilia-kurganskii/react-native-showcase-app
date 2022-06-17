@@ -79,6 +79,8 @@ import org.apache.tools.ant.taskdefs.condition.Os
  */
 
 project.ext.react = [
+    bundleInDetox: true,
+    devDisabledInDetox: true,
     enableHermes: false,  // clean and rebuild if changing
 ]
 
@@ -171,6 +173,9 @@ android {
                 }
             }
         }
+
+        testBuildType System.getProperty('testBuildType', 'debug')
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     if (isNewArchitectureEnabled()) {
@@ -241,6 +246,13 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
+        detox {
+            initWith release
+            setMatchingFallbacks('release')
+            signingConfig signingConfigs.debug
+
+            proguardFile "${rootProject.projectDir}/../node_modules/detox/android/detox/proguard-rules-app.pro"
+        }
     }
 
     // applicationVariants are e.g. debug, release
@@ -265,7 +277,7 @@ dependencies {
 
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-
+    implementation "androidx.annotation:annotation:1.1.0"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
@@ -280,6 +292,10 @@ dependencies {
     debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.flipper'
     }
+
+    androidTestImplementation('com.wix:detox:+') { transitive = true }
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.linkedin.testbutler:test-butler-library:2.2.1'
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

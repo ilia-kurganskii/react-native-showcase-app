@@ -1,0 +1,92 @@
+{
+  "testRunner": "jest",
+  "runnerConfig": "detox/jest-config.json",
+  "skipLegacyWorkersInjection": true,
+  "artifacts": {
+    "rootDir": "artifacts",
+    "plugins": {
+      "instruments": {"enabled": false},
+      "log": {"enabled": true},
+      "uiHierarchy": "enabled",
+      "screenshot": {
+        "shouldTakeAutomaticSnapshots": true,
+        "keepOnlyFailedTestsArtifacts": true,
+        "takeWhen": {
+          "testStart": false,
+          "testDone": true
+        }
+      },
+      "video": {
+        "android": {
+          "bitRate": 4000000
+        },
+        "simulator": {
+          "codec": "hevc"
+        }
+      }
+    }
+  },
+  "apps": {
+    "ios.ci": {
+      "type": "ios.app",
+      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/NucleusUiPatternExamples.app",
+      "build": "xcodebuild CC=clang CPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ -workspace ios/NucleusUiPatternExamples.xcworkspace  -scheme NucleusUiPatternExamples -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -quiet"
+    },
+    "ios.release": {
+      "type": "ios.app",
+      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/NucleusUiPatternExamples.app",
+      "build": "xcodebuild -workspace ios/NucleusUiPatternExamples.xcworkspace  -scheme NucleusUiPatternExamples -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -quiet"
+    },
+    "ios.debug": {
+      "type": "ios.app",
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/NucleusUiPatternExamples.app",
+      "build": "xcodebuild -workspace ios/NucleusUiPatternExamples.xcworkspace  -scheme NucleusUiPatternExamples -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -quiet"
+    },
+    "android.detox": {
+      "type": "android.apk",
+      "binaryPath": "android/app/build/outputs/apk/detox/app-detox.apk",
+      "build": "cd android && ./gradlew assembleDetox assembleAndroidTest -DtestBuildType=detox"
+    },
+    "android.debug": {
+      "type": "android.apk",
+      "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+      "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug"
+    }
+  },
+  "devices": {
+    "simulator": {
+      "type": "ios.simulator",
+      "device": {
+        "type": "iPhone 11"
+      }
+    },
+    "emulator": {
+      "type": "android.emulator",
+      "device": {
+        "avdName": "5.1_WVGA"
+      }
+    }
+  },
+  "configurations": {
+    "ios": {
+      "device": "simulator",
+      "app": "ios.release"
+    },
+    "ios.ci": {
+      "device": "simulator",
+      "app": "ios.ci"
+    },
+    "ios.tdd": {
+      "device": "simulator",
+      "app": "ios.debug"
+    },
+    "android": {
+      "device": "emulator",
+      "app": "android.detox"
+    },
+    "android.tdd": {
+      "device": "emulator",
+      "app": "android.debug"
+    }
+  }
+}
