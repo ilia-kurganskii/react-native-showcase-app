@@ -2,6 +2,30 @@
   "testRunner": "jest",
   "runnerConfig": "detox/jest-config.json",
   "skipLegacyWorkersInjection": true,
+  "artifacts": {
+    "rootDir": "artifacts",
+    "plugins": {
+      "instruments": {"enabled": false},
+      "log": {"enabled": true},
+      "uiHierarchy": "enabled",
+      "screenshot": {
+        "shouldTakeAutomaticSnapshots": true,
+        "keepOnlyFailedTestsArtifacts": true,
+        "takeWhen": {
+          "testStart": false,
+          "testDone": true
+        }
+      },
+      "video": {
+        "android": {
+          "bitRate": 4000000
+        },
+        "simulator": {
+          "codec": "hevc"
+        }
+      }
+    }
+  },
   "apps": {
     "ios.ci": {
       "type": "ios.app",
