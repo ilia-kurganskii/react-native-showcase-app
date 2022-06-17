@@ -8,7 +8,7 @@ export function LoginScreen() {
   return (
     <View>
       <Text>Login</Text>
-      <Button onPress={login} title="Login" />
+      <Button testID="login-button" onPress={login} title="Login" />
     </View>
   );
 }
