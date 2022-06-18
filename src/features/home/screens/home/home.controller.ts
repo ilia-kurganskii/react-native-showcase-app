@@ -1,12 +1,14 @@
 import { useAuthStore } from '../../../auth/stores/auth/use-auth-store';
 import { useCallback } from 'react';
 
-export function useLoginController() {
+export function useHomeController() {
   const authStore = useAuthStore();
 
-  const login = useCallback(() => authStore.loginAnonymously(), [authStore]);
+  const logout = useCallback(async () => {
+    await authStore.logout();
+  }, [authStore]);
 
   return {
-    login,
+    logout,
   };
 }
