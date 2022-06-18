@@ -1,14 +1,15 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 import { Button } from 'react-native-nucleus-ui';
 import { useLoginController } from './login.controller';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export function LoginScreen() {
   const { login } = useLoginController();
   return (
-    <View>
+    <SafeAreaView>
       <Text>Login</Text>
       <Button testID="login-button" onPress={login} title="Login" />
-    </View>
+    </SafeAreaView>
   );
 }

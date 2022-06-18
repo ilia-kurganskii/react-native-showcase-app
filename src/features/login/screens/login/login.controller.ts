@@ -1,4 +1,4 @@
-import { useAuthStore } from '../../auth/stores/auth/use-auth-store';
+import { useAuthStore } from '../../../auth/stores/auth/use-auth-store';
 import { useCallback } from 'react';
 
 export function useLoginController() {

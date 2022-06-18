@@ -5,10 +5,10 @@ describe('Login', () => {
     await device.launchApp();
   });
 
-  describe('login', () => {
-    it('login by button', async () => {
-      await element(by.id('login-button')).tap();
-      await expect(element(by.text('Home Screen'))).toBeVisible();
+  describe('Login flow', () => {
+    it('Open Sign Up scren', async () => {
+      await element(by.id('create-account-btn')).tap();
+      await expect(element(by.id('sign-up-screen'))).toExist();
     });
   });
 });
