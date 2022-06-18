@@ -23,6 +23,8 @@
     "detox:cache": "detox build-framework-cache"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^14.11.1",
+    "@react-native-firebase/auth": "^14.11.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
     "mobx": "^6.6.0",

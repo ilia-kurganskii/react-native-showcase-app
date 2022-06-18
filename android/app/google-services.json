@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "852583765440",
+    "project_id": "showcase-app-kurganskii",
+    "storage_bucket": "showcase-app-kurganskii.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852583765440:android:682c7c9ba572766c4b2425",
+        "android_client_info": {
+          "package_name": "com.nucleusuipatternexamples"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852583765440-2ob10dfvfklpfl3vhju85um3qjb6ppj1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nucleusuipatternexamples",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "852583765440-1v7lullehq8tqm917hc56dgbac58q4oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUB1b8pVIrGW9-4xBiCbMiQDCwllgEOII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852583765440-1v7lullehq8tqm917hc56dgbac58q4oc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
