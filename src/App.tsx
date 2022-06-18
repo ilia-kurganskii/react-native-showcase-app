@@ -3,23 +3,27 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useAuthStore } from './features/auth/stores/auth/use-auth-store';
 import { HomeScreen } from './features/home/screens/home.screen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { LoginScreen } from './features/login/screens/login.screen';
 import { observer } from 'mobx-react-lite';
+import { LoginNavigation } from './features/login/navigation/login.navigation';
+import { FLOWS } from './features/common/navigation/screen.const';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator();
 
 const AppComponent = () => {
   const { state } = useAuthStore();
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        {state === 'signedId' ? (
-          <Stack.Screen name="Home" component={HomeScreen} />
-        ) : (
-          <Stack.Screen name="SignIn" component={LoginScreen} />
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          {state === 'signedId' ? (
+            <Stack.Screen name={FLOWS.HOME} component={HomeScreen} />
+          ) : (
+            <Stack.Screen name={FLOWS.LOGIN} component={LoginNavigation} />
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 
