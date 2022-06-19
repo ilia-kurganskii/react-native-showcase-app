@@ -7,6 +7,16 @@ import { observer } from 'mobx-react-lite';
 import { LoginNavigation } from './features/login/navigation/login.navigation';
 import { FLOWS } from './features/common/navigation/screen.const';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useColorScheme } from 'react-native';
+import {
+  DARK_THEME,
+  LIGHT_THEME,
+  ThemeProvider,
+} from 'react-native-nucleus-ui';
+import {
+  NavigationThemeDark,
+  NavigationThemeLight,
+} from './features/common/theme/navigation.theme';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,17 +28,26 @@ const AppComponent = () => {
     return () => authStore.onDestroy();
   });
 
+  const deviceTheme = useColorScheme();
+
+  const [theme, navigationTheme] =
+    deviceTheme === 'dark'
+      ? [DARK_THEME, NavigationThemeDark]
+      : [LIGHT_THEME, NavigationThemeLight];
+
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {authStore.state === 'signedIn' ? (
-            <Stack.Screen name={FLOWS.HOME} component={HomeScreen} />
-          ) : (
-            <Stack.Screen name={FLOWS.LOGIN} component={LoginNavigation} />
-          )}
-        </Stack.Navigator>
-      </NavigationContainer>
+      <ThemeProvider value={theme}>
+        <NavigationContainer theme={navigationTheme}>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            {authStore.state === 'signedIn' ? (
+              <Stack.Screen name={FLOWS.HOME} component={HomeScreen} />
+            ) : (
+              <Stack.Screen name={FLOWS.LOGIN} component={LoginNavigation} />
+            )}
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ThemeProvider>
     </SafeAreaProvider>
   );
 };
