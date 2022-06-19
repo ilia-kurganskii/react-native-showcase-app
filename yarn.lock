@@ -3795,7 +3795,7 @@ human-signals@^3.0.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-3.0.1.tgz#c740920859dafa50e5a3222da9d3bf4bb0e5eef5"
   integrity sha512-rQLskxnM/5OCldHo+wNXbpVgDn5A17CUoKX+7Sokwaknlq7CdSnphy0W39GU8dw59XiCXmFXDg4fRuckQRKewQ==
 
-husky@>=6:
+husky@^8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/husky/-/husky-8.0.1.tgz#511cb3e57de3e3190514ae49ed50f6bc3f50b3e9"
   integrity sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==
@@ -4206,7 +4206,7 @@ jest-changed-files@^28.0.2:
     execa "^5.0.0"
     throat "^6.0.1"
 
-jest-circus@^28.1.0, jest-circus@^28.1.1:
+jest-circus@^28.1.1:
   version "28.1.1"
   resolved "https://registry.yarnpkg.com/jest-circus/-/jest-circus-28.1.1.tgz#3d27da6a974d85a466dc0cdc6ddeb58daaa57bb4"
   integrity sha512-75+BBVTsL4+p2w198DQpCeyh1RdaS2lhEG87HkaFX/UG0gJExVq2skG2pT7XZEGBubNj2CytcWSPan4QEPNosw==
@@ -4626,7 +4626,7 @@ jest-worker@^28.1.1:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jest@^28.0.2:
+jest@^28.1.1:
   version "28.1.1"
   resolved "https://registry.yarnpkg.com/jest/-/jest-28.1.1.tgz#3c39a3a09791e16e9ef283597d24ab19a0df701e"
   integrity sha512-qw9YHBnjt6TCbIDMPMpJZqf9E12rh6869iZaN08/vpOGgHJSAaLLUn6H8W3IAEuy34Ls3rct064mZLETkxJ2XA==
