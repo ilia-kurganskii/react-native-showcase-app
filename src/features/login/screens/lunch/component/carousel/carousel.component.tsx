@@ -10,8 +10,9 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import { carouselStyle } from './carousel.style';
-import { PageControls } from 'react-native-nucleus-ui';
+import { getCarouselStyle } from './carousel.style';
+import { PageControls, useTheme } from 'react-native-nucleus-ui';
+import { extendThemeWithCarousel } from './carousel.theme';
 
 export interface CarouselProps extends ViewProps {
   values: {
@@ -23,6 +24,8 @@ export interface CarouselProps extends ViewProps {
 
 function CarouselComponent(props: CarouselProps) {
   let { values, ...viewProps } = props;
+  const theme = useTheme();
+  const carouselStyle = getCarouselStyle(extendThemeWithCarousel(theme));
   const [width, setWidth] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(1);
   const setItemWidth = (event: LayoutChangeEvent) => {
