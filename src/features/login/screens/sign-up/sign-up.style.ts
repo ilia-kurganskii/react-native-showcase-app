@@ -24,8 +24,13 @@ export const getSignUpScreenStyles = createThemedStyleSheet(
       marginBottom: 12,
       color: theme.signUpScreen.textLabel,
     },
+    error: {
+      ...TypographyPresets.Small.Normal.Regular,
+      marginBottom: 24,
+      color: theme.signUpScreen.textError,
+    },
     input: {
-      marginBottom: 14,
+      marginBottom: 12,
     },
     button: {
       marginTop: 'auto',
