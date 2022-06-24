@@ -8,7 +8,7 @@ import {
 import { useSignUpController } from './sign-up.controller';
 
 function SignUpScreenComponent() {
-  const { signUp, styles } = useSignUpController();
+  const { signUp, styles, passwordField, emailField } = useSignUpController();
   const { top } = useSafeAreaInsets();
   return (
     <KeyboardAvoidingView
@@ -23,14 +23,27 @@ function SignUpScreenComponent() {
         <SafeAreaView edges={['bottom']} style={styles.safeContainer}>
           <Text style={styles.label}>Email</Text>
           <TextField
+            value={emailField.value}
+            onChangeText={emailField.onChange}
+            onBlur={emailField.onBlur}
+            error={emailField.hasError}
             autoCapitalize="none"
             keyboardType="email-address"
             textContentType="emailAddress"
             style={styles.input}
           />
+          <Text style={styles.error}>{emailField.error}</Text>
 
           <Text style={styles.label}>Password</Text>
-          <TextField secureTextEntry={true} style={styles.input} />
+          <TextField
+            value={passwordField.value}
+            onChangeText={passwordField.onChange}
+            onBlur={passwordField.onBlur}
+            error={passwordField.hasError}
+            secureTextEntry={true}
+            style={styles.input}
+          />
+          <Text style={styles.error}>{passwordField.error}</Text>
 
           <Button
             title="Create account"
