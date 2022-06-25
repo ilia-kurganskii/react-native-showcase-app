@@ -6201,10 +6201,10 @@ react-native-gradle-plugin@^0.0.6:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.6.tgz#b61a9234ad2f61430937911003cddd7e15c72b45"
   integrity sha512-eIlgtsmDp1jLC24dRn43hB3kEcZVqx6DUQbR0N1ABXGnMEafm9I3V3dUUeD1vh+Dy5WqijSoEwLNUPLgu5zDMg==
 
-react-native-nucleus-ui@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/react-native-nucleus-ui/-/react-native-nucleus-ui-0.1.4.tgz#6e16aeae2ceb34f08e20256f56d5dc120432d22e"
-  integrity sha512-Mk/7yzjlB3TdvDhD9CW6weh4PdXriJzoCDUOplD2YO+nV2AiakzM0vJ7Mo0udlKdvJgcQ1/WjMBtiPYvkl8Mvw==
+react-native-nucleus-ui@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-nucleus-ui/-/react-native-nucleus-ui-0.2.0.tgz#d916fd0b09cbf32e27ba2f213e6635d6815eadb4"
+  integrity sha512-0tJnePi8+PQJGSIzNqsXl37Yqp+qNkYnT+niniOQEjcDZaTPvlCsLlcoiinuhcbuuMHITROvf1DDJGsGKEcMYg==
 
 react-native-safe-area-context@^4.3.1:
   version "4.3.1"
