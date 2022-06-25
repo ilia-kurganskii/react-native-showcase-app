@@ -24,43 +24,44 @@ export function LoginScreen() {
       style={styles.keyboardView}
     >
       <ScrollView
-        testID="sign-up-screen"
         contentContainerStyle={styles.scrollContainer}
+        testID="sign-up-screen"
       >
         <SafeAreaView edges={['bottom']} style={styles.safeContainer}>
           <Text style={styles.label}>Email</Text>
           <TextField
             autoCapitalize="none"
-            keyboardType="email-address"
-            textContentType="emailAddress"
-            style={styles.input}
-            onChangeText={emailField.onChange}
-            onBlur={emailField.onBlur}
-            error={emailField.hasError}
             autoComplete="email"
-            returnKeyType="next"
+            error={emailField.hasError}
+            keyboardType="email-address"
+            onBlur={emailField.onBlur}
+            onChangeText={emailField.onChange}
             onSubmitEditing={focusOnPassword}
+            returnKeyType="next"
+            style={styles.input}
+            textContentType="emailAddress"
           />
           <Text style={styles.error}>{emailField.error}</Text>
 
           <Text style={styles.label}>Password</Text>
           <TextField
             ref={passwordRef}
-            style={styles.input}
-            onChangeText={passwordField.onChange}
-            onBlur={passwordField.onBlur}
+            autoComplete="password"
             error={passwordField.hasError}
-            secureTextEntry={true}
-            returnKeyType="done"
+            onBlur={passwordField.onBlur}
+            onChangeText={passwordField.onChange}
             onSubmitEditing={submitForm}
+            returnKeyType="done"
+            secureTextEntry={true}
+            style={styles.input}
           />
           <Text style={styles.error}>{passwordField.error}</Text>
 
           <Button
-            title="Login"
-            style={styles.button}
             onPress={submitForm}
             size="large"
+            style={styles.button}
+            title="Login"
           />
         </SafeAreaView>
       </ScrollView>
