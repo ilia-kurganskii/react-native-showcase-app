@@ -17,6 +17,7 @@ import {
   NavigationThemeDark,
   NavigationThemeLight,
 } from './features/common/theme/navigation.theme';
+import { DialogsScreen } from './features/dialogs/screens/dialogs/dialogs.screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,7 @@ const AppComponent = () => {
               <Stack.Screen name={FLOWS.LOGIN} component={LoginNavigation} />
             )}
           </Stack.Navigator>
+          <DialogsScreen />
         </NavigationContainer>
       </ThemeProvider>
     </SafeAreaProvider>

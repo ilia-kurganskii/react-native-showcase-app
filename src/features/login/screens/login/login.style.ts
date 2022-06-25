@@ -25,7 +25,12 @@ export const getLoginScreenStyles = createThemedStyleSheet(
       color: theme.loginScreen.textLabel,
     },
     input: {
-      marginBottom: 14,
+      marginBottom: 4,
+    },
+    error: {
+      ...TypographyPresets.Small.Normal.Regular,
+      marginBottom: 24,
+      color: theme.loginScreen.textError,
     },
     button: {
       marginTop: 'auto',
