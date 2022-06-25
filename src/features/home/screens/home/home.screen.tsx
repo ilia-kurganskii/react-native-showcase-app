@@ -8,7 +8,7 @@ export function HomeScreen() {
   return (
     <SafeAreaView>
       <Text>Home Screen</Text>
-      <Button title="Logout" onPress={logout} />
+      <Button onPress={logout} title="Logout" />
     </SafeAreaView>
   );
 }

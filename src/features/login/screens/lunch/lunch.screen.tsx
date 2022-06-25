@@ -41,20 +41,20 @@ function LunchScreenComponent() {
         <Carousel style={styles.carousel} values={CAROUSEL_VALUES} />
 
         <Button
-          testID="create-account-btn"
-          style={styles.button}
-          onPress={goToSignUpScreen}
-          title="Create account"
           appearance="primary"
+          onPress={goToSignUpScreen}
           size="large"
+          style={styles.button}
+          testID="create-account-btn"
+          title="Create account"
         />
 
         <Text style={styles.loginHelper}>
           <Text style={styles.loginHelper__text}>Have an account? </Text>
           <Text
-            testID="login-btn"
             onPress={goToSignInScreen}
             style={styles.loginHelper__link}
+            testID="login-btn"
           >
             Log in
           </Text>

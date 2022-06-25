@@ -10,10 +10,10 @@ function DialogsScreensComponent() {
   return dialogs.map((dialog) => (
     <SafeAreaView key={dialog.id} style={dialogsStyles.container}>
       <Popover
-        title={dialog.title}
-        message={dialog.message}
         actionButton={dialog.actionButton}
         cancelButton={dialog.closeButton}
+        message={dialog.message}
+        title={dialog.title}
       />
     </SafeAreaView>
   ));

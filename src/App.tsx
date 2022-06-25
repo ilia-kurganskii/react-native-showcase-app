@@ -42,9 +42,9 @@ const AppComponent = () => {
         <NavigationContainer theme={navigationTheme}>
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             {authStore.state === 'signedIn' ? (
-              <Stack.Screen name={FLOWS.HOME} component={HomeScreen} />
+              <Stack.Screen component={HomeScreen} name={FLOWS.HOME} />
             ) : (
-              <Stack.Screen name={FLOWS.LOGIN} component={LoginNavigation} />
+              <Stack.Screen component={LoginNavigation} name={FLOWS.LOGIN} />
             )}
           </Stack.Navigator>
           <DialogsScreen />

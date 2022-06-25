@@ -22,23 +22,23 @@ export function LoginNavigation() {
       }}
     >
       <LoginStack.Screen
+        component={LunchScreen}
         name={SCREENS.LOGIN_LUNCH}
         options={{ headerShown: false }}
-        component={LunchScreen}
       />
       <LoginStack.Screen
+        component={LoginScreen}
         name={SCREENS.LOGIN_LOGIN}
         options={{
           title: 'Login',
         }}
-        component={LoginScreen}
       />
       <LoginStack.Screen
+        component={SignUpScreen}
+        name={SCREENS.LOGIN_SIGN_UP}
         options={{
           title: 'Create account',
         }}
-        name={SCREENS.LOGIN_SIGN_UP}
-        component={SignUpScreen}
       />
     </LoginStack.Navigator>
   );

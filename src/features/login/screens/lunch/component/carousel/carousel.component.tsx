@@ -44,29 +44,29 @@ function CarouselComponent(props: CarouselProps) {
   return (
     <View {...viewProps}>
       <ScrollView
-        showsHorizontalScrollIndicator={false}
-        decelerationRate="fast"
-        disableScrollViewPanResponder={true}
-        snapToAlignment="start"
-        disableIntervalMomentum={true}
         contentContainerStyle={carouselStyle.scrollContainer}
+        decelerationRate="fast"
+        disableIntervalMomentum={true}
+        disableScrollViewPanResponder={true}
         horizontal={true}
         onLayout={setItemWidth}
-        snapToInterval={width}
         onScroll={onScroll}
         scrollEventThrottle={16}
+        showsHorizontalScrollIndicator={false}
+        snapToAlignment="start"
+        snapToInterval={width}
       >
         {values.map((value) => (
-          <View style={[carouselStyle.itemContainer, { width }]} key={value.id}>
-            <Image style={carouselStyle.image} source={value.image} />
+          <View key={value.id} style={[carouselStyle.itemContainer, { width }]}>
+            <Image source={value.image} style={carouselStyle.image} />
             <Text style={carouselStyle.text}>{value.text}</Text>
           </View>
         ))}
       </ScrollView>
       <PageControls
-        style={carouselStyle.pageControls}
         count={values.length}
         selectedIndex={selectedIndex}
+        style={carouselStyle.pageControls}
       />
     </View>
   );
