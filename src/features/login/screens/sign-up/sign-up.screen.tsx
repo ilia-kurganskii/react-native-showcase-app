@@ -8,7 +8,15 @@ import {
 import { useSignUpController } from './sign-up.controller';
 
 function SignUpScreenComponent() {
-  const { signUp, styles, passwordField, emailField } = useSignUpController();
+  const {
+    signUp,
+    styles,
+    passwordField,
+    emailField,
+    passwordRef,
+    focusOnPassword,
+  } = useSignUpController();
+
   const { top } = useSafeAreaInsets();
   return (
     <KeyboardAvoidingView
@@ -30,17 +38,23 @@ function SignUpScreenComponent() {
             autoCapitalize="none"
             keyboardType="email-address"
             textContentType="emailAddress"
+            autoComplete="email"
+            returnKeyType="next"
+            onSubmitEditing={focusOnPassword}
             style={styles.input}
           />
           <Text style={styles.error}>{emailField.error}</Text>
 
           <Text style={styles.label}>Password</Text>
           <TextField
+            ref={passwordRef}
             value={passwordField.value}
             onChangeText={passwordField.onChange}
             onBlur={passwordField.onBlur}
             error={passwordField.hasError}
             secureTextEntry={true}
+            returnKeyType="done"
+            onSubmitEditing={signUp}
             style={styles.input}
           />
           <Text style={styles.error}>{passwordField.error}</Text>
