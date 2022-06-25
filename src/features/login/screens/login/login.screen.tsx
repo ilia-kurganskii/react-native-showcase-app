@@ -8,7 +8,14 @@ import {
 } from 'react-native-safe-area-context';
 
 export function LoginScreen() {
-  const { login, styles } = useLoginController();
+  const {
+    submitForm,
+    styles,
+    passwordField,
+    emailField,
+    passwordRef,
+    focusOnPassword,
+  } = useLoginController();
   const { top } = useSafeAreaInsets();
   return (
     <KeyboardAvoidingView
@@ -27,15 +34,32 @@ export function LoginScreen() {
             keyboardType="email-address"
             textContentType="emailAddress"
             style={styles.input}
+            onChangeText={emailField.onChange}
+            onBlur={emailField.onBlur}
+            error={emailField.hasError}
+            autoComplete="email"
+            returnKeyType="next"
+            onSubmitEditing={focusOnPassword}
           />
+          <Text style={styles.error}>{emailField.error}</Text>
 
           <Text style={styles.label}>Password</Text>
-          <TextField secureTextEntry={true} style={styles.input} />
+          <TextField
+            ref={passwordRef}
+            style={styles.input}
+            onChangeText={passwordField.onChange}
+            onBlur={passwordField.onBlur}
+            error={passwordField.hasError}
+            secureTextEntry={true}
+            returnKeyType="done"
+            onSubmitEditing={submitForm}
+          />
+          <Text style={styles.error}>{passwordField.error}</Text>
 
           <Button
             title="Login"
             style={styles.button}
-            onPress={login}
+            onPress={submitForm}
             size="large"
           />
         </SafeAreaView>

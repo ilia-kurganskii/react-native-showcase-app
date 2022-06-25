@@ -30,7 +30,7 @@ export const getSignUpScreenStyles = createThemedStyleSheet(
       color: theme.signUpScreen.textError,
     },
     input: {
-      marginBottom: 12,
+      marginBottom: 4,
     },
     button: {
       marginTop: 'auto',
