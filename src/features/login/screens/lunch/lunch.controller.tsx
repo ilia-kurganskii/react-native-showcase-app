@@ -1,7 +1,9 @@
-import { getLunchScreenStyles } from './lunch.style';
-import { extendTheme, useTheme } from 'react-native-nucleus-ui';
 import { useNavigation } from '@react-navigation/native';
-import { FLOWS, SCREENS } from '../../../common/navigation/screen.const';
+import { extendTheme, useTheme } from 'react-native-nucleus-ui';
+
+import { FLOWS, SCREENS } from '~features/common';
+
+import { getLunchScreenStyles } from './lunch.style';
 import {
   LUNCH_SCREEN_THEME_DARK,
   LUNCH_SCREEN_THEME_LIGHT,

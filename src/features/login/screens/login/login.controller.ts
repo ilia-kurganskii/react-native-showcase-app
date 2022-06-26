@@ -1,11 +1,13 @@
-import { useAuthStore } from '../../../auth/stores/auth/use-auth-store';
 import { useCallback, useRef } from 'react';
+import { TextInput } from 'react-native';
 import { useTheme } from 'react-native-nucleus-ui';
+
+import { useAuthStore } from '~features/auth';
+import { useDialogStore } from '~features/dialogs';
+
+import { LoginFormValues, useLoginForm } from './login.form';
 import { getLoginScreenStyles } from './login.style';
 import { extendThemeWithLogin } from './login.theme';
-import { useDialogStore } from '../../../dialogs/stores/dialogs';
-import { LoginFormValues, useLoginForm } from './login.form';
-import { TextInput } from 'react-native';
 
 export function useLoginController() {
   const passwordRef = useRef<TextInput>(null);

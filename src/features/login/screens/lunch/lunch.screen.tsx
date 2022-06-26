@@ -1,9 +1,10 @@
+import React from 'react';
 import { ScrollView, Text } from 'react-native';
 import { Button } from 'react-native-nucleus-ui';
-import React from 'react';
-import { useLunchScreenController } from './lunch.controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { Carousel } from './component/carousel';
+import { useLunchScreenController } from './lunch.controller';
 
 const CAROUSEL_VALUES = [
   {

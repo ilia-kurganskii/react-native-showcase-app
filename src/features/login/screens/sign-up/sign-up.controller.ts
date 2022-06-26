@@ -1,12 +1,13 @@
-import { useAuthStore } from '../../../auth/stores/auth/use-auth-store';
-import { useTheme } from 'react-native-nucleus-ui';
-import { getSignUpScreenStyles } from './sign-up.style';
-import { extendThemeWithSignUp } from './sign-up.theme';
-import { useSignUpForm } from './sign-up.form';
 import { useCallback, useRef } from 'react';
 import { TextInput } from 'react-native';
-import { LoginFormValues } from '../login/login.form';
-import { useDialogStore } from '../../../dialogs/stores/dialogs';
+import { useTheme } from 'react-native-nucleus-ui';
+
+import { useAuthStore } from '~features/auth';
+import { useDialogStore } from '~features/dialogs';
+
+import { SignUpFormValues, useSignUpForm } from './sign-up.form';
+import { getSignUpScreenStyles } from './sign-up.style';
+import { extendThemeWithSignUp } from './sign-up.theme';
 
 export function useSignUpController() {
   const passwordRef = useRef<TextInput>(null);
@@ -15,7 +16,7 @@ export function useSignUpController() {
   const dialogsStore = useDialogStore();
   const theme = useTheme();
   const signup = useCallback(
-    async (values: LoginFormValues) => {
+    async (values: SignUpFormValues) => {
       try {
         await authStore.signUpEmailAndPassword({
           login: values.email,

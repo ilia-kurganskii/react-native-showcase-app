@@ -1,23 +1,24 @@
-import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { useAuthStore } from './features/auth/stores/auth/use-auth-store';
-import { HomeScreen } from './features/home/screens/home';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { observer } from 'mobx-react-lite';
-import { LoginNavigation } from './features/login/navigation/login.navigation';
-import { FLOWS } from './features/common/navigation/screen.const';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import React, { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 import {
   DARK_THEME,
   LIGHT_THEME,
   ThemeProvider,
 } from 'react-native-nucleus-ui';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { useAuthStore } from '~features/auth';
 import {
+  FLOWS,
   NavigationThemeDark,
   NavigationThemeLight,
-} from './features/common/theme/navigation.theme';
-import { DialogsScreen } from './features/dialogs/screens/dialogs/dialogs.screen';
+} from '~features/common';
+import { DialogsScreen } from '~features/dialogs';
+import { HomeScreen } from '~features/home';
+import { LoginNavigation } from '~features/login';
 
 const Stack = createNativeStackNavigator();
 

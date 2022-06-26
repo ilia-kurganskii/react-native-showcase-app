@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+
 import { useSignUpController } from './sign-up.controller';
 
 function SignUpScreenComponent() {

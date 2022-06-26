@@ -1,5 +1,6 @@
-import { useAuthStore } from '../../../auth/stores/auth/use-auth-store';
 import { useCallback } from 'react';
+
+import { useAuthStore } from '~features/auth';
 
 export function useHomeController() {
   const authStore = useAuthStore();
