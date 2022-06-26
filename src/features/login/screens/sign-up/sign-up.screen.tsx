@@ -6,6 +6,8 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
+import { keyboardBehaviorPreset } from '~features/common';
+
 import { useSignUpController } from './sign-up.controller';
 
 function SignUpScreenComponent() {
@@ -21,7 +23,7 @@ function SignUpScreenComponent() {
   const { top } = useSafeAreaInsets();
   return (
     <KeyboardAvoidingView
-      behavior="padding"
+      behavior={keyboardBehaviorPreset}
       keyboardVerticalOffset={top + 10}
       style={styles.keyboardView}
     >
@@ -44,7 +46,7 @@ function SignUpScreenComponent() {
             textContentType="emailAddress"
             value={emailField.value}
           />
-          <Text style={styles.error}>{emailField.error}</Text>
+          <Text style={styles.error}>{emailField.error ?? ' '}</Text>
 
           <Text style={styles.label}>Password</Text>
           <TextField
@@ -62,7 +64,7 @@ function SignUpScreenComponent() {
 
           <Button
             onPress={signUp}
-            size="large"
+            size="block"
             style={styles.button}
             title="Create account"
           />

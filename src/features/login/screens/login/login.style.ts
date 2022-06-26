@@ -30,7 +30,7 @@ export const getLoginScreenStyles = createThemedStyleSheet(
     },
     error: {
       ...TypographyPresets.Small.Normal.Regular,
-      marginBottom: 24,
+      marginBottom: 12,
       color: theme.loginScreen.textError,
     },
     button: {

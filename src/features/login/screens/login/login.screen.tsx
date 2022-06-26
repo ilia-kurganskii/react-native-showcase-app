@@ -6,6 +6,8 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
+import { keyboardBehaviorPreset } from '~features/common';
+
 import { useLoginController } from './login.controller';
 
 export function LoginScreen() {
@@ -20,7 +22,7 @@ export function LoginScreen() {
   const { top } = useSafeAreaInsets();
   return (
     <KeyboardAvoidingView
-      behavior="padding"
+      behavior={keyboardBehaviorPreset}
       keyboardVerticalOffset={top + 10}
       style={styles.keyboardView}
     >
@@ -42,7 +44,7 @@ export function LoginScreen() {
             style={styles.input}
             textContentType="emailAddress"
           />
-          <Text style={styles.error}>{emailField.error}</Text>
+          <Text style={styles.error}>{emailField.error ?? ' '}</Text>
 
           <Text style={styles.label}>Password</Text>
           <TextField
@@ -60,7 +62,7 @@ export function LoginScreen() {
 
           <Button
             onPress={submitForm}
-            size="large"
+            size="block"
             style={styles.button}
             title="Login"
           />
