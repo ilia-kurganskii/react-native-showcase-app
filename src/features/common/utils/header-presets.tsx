@@ -7,6 +7,7 @@ import { HeaderBackButton } from '~features/common';
 export const StackNavigatorHeaderPreset: NativeStackNavigationOptions = {
   headerBackTitleVisible: false,
   headerShadowVisible: false,
+  headerTitleAlign: 'center',
   headerLeft: (props) => <HeaderBackButton {...props} />,
   // @ts-ignore override only font
   headerTitleStyle: {

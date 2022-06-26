@@ -6,6 +6,8 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
+import { keyboardBehaviorPreset } from '~features/common';
+
 import { useSignUpController } from './sign-up.controller';
 
 function SignUpScreenComponent() {
@@ -21,7 +23,7 @@ function SignUpScreenComponent() {
   const { top } = useSafeAreaInsets();
   return (
     <KeyboardAvoidingView
-      behavior="padding"
+      behavior={keyboardBehaviorPreset}
       keyboardVerticalOffset={top + 10}
       style={styles.keyboardView}
     >
