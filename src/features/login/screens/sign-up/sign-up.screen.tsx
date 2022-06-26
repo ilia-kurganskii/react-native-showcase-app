@@ -44,7 +44,7 @@ function SignUpScreenComponent() {
             textContentType="emailAddress"
             value={emailField.value}
           />
-          <Text style={styles.error}>{emailField.error}</Text>
+          <Text style={styles.error}>{emailField.error ?? ' '}</Text>
 
           <Text style={styles.label}>Password</Text>
           <TextField
@@ -62,7 +62,7 @@ function SignUpScreenComponent() {
 
           <Button
             onPress={signUp}
-            size="large"
+            size="block"
             style={styles.button}
             title="Create account"
           />

@@ -42,7 +42,7 @@ export function LoginScreen() {
             style={styles.input}
             textContentType="emailAddress"
           />
-          <Text style={styles.error}>{emailField.error}</Text>
+          <Text style={styles.error}>{emailField.error ?? ' '}</Text>
 
           <Text style={styles.label}>Password</Text>
           <TextField
@@ -60,7 +60,7 @@ export function LoginScreen() {
 
           <Button
             onPress={submitForm}
-            size="large"
+            size="block"
             style={styles.button}
             title="Login"
           />

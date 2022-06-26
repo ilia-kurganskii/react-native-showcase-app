@@ -1,8 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { TypographyPresets } from 'react-native-nucleus-ui';
 
-import { SCREENS } from '~features/common';
+import { SCREENS, StackNavigatorHeaderPreset } from '~features/common';
 
 import { LoginScreen, LunchScreen, SignUpScreen } from '../screens';
 
@@ -13,12 +12,7 @@ export function LoginNavigation() {
     <LoginStack.Navigator
       initialRouteName={SCREENS.LOGIN_LUNCH}
       screenOptions={{
-        headerBackTitleVisible: false,
-        headerShadowVisible: false,
-        // @ts-ignore override only font
-        headerTitleStyle: {
-          ...TypographyPresets.Large.None.Regular,
-        },
+        ...StackNavigatorHeaderPreset,
       }}
     >
       <LoginStack.Screen
