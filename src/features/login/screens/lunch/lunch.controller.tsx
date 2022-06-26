@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { extendTheme, useTheme } from 'react-native-nucleus-ui';
 
-import { FLOWS, SCREENS } from '~features/common/navigation/screen.const';
+import { FLOWS, SCREENS } from '~features/common';
 
 import { getLunchScreenStyles } from './lunch.style';
 import {

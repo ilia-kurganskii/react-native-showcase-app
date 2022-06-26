@@ -10,15 +10,15 @@ import {
 } from 'react-native-nucleus-ui';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { useAuthStore } from '~features/auth/stores/auth/use-auth-store';
-import { FLOWS } from '~features/common/navigation/screen.const';
+import { useAuthStore } from '~features/auth';
 import {
+  FLOWS,
   NavigationThemeDark,
   NavigationThemeLight,
-} from '~features/common/theme/navigation.theme';
-import { DialogsScreen } from '~features/dialogs/screens/dialogs/dialogs.screen';
-import { HomeScreen } from '~features/home/screens/home';
-import { LoginNavigation } from '~features/login/navigation/login.navigation';
+} from '~features/common';
+import { DialogsScreen } from '~features/dialogs';
+import { HomeScreen } from '~features/home';
+import { LoginNavigation } from '~features/login';
 
 const Stack = createNativeStackNavigator();
 

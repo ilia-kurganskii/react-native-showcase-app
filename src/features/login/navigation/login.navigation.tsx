@@ -2,11 +2,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { TypographyPresets } from 'react-native-nucleus-ui';
 
-import { SCREENS } from '~features/common/navigation/screen.const';
+import { SCREENS } from '~features/common';
 
-import { LoginScreen } from '../screens/login';
-import { LunchScreen } from '../screens/lunch';
-import { SignUpScreen } from '../screens/sign-up';
+import { LoginScreen, LunchScreen, SignUpScreen } from '../screens';
 
 const LoginStack = createNativeStackNavigator();
 

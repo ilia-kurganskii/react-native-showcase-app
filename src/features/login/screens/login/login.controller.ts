@@ -2,8 +2,8 @@ import { useCallback, useRef } from 'react';
 import { TextInput } from 'react-native';
 import { useTheme } from 'react-native-nucleus-ui';
 
-import { useAuthStore } from '~features/auth/stores/auth/use-auth-store';
-import { useDialogStore } from '~features/dialogs/stores/dialogs';
+import { useAuthStore } from '~features/auth';
+import { useDialogStore } from '~features/dialogs';
 
 import { LoginFormValues, useLoginForm } from './login.form';
 import { getLoginScreenStyles } from './login.style';
