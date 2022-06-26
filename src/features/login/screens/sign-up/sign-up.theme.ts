@@ -1,4 +1,4 @@
-import { Colors, extendTheme, Theme } from 'react-native-nucleus-ui';
+import { Colors, Theme, extendTheme } from 'react-native-nucleus-ui';
 
 export interface SignUpScreenTheme {
   signUpScreen: {

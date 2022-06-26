@@ -1,8 +1,9 @@
 import {
-  createThemedStyleSheet,
   ExtendedTheme,
   TypographyPresets,
+  createThemedStyleSheet,
 } from 'react-native-nucleus-ui';
+
 import { LoginScreenTheme } from './login.theme';
 
 export const getLoginScreenStyles = createThemedStyleSheet(

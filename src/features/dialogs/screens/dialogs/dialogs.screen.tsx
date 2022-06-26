@@ -1,9 +1,10 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { Popover } from 'react-native-nucleus-ui';
-import { dialogsStyles } from './dialogs.style';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { observer } from 'mobx-react-lite';
+
 import { useDialogsController } from './dialogs.controller';
+import { dialogsStyles } from './dialogs.style';
 
 function DialogsScreensComponent() {
   const { dialogs } = useDialogsController();

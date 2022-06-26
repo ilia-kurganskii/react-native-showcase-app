@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   extends: ['@react-native-community', 'prettier'],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -17,6 +17,28 @@ module.exports = {
             multiline: 'last',
             noSortAlphabetically: false,
             reservedFirst: true,
+          },
+        ],
+        'import/order': [
+          'error',
+          {
+            'groups': [
+              ['builtin', 'external', 'internal', 'unknown'],
+              ['parent', 'sibling', 'index', 'object'],
+              'type',
+            ],
+            'pathGroups': [
+              {
+                pattern: '~features/**',
+                group: 'external',
+                position: 'after',
+              },
+            ],
+            'alphabetize': {
+              order: 'asc',
+              caseInsensitive: true,
+            },
+            'newlines-between': 'always',
           },
         ],
         'no-shadow': 'off',

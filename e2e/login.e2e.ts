@@ -1,4 +1,4 @@
-import { device, expect, by, element } from 'detox';
+import { by, device, element, expect } from 'detox';
 
 describe('Login', () => {
   beforeAll(async () => {

@@ -1,9 +1,10 @@
 import {
   Colors,
-  createThemedStyleSheet,
   ExtendedTheme,
   TypographyPresets,
+  createThemedStyleSheet,
 } from 'react-native-nucleus-ui';
+
 import { LunchScreenTheme } from './lunch.theme';
 
 export const getLunchScreenStyles = createThemedStyleSheet(

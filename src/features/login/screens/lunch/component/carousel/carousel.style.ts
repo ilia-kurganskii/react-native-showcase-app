@@ -1,8 +1,9 @@
 import {
-  createThemedStyleSheet,
   ExtendedTheme,
   TypographyPresets,
+  createThemedStyleSheet,
 } from 'react-native-nucleus-ui';
+
 import { CarouselComponentTheme } from './carousel.theme';
 
 export const getCarouselStyle = createThemedStyleSheet(

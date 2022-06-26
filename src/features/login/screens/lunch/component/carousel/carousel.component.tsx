@@ -10,8 +10,9 @@ import {
   View,
   ViewProps,
 } from 'react-native';
-import { getCarouselStyle } from './carousel.style';
 import { PageControls, useTheme } from 'react-native-nucleus-ui';
+
+import { getCarouselStyle } from './carousel.style';
 import { extendThemeWithCarousel } from './carousel.theme';
 
 export interface CarouselProps extends ViewProps {

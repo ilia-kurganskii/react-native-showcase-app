@@ -1,11 +1,12 @@
 import React from 'react';
 import { KeyboardAvoidingView, ScrollView, Text } from 'react-native';
 import { Button, TextField } from 'react-native-nucleus-ui';
-import { useLoginController } from './login.controller';
 import {
   SafeAreaView,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+
+import { useLoginController } from './login.controller';
 
 export function LoginScreen() {
   const {

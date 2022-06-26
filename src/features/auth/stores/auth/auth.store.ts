@@ -1,8 +1,9 @@
 import { makeAutoObservable, observable } from 'mobx';
+
 import {
   FirebaseAuthService,
-  firebaseAuthServiceSingleton,
   UserState,
+  firebaseAuthServiceSingleton,
 } from '../services/firebase-auth-service';
 
 export class AuthStore {

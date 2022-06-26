@@ -1,6 +1,8 @@
-import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
 import { getCommonFieldProps } from '../../../common/utils/form-utils';
+
 export const SignUpFormSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
@@ -9,7 +11,7 @@ export const SignUpFormSchema = Yup.object().shape({
     .required('Required'),
 });
 
-interface SignUpFormValues {
+export interface SignUpFormValues {
   email: string;
   password: string;
 }

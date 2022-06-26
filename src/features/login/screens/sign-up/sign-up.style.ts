@@ -1,8 +1,9 @@
 import {
-  createThemedStyleSheet,
   ExtendedTheme,
   TypographyPresets,
+  createThemedStyleSheet,
 } from 'react-native-nucleus-ui';
+
 import { SignUpScreenTheme } from './sign-up.theme';
 
 export const getSignUpScreenStyles = createThemedStyleSheet(
