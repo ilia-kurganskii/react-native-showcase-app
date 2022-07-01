@@ -57,7 +57,7 @@
     "jest": "^28.1.1",
     "jest-circus": "^28.1.1",
     "lint-staged": ">=13",
-    "metro-react-native-babel-preset": "^0.71.1",
+    "metro-react-native-babel-preset": "^0.71.2",
     "prettier": "^2.7.1",
     "react-test-renderer": "17.0.2",
     "ts-jest": "^28.0.5",
