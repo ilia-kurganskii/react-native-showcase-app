@@ -23,8 +23,8 @@
     "detox:cache": "detox build-framework-cache"
   },
   "dependencies": {
-    "@react-native-firebase/app": "^15.0.0",
-    "@react-native-firebase/auth": "^15.0.0",
+    "@react-native-firebase/app": "^15.1.1",
+    "@react-native-firebase/auth": "^15.1.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
     "formik": "^2.2.9",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/plugin-proposal-decorators": "^7.18.2",
-    "@babel/runtime": "^7.18.3",
+    "@babel/runtime": "^7.18.6",
     "@react-native-community/eslint-config": "^3.0.3",
     "@types/detox": "^18.1.0",
     "@types/jest": "^28.1.3",
