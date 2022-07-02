@@ -55,7 +55,7 @@
     "eslint-plugin-import": "^2.24.0",
     "husky": "^8.0.1",
     "jest": "^28.1.2",
-    "jest-circus": "^28.1.1",
+    "jest-circus": "^28.1.2",
     "lint-staged": ">=13",
     "metro-react-native-babel-preset": "^0.71.2",
     "prettier": "^2.7.1",
