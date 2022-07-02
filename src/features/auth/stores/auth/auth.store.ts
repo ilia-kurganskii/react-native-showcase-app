@@ -1,16 +1,27 @@
-import { makeAutoObservable, observable } from 'mobx';
+import { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import { computed, makeAutoObservable, observable } from 'mobx';
 
 import {
   FirebaseAuthService,
-  UserState,
   firebaseAuthServiceSingleton,
 } from '../services/firebase-auth-service';
 
 export class AuthStore {
   @observable
-  public state: 'loading' | 'signedIn' | 'unauthorized' = 'unauthorized';
+  public user: FirebaseAuthTypes.User | null | undefined = undefined;
 
   private unsubscribeFromAuthChanges: () => void = () => undefined;
+
+  @computed
+  get state(): 'loading' | 'signedIn' | 'unauthorized' {
+    if (this.user === undefined) {
+      return 'loading';
+    }
+    if (this.user === null) {
+      return 'unauthorized';
+    }
+    return 'signedIn';
+  }
 
   constructor(
     private readonly firebaseAuthService: FirebaseAuthService = firebaseAuthServiceSingleton
@@ -49,18 +60,8 @@ export class AuthStore {
     await this.firebaseAuthService.logout();
   };
 
-  private updateAuthState = (userState: UserState) => {
-    switch (userState) {
-      case UserState.Logged:
-        this.state = 'signedIn';
-        break;
-      case UserState.Anonymous:
-        this.state = 'signedIn';
-        break;
-      case UserState.Unauthorized:
-        this.state = 'unauthorized';
-        break;
-    }
+  private updateAuthState = (user: FirebaseAuthTypes.User | null) => {
+    this.user = user;
   };
 }
 

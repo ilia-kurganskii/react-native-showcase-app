@@ -8,8 +8,7 @@ export const StackNavigatorHeaderPreset: NativeStackNavigationOptions = {
   headerBackTitleVisible: false,
   headerShadowVisible: false,
   headerTitleAlign: 'center',
-  headerLeft: (props) =>
-    props.canGoBack ? <HeaderBackButton {...props} /> : null,
+  headerLeft: (props) => <HeaderBackButton {...props} />,
   // @ts-ignore override only font
   headerTitleStyle: {
     ...TypographyPresets.Large.None.Regular,

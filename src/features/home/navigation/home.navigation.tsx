@@ -21,7 +21,7 @@ const getTabBarIcon =
 export function HomeTabNavigation() {
   return (
     <Tabs.Navigator
-      initialRouteName={SCREENS.LOGIN_LUNCH}
+      initialRouteName={SCREENS.TABS_HOME}
       screenOptions={{
         tabBarLabelStyle: TypographyPresets.Tiny.None.Regular,
         tabBarActiveTintColor: Colors.primary.base,
@@ -32,16 +32,17 @@ export function HomeTabNavigation() {
     >
       <Tabs.Screen
         component={HomeScreen}
-        name={SCREENS.HOME_HOME}
+        name={SCREENS.TABS_HOME}
         options={{
-          title: 'Feed',
+          headerShown: false,
+          tabBarLabel: 'Feed',
           tabBarIcon: getTabBarIcon('home'),
         }}
       />
 
       <Tabs.Screen
         component={ProfileScreen}
-        name={SCREENS.HOME_PROFILE}
+        name={SCREENS.TABS_PROFILE}
         options={{
           title: 'Profile',
           tabBarLabel: 'Me',

@@ -5,13 +5,16 @@ export enum SCREENS {
   LOGIN_LOGIN = 'LOGIN_LOGIN',
   LOGIN_SIGN_UP = 'LOGIN_SIGN_UP',
 
-  HOME_HOME = 'HOME_HOME',
-  HOME_PROFILE = 'HOME_PROFILE',
+  TABS_HOME = 'TABS_HOME',
+  TABS_PROFILE = 'TABS_PROFILE',
+
+  NEWS_DETAILS = 'NEWS_DETAILS',
 }
 
 export enum FLOWS {
   LOGIN = 'LOGIN-FLOW',
-  HOME = 'HOME-FLOW',
+  TABS = 'TABS-FLOW',
+  NEWS_DETAILS = 'NEWS_DETAILS-FLOW',
 }
 
 export interface LoginFlowParamList {
@@ -20,8 +23,15 @@ export interface LoginFlowParamList {
   [SCREENS.LOGIN_SIGN_UP]: undefined;
 }
 
-export interface RootStackParamList {
+export interface NewsFlowParamList extends Record<string, object | undefined> {
+  [SCREENS.NEWS_DETAILS]: {
+    id: string;
+  };
+}
+
+export interface RootStackParamList extends Record<string, object | undefined> {
   [FLOWS.LOGIN]: NavigatorScreenParams<LoginFlowParamList>;
+  [FLOWS.NEWS_DETAILS]: NavigatorScreenParams<NewsFlowParamList>;
 }
 
 declare global {

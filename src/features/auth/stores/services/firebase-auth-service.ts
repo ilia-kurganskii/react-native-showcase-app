@@ -1,4 +1,4 @@
-import auth from '@react-native-firebase/auth';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 
 export enum UserState {
   Logged,
@@ -7,18 +7,10 @@ export enum UserState {
 }
 
 export class FirebaseAuthService {
-  subscribeToAuthChanges(listener: (state: UserState) => void): () => void {
-    return auth().onAuthStateChanged((user) => {
-      if (user) {
-        if (user.isAnonymous) {
-          listener(UserState.Anonymous);
-        } else {
-          listener(UserState.Logged);
-        }
-      } else {
-        listener(UserState.Unauthorized);
-      }
-    });
+  subscribeToAuthChanges(
+    listener: (user: FirebaseAuthTypes.User | null) => void
+  ): () => void {
+    return auth().onAuthStateChanged(listener);
   }
 
   loginByEmailAndPassword = async (params: {
