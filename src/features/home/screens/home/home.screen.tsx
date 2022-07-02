@@ -1,15 +1,10 @@
 import React from 'react';
-import { Button, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { useHomeController } from './home.controller';
+import { Text, View } from 'react-native';
 
 export function HomeScreen() {
-  const { logout } = useHomeController();
   return (
-    <SafeAreaView>
+    <View>
       <Text>Home Screen</Text>
-      <Button onPress={logout} title="Logout" />
-    </SafeAreaView>
+    </View>
   );
 }

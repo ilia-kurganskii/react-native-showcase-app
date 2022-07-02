@@ -17,7 +17,7 @@ import {
   NavigationThemeLight,
 } from '~features/common';
 import { DialogsScreen } from '~features/dialogs';
-import { HomeScreen } from '~features/home';
+import { HomeTabNavigation } from '~features/home';
 import { LoginNavigation } from '~features/login';
 
 const Stack = createNativeStackNavigator();
@@ -43,7 +43,7 @@ const AppComponent = () => {
         <NavigationContainer theme={navigationTheme}>
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             {authStore.state === 'signedIn' ? (
-              <Stack.Screen component={HomeScreen} name={FLOWS.HOME} />
+              <Stack.Screen component={HomeTabNavigation} name={FLOWS.HOME} />
             ) : (
               <Stack.Screen component={LoginNavigation} name={FLOWS.LOGIN} />
             )}
