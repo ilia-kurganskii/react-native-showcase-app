@@ -38,7 +38,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.5",
+    "@babel/core": "^7.18.6",
     "@babel/plugin-proposal-decorators": "^7.18.6",
     "@babel/runtime": "^7.18.6",
     "@react-native-community/eslint-config": "^3.0.3",
