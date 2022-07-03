@@ -10,14 +10,15 @@ export function useProfileController() {
   const theme = useTheme();
   const styles = getProfileScreenStyles(extendThemeWithProfile(theme));
   const authStore = useAuthStore();
+  const user = authStore.user;
 
   const logout = useCallback(async () => {
     await authStore.logout();
   }, [authStore]);
 
   return {
-    userName: 'Ilya',
-    email: 'test.com',
+    userName: user?.displayName,
+    email: user?.email,
     styles,
     logout,
   };

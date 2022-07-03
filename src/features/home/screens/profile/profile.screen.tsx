@@ -10,7 +10,7 @@ export function ProfileScreen() {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <Text style={styles.label}>ACCOUNT INFORMATION </Text>
-      <ProfileItem label="First Name" value={userName} />
+      <ProfileItem label="First Name" value={userName ?? 'Unknown'} />
       <Button
         appearance="transparent"
         onPress={logout}
