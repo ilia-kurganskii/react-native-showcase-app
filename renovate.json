@@ -43,6 +43,7 @@
   "fetchReleaseNotes": true,
   "prConcurrentLimit": 20,
   "pruneBranchAfterAutomerge": true,
+  "platformAutomerge": true,
   "automergeType": "pr",
   "enabledManagers": ["npm"],
   "lockFileMaintenance": {
