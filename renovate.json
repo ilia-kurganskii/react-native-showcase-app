@@ -45,7 +45,7 @@
     }
   ],
   "fetchReleaseNotes": true,
-  "prConcurrentLimit": 3,
+  "prConcurrentLimit": 20,
   "pruneBranchAfterAutomerge": true,
   "automergeType": "pr",
   "enabledManagers": [
