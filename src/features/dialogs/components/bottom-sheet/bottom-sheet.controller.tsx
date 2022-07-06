@@ -5,9 +5,13 @@ import {
   PanResponder,
   PanResponderGestureState,
 } from 'react-native';
+import { useTheme } from 'react-native-nucleus-ui';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { BottomSheetVars } from '~features/dialogs/components/bottom-sheet/bottom-sheet.vars';
+
+import { getBottomSheetStyles } from './bottom-sheet.style';
+import { extendThemeWithBottomSheet } from './bottom-sheet.theme';
 
 export function useBottomSheetController(params: {
   onClose: () => void;
@@ -16,6 +20,10 @@ export function useBottomSheetController(params: {
   onCloseAnimationFinish: () => void;
 }) {
   let { closable, onClose, isClosing, onCloseAnimationFinish } = params;
+  const theme = useTheme();
+  const bottomSheetStyles = getBottomSheetStyles(
+    extendThemeWithBottomSheet(theme)
+  );
   const [height, setHeight] = useState(0);
   const [lastHeightUpdate, setLastHeightUpdate] = useState(0);
 
@@ -130,5 +138,6 @@ export function useBottomSheetController(params: {
     panResponder,
     animatedStylePopover,
     animatedStyleBackground,
+    bottomSheetStyles,
   };
 }

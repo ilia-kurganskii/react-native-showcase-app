@@ -2,7 +2,6 @@ import React from 'react';
 import { Animated, TouchableOpacity, View, ViewProps } from 'react-native';
 
 import { useBottomSheetController } from './bottom-sheet.controller';
-import { bottomSheetStyle } from './bottom-sheet.style';
 import { BottomSheetVars } from './bottom-sheet.vars';
 
 interface BottomSheetProps extends ViewProps {
@@ -26,6 +25,7 @@ function BottomSheetComponent(props: BottomSheetProps) {
     panResponder,
     animatedStylePopover,
     animatedStyleBackground,
+    bottomSheetStyles,
   } = useBottomSheetController({
     closable,
     onClose,
@@ -34,25 +34,25 @@ function BottomSheetComponent(props: BottomSheetProps) {
   });
 
   return (
-    <View {...viewProps} style={[bottomSheetStyle.container]}>
+    <View {...viewProps} style={[bottomSheetStyles.container]}>
       <Animated.View
-        style={[bottomSheetStyle.overlay, animatedStyleBackground]}
+        style={[bottomSheetStyles.overlay, animatedStyleBackground]}
       />
       <TouchableOpacity
         disabled={!closable}
         onPress={onClose}
-        style={bottomSheetStyle.background}
+        style={bottomSheetStyles.background}
       />
       <Animated.View
         onLayout={setInitialLayout}
-        style={[bottomSheetStyle.sheet, animatedStylePopover]}
+        style={[bottomSheetStyles.sheet, animatedStylePopover]}
       >
         <View
           hitSlop={BottomSheetVars.knobHitSlop}
           {...panResponder.panHandlers}
-          style={bottomSheetStyle.line}
+          style={bottomSheetStyles.line}
         >
-          <View style={bottomSheetStyle.line__knob} />
+          <View style={bottomSheetStyles.line__knob} />
         </View>
         {children}
       </Animated.View>
