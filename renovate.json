@@ -2,5 +2,54 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "prPriority": -1
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["major","minor","patch"],
+      "automerge": true,
+      "platformAutomerge": true
+    },
+    {
+      "groupName": "babel",
+      "matchPackagePrefixes": [
+        "@babel/","babel-"
+      ]
+    },
+    {
+      "groupName": "eslint",
+      "matchPackagePrefixes": [
+        "eslint"
+      ]
+    },
+    {
+      "groupName": "jest",
+      "matchPackagePrefixes": [
+        "jest"
+      ]
+    },
+    {
+      "groupName": "react-native-firebase",
+      "matchPackagePrefixes": [
+        "@react-native-firebase"
+      ]
+    },
+    {
+      "groupName": "react-native-firebase",
+      "matchPackagePrefixes": [
+        "@react-navigation"
+      ]
+    }
+  ],
+  "fetchReleaseNotes": true,
+  "prConcurrentLimit": 3,
+  "pruneBranchAfterAutomerge": true,
+  "automergeType": "pr",
+  "enabledManagers": [
+    "npm"
   ]
 }
