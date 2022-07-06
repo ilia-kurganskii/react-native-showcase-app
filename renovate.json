@@ -53,6 +53,7 @@
     "npm"
   ],
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": true,
+    "automerge": true
   }
 }
