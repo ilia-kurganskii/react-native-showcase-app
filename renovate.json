@@ -51,5 +51,8 @@
   "automergeType": "pr",
   "enabledManagers": [
     "npm"
-  ]
+  ],
+  "lockFileMaintenance": {
+    "enabled": true
+  }
 }

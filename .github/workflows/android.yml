@@ -45,7 +45,7 @@ jobs:
 
       - name: Install yarn dependencies
         run: |
-          yarn install --frozen-lockfile
+          yarn install
 
       - name: Build android app
         run: |
@@ -110,7 +110,7 @@ jobs:
 
       - name: Install yarn dependencies
         run: |
-          yarn install --frozen-lockfile
+          yarn install
 
 
       - name: Test android app
