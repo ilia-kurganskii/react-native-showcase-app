@@ -6,7 +6,8 @@
       "matchDepTypes": ["devDependencies"],
       "automerge": true,
       "platformAutomerge": true,
-      "prPriority": -1
+      "prPriority": -1,
+      "separateMinorPatch": true
     },
     {
       "groupName": "babel",
@@ -31,6 +32,11 @@
     {
       "groupName": "react-native",
       "matchPackageNames": ["react-native", "@types/react-native"]
+    },
+    {
+      "groupName": "react",
+      "matchPackageNames": ["react", "@types/react"],
+      "separateMinorPatch": true
     }
   ],
   "fetchReleaseNotes": true,
