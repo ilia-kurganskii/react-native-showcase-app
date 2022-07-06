@@ -26,7 +26,7 @@
       "matchPackagePrefixes": ["@react-native-firebase"]
     },
     {
-      "groupName": "react-native-firebase",
+      "groupName": "react-navigation",
       "matchPackagePrefixes": ["@react-navigation"]
     },
     {
