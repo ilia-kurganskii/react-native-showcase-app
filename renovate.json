@@ -31,11 +31,12 @@
     },
     {
       "groupName": "react-native",
-      "matchPackageNames": ["react-native", "@types/react-native"]
+      "matchPackageNames": ["react-native", "@types/react-native"],
+      "separateMinorPatch": true
     },
     {
       "groupName": "react",
-      "matchPackageNames": ["react", "@types/react"],
+      "matchPackageNames": ["react", "@types/react", "@types/react-test-renderer", "react-test-renderer"],
       "separateMinorPatch": true
     }
   ],
