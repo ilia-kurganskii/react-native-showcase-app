@@ -10,7 +10,6 @@
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["major","minor","patch"],
       "automerge": true,
       "platformAutomerge": true
     },
