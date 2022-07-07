@@ -1,3 +1,5 @@
+export type DialogPosition = 'bottom' | 'center';
+
 export interface DialogActions {
   close: () => void;
 }
@@ -8,10 +10,16 @@ export interface DialogButtonParams {
 }
 
 export interface DialogParams {
+  position?: DialogPosition;
   title: string;
   message: string;
+  /**
+   * If true dialog will be closed by back button or tap on background
+   */
+  closable?: boolean;
+  onClose?: () => void;
   actionButton?: DialogButtonParams;
-  closeButton?: DialogButtonParams;
+  secondButton?: DialogButtonParams;
 }
 
 export interface DialogButtonState {
@@ -21,8 +29,16 @@ export interface DialogButtonState {
 
 export interface DialogState {
   id: number;
+  position: DialogPosition;
   title: string;
   message: string;
+  closable: boolean;
+  onClose?: () => void;
   actionButton?: DialogButtonState;
-  closeButton?: DialogButtonState;
+  secondButton?: DialogButtonState;
+
+  // internal
+  isClosing: boolean;
+  closeDialog: () => void;
+  onCloseAnimationFinish: () => void;
 }

@@ -31,6 +31,18 @@ export class DialogsStore {
       (dialog) => dialog.id === id
     );
     if (dialogArrayIndex !== -1) {
+      const dialog = this.dialogs[dialogArrayIndex];
+      dialog.onClose && dialog.onClose();
+      dialog.isClosing = true;
+    }
+  };
+
+  @action
+  removeDialog = (id: number): void => {
+    const dialogArrayIndex = this.dialogs.findIndex(
+      (dialog) => dialog.id === id
+    );
+    if (dialogArrayIndex !== -1) {
       this.dialogs.splice(dialogArrayIndex, 1);
     }
   };
@@ -52,14 +64,22 @@ export class DialogsStore {
     const dialogId = DialogsStore.dialogIdCounter++;
     return {
       id: dialogId,
+      isClosing: false,
+      position: params.position ?? 'center',
       title: params.title,
       message: params.message,
+      closable: params.closable ?? true,
+      onClose: params.onClose,
       actionButton: params.actionButton
         ? this.createDialogButtonState(params.actionButton, dialogId)
         : undefined,
-      closeButton: params.closeButton
-        ? this.createDialogButtonState(params.closeButton, dialogId)
+      secondButton: params.secondButton
+        ? this.createDialogButtonState(params.secondButton, dialogId)
         : undefined,
+
+      // internal methods
+      closeDialog: () => this.closeDialog(dialogId),
+      onCloseAnimationFinish: () => this.removeDialog(dialogId),
     };
   };
 

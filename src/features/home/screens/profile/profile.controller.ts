@@ -2,19 +2,36 @@ import { useCallback } from 'react';
 import { useTheme } from 'react-native-nucleus-ui';
 
 import { useAuthStore } from '~features/auth';
+import { useDialogStore } from '~features/dialogs';
 
 import { getProfileScreenStyles } from './profile.style';
 import { extendThemeWithProfile } from './profile.theme';
 
 export function useProfileController() {
   const theme = useTheme();
+  const dialogsStore = useDialogStore();
   const styles = getProfileScreenStyles(extendThemeWithProfile(theme));
   const authStore = useAuthStore();
   const user = authStore.user;
 
   const logout = useCallback(async () => {
-    await authStore.logout();
-  }, [authStore]);
+    dialogsStore.showDialog({
+      position: 'bottom',
+      title: 'Do you want to logout?',
+      message: 'We will miss you',
+      actionButton: {
+        title: 'Logout',
+        action: async ({ close }) => {
+          await authStore.logout();
+          close();
+        },
+      },
+      secondButton: {
+        title: 'Cancel',
+        action: ({ close }) => close(),
+      },
+    });
+  }, [dialogsStore, authStore]);
 
   return {
     userName: user?.displayName,
