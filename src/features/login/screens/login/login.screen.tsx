@@ -47,6 +47,7 @@ export function LoginScreen() {
             style={styles.input}
             testID={TestIds.Login.EmailInput}
             textContentType="emailAddress"
+            value={emailField.value}
           />
           <Text style={styles.error}>{emailField.error ?? ' '}</Text>
 
@@ -62,6 +63,7 @@ export function LoginScreen() {
             secureTextEntry={true}
             style={styles.input}
             testID={TestIds.Login.PasswordInput}
+            value={passwordField.value}
           />
           <Text style={styles.error}>{passwordField.error}</Text>
 
