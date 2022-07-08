@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { TestIds } from '~features/common';
 import { NewsItem } from '~features/home/stores/news/news.type';
 
 import { NewsHeaderItem } from './components/news-header-item';
@@ -39,6 +40,7 @@ function HomeScreenComponent() {
         imageUrl={headerNews?.thumbnail}
         onPress={openDetails}
         subtitle={headerNews?.pillarName}
+        testID={TestIds.Home.HeaderNews}
         title={headerNews?.title}
       />
     ),
@@ -46,7 +48,7 @@ function HomeScreenComponent() {
   );
 
   return (
-    <SafeAreaView edges={['top']}>
+    <SafeAreaView edges={['top']} testID={TestIds.Home.Screen}>
       <FlatList
         ListHeaderComponent={renderHeader}
         contentContainerStyle={styles.news_container}

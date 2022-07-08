@@ -6,6 +6,7 @@ export interface DialogActions {
 
 export interface DialogButtonParams {
   title: string;
+  testID?: string;
   action: (actions: DialogActions) => void;
 }
 
@@ -24,6 +25,7 @@ export interface DialogParams {
 
 export interface DialogButtonState {
   title: string;
+  testID?: string;
   onPress: () => void;
 }
 

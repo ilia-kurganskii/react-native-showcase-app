@@ -7,7 +7,7 @@ import {
   ValueOf,
 } from 'react-native-nucleus-ui';
 
-import { SCREENS } from '~features/common';
+import { SCREENS, TestIds } from '~features/common';
 
 import { HomeScreen, ProfileScreen } from '../screens';
 
@@ -36,6 +36,7 @@ export function HomeTabNavigation() {
         options={{
           headerShown: false,
           tabBarLabel: 'Feed',
+          tabBarTestID: TestIds.Tabs.HomeTab,
           tabBarIcon: getTabBarIcon('home'),
         }}
       />
@@ -46,6 +47,7 @@ export function HomeTabNavigation() {
         options={{
           title: 'Profile',
           tabBarLabel: 'Me',
+          tabBarTestID: TestIds.Tabs.ProfileTab,
           tabBarIcon: getTabBarIcon('user'),
         }}
       />

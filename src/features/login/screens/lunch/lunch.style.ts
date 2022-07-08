@@ -32,12 +32,13 @@ export const getLunchScreenStyles = createThemedStyleSheet(
       marginBottom: 32,
     },
     loginHelper: {
-      ...TypographyPresets.Regular.Normal.Regular,
+      flexDirection: 'row',
       alignItems: 'baseline',
       alignSelf: 'center',
       marginBottom: 32,
     },
     loginHelper__text: {
+      ...TypographyPresets.Regular.Normal.Regular,
       color: theme.lunchScreen.textLoginHelper,
     },
     loginHelper__link: {

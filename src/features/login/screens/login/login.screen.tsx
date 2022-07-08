@@ -7,7 +7,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
-import { keyboardBehaviorPreset, LoaderOverlay } from '~features/common';
+import { keyboardBehaviorPreset, TestIds, LoaderOverlay } from '~features/common';
 
 import { useLoginController } from './login.controller';
 
@@ -31,7 +31,7 @@ export function LoginScreen() {
     >
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
-        testID="sign-up-screen"
+        testID={TestIds.Login.Screen}
       >
         <SafeAreaView edges={['bottom']} style={styles.safeContainer}>
           <Text style={styles.label}>{t('login.email-label')}</Text>
@@ -45,6 +45,7 @@ export function LoginScreen() {
             onSubmitEditing={focusOnPassword}
             returnKeyType="next"
             style={styles.input}
+            testID={TestIds.Login.EmailInput}
             textContentType="emailAddress"
           />
           <Text style={styles.error}>{emailField.error ?? ' '}</Text>
@@ -60,6 +61,7 @@ export function LoginScreen() {
             returnKeyType="done"
             secureTextEntry={true}
             style={styles.input}
+            testID={TestIds.Login.PasswordInput}
           />
           <Text style={styles.error}>{passwordField.error}</Text>
 
@@ -67,6 +69,7 @@ export function LoginScreen() {
             onPress={submitForm}
             size="block"
             style={styles.button}
+            testID={TestIds.Login.LoginButton}
             title={t('login.login-btn')}
           />
         </SafeAreaView>

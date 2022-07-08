@@ -65,3 +65,6 @@ buck-out/
 
 # Detox
 artifacts
+
+# env files
+.env

@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useTheme } from 'react-native-nucleus-ui';
 
 import { useAuthStore } from '~features/auth';
+import { TestIds } from '~features/common';
 import { useDialogStore } from '~features/dialogs';
 
 import { getProfileScreenStyles } from './profile.style';
@@ -20,6 +21,7 @@ export function useProfileController() {
       title: 'Do you want to logout?',
       message: 'We will miss you',
       actionButton: {
+        testID: TestIds.Profile.LogoutDialog.LogoutButton,
         title: 'Logout',
         action: async ({ close }) => {
           await authStore.logout();

@@ -115,6 +115,9 @@ jobs:
 
       - name: Test android app
         uses: reactivecircus/android-emulator-runner@v2
+        env:
+          DETOX_DEFAULT_LOGIN_EMAIL: ${{ secrets.DETOX_DEFAULT_LOGIN_EMAIL }}
+          DETOX_DEFAULT_LOGIN_PASSWORD: ${{ secrets.DETOX_DEFAULT_LOGIN_PASSWORD }}
         with:
           api-level: 29
           force-avd-creation: false
@@ -122,7 +125,7 @@ jobs:
           disable-animations: true
           profile: 5.1in WVGA
           avd-name: 5.1_WVGA
-          script: yarn detox:test:android --headless
+          script: yarn detox:test:android --headless  --artifacts-location ./artifacts/ --record-videos all
 
       - name: Upload detox artifacts
         if: ${{ failure() }}
@@ -130,6 +133,13 @@ jobs:
         with:
           name: detox-android-artifacts
           path: artifacts
+
+      - name: Upload demo artifacts
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: detox-demo-android
+          path: artifacts/✓ App Demo/test.mp4
 
 
 
