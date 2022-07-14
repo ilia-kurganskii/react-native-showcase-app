@@ -3,7 +3,7 @@ import { TextInput } from 'react-native';
 import { useTheme } from 'react-native-nucleus-ui';
 
 import { useAuthStore } from '~features/auth';
-import { useLoadingState } from '~features/common';
+import { useLoggerService, useLoadingState } from '~features/common';
 import { useDialogStore } from '~features/dialogs';
 
 import { LoginFormValues, useLoginForm } from './login.form';
@@ -14,6 +14,7 @@ export function useLoginController() {
   const [isLoading, setIsLoading] = useLoadingState();
   const passwordRef = useRef<TextInput>(null);
   const authStore = useAuthStore();
+  const loggerService = useLoggerService();
   const dialogsStore = useDialogStore();
   const theme = useTheme();
   const styles = getLoginScreenStyles(extendThemeWithLogin(theme));
@@ -35,11 +36,12 @@ export function useLoginController() {
             action: (actions) => actions.close(),
           },
         });
+        loggerService.warn('Login error', e);
       } finally {
         setIsLoading(false);
       }
     },
-    [setIsLoading, authStore, dialogsStore]
+    [loggerService, setIsLoading, authStore, dialogsStore]
   );
   const form = useLoginForm(login);
 
