@@ -7,7 +7,11 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
-import { keyboardBehaviorPreset, TestIds, LoaderOverlay } from '~features/common';
+import {
+  keyboardBehaviorPreset,
+  TestIds,
+  LoaderOverlay,
+} from '~features/common';
 
 import { useLoginController } from './login.controller';
 
