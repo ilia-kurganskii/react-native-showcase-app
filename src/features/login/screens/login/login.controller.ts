@@ -3,6 +3,7 @@ import { TextInput } from 'react-native';
 import { useTheme } from 'react-native-nucleus-ui';
 
 import { useAuthStore } from '~features/auth';
+import { useLoadingState } from '~features/common';
 import { useDialogStore } from '~features/dialogs';
 
 import { LoginFormValues, useLoginForm } from './login.form';
@@ -10,6 +11,7 @@ import { getLoginScreenStyles } from './login.style';
 import { extendThemeWithLogin } from './login.theme';
 
 export function useLoginController() {
+  const [isLoading, setIsLoading] = useLoadingState();
   const passwordRef = useRef<TextInput>(null);
   const authStore = useAuthStore();
   const dialogsStore = useDialogStore();
@@ -18,6 +20,7 @@ export function useLoginController() {
   const login = useCallback(
     async (values: LoginFormValues) => {
       try {
+        setIsLoading(true);
         await authStore.loginByEmailPassword({
           login: values.email,
           password: values.password,
@@ -32,9 +35,11 @@ export function useLoginController() {
             action: (actions) => actions.close(),
           },
         });
+      } finally {
+        setIsLoading(false);
       }
     },
-    [authStore, dialogsStore]
+    [setIsLoading, authStore, dialogsStore]
   );
   const form = useLoginForm(login);
 
@@ -49,5 +54,6 @@ export function useLoginController() {
     passwordField: form.passwordField,
     passwordRef,
     focusOnPassword,
+    isLoading,
   };
 }
