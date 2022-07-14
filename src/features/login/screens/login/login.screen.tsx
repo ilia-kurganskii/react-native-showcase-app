@@ -6,7 +6,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
-import { keyboardBehaviorPreset } from '~features/common';
+import { keyboardBehaviorPreset, LoaderOverlay } from '~features/common';
 
 import { useLoginController } from './login.controller';
 
@@ -18,6 +18,7 @@ export function LoginScreen() {
     emailField,
     passwordRef,
     focusOnPassword,
+    isLoading,
   } = useLoginController();
   const { top } = useSafeAreaInsets();
   return (
@@ -68,6 +69,7 @@ export function LoginScreen() {
           />
         </SafeAreaView>
       </ScrollView>
+      <LoaderOverlay isVisible={isLoading} />
     </KeyboardAvoidingView>
   );
 }

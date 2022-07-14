@@ -6,7 +6,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
-import { keyboardBehaviorPreset } from '~features/common';
+import { keyboardBehaviorPreset, LoaderOverlay } from '~features/common';
 
 import { useSignUpController } from './sign-up.controller';
 
@@ -18,6 +18,7 @@ function SignUpScreenComponent() {
     emailField,
     passwordRef,
     focusOnPassword,
+    isLoading,
   } = useSignUpController();
 
   const { top } = useSafeAreaInsets();
@@ -70,6 +71,7 @@ function SignUpScreenComponent() {
           />
         </SafeAreaView>
       </ScrollView>
+      <LoaderOverlay isVisible={isLoading} />
     </KeyboardAvoidingView>
   );
 }
