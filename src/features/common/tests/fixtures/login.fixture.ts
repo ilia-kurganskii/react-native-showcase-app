@@ -14,6 +14,9 @@ export async function login(params?: { email: string; password: string }) {
   await expect(element(by.id(TestIds.Login.Screen))).toExist();
   await element(by.id(TestIds.Login.EmailInput)).typeText(email);
   await element(by.id(TestIds.Login.PasswordInput)).typeText(password);
+  await waitFor(element(by.id(TestIds.Login.LoginButton)))
+    .toBeVisible()
+    .withTimeout(100);
   await element(by.id(TestIds.Login.LoginButton)).tap();
   await expect(element(by.id(TestIds.Home.Screen))).toExist();
 }
