@@ -35,6 +35,7 @@ export function LoginScreen() {
     >
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
+        keyboardShouldPersistTaps="handled"
         testID={TestIds.Login.Screen}
       >
         <SafeAreaView edges={['bottom']} style={styles.safeContainer}>

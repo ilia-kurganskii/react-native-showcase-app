@@ -12,10 +12,8 @@ export async function login(params?: { email: string; password: string }) {
   }
   await element(by.id(TestIds.Lunch.LoginButton)).tap();
   await expect(element(by.id(TestIds.Login.Screen))).toExist();
-  await element(by.id(TestIds.Login.EmailInput)).replaceText(email);
-  await element(by.id(TestIds.Login.PasswordInput)).replaceText(password);
+  await element(by.id(TestIds.Login.EmailInput)).typeText(email);
+  await element(by.id(TestIds.Login.PasswordInput)).typeText(password);
   await element(by.id(TestIds.Login.LoginButton)).tap();
-  await waitFor(element(by.id(TestIds.Home.Screen)))
-    .toExist()
-    .withTimeout(5000);
+  await waitFor(element(by.id(TestIds.Home.Screen)));
 }
