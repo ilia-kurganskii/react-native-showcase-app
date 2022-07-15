@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, ScrollView, Text } from 'react-native';
 import { Button, TextField } from 'react-native-nucleus-ui';
 import {
@@ -21,6 +22,7 @@ export function LoginScreen() {
     isLoading,
   } = useLoginController();
   const { top } = useSafeAreaInsets();
+  const { t } = useTranslation();
   return (
     <KeyboardAvoidingView
       behavior={keyboardBehaviorPreset}
@@ -32,7 +34,7 @@ export function LoginScreen() {
         testID="sign-up-screen"
       >
         <SafeAreaView edges={['bottom']} style={styles.safeContainer}>
-          <Text style={styles.label}>Email</Text>
+          <Text style={styles.label}>{t('login.email-label')}</Text>
           <TextField
             autoCapitalize="none"
             autoComplete="email"
@@ -47,7 +49,7 @@ export function LoginScreen() {
           />
           <Text style={styles.error}>{emailField.error ?? ' '}</Text>
 
-          <Text style={styles.label}>Password</Text>
+          <Text style={styles.label}>{t('login.password-label')}</Text>
           <TextField
             ref={passwordRef}
             autoComplete="password"
@@ -65,7 +67,7 @@ export function LoginScreen() {
             onPress={submitForm}
             size="block"
             style={styles.button}
-            title="Login"
+            title={t('login.login-btn')}
           />
         </SafeAreaView>
       </ScrollView>

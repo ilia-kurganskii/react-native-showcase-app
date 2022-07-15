@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { SCREENS, StackNavigatorHeaderPreset } from '~features/common';
 
@@ -8,6 +9,7 @@ import { LoginScreen, LunchScreen, SignUpScreen } from '../screens';
 const LoginStack = createNativeStackNavigator();
 
 export function LoginNavigation() {
+  const { t } = useTranslation();
   return (
     <LoginStack.Navigator
       initialRouteName={SCREENS.LOGIN_LUNCH}
@@ -24,7 +26,7 @@ export function LoginNavigation() {
         component={LoginScreen}
         name={SCREENS.LOGIN_LOGIN}
         options={{
-          title: 'Login',
+          title: t('login.title'),
         }}
       />
       <LoginStack.Screen

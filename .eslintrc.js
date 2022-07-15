@@ -1,8 +1,12 @@
 module.exports = {
   root: true,
-  extends: ['@react-native-community', 'prettier'],
+  extends: [
+    '@react-native-community',
+    'prettier',
+    'plugin:i18next/recommended',
+  ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'import'],
+  plugins: ['@typescript-eslint', 'import', 'i18next'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -39,6 +43,20 @@ module.exports = {
               caseInsensitive: true,
             },
             'newlines-between': 'always',
+          },
+        ],
+        'i18next/no-literal-string': [
+          'error',
+          {
+            'mode': 'jsx-only',
+            'jsx-components': {
+              include: ['Button', 'Text'],
+              exclude: ['Trans'],
+            },
+            'jsx-attributes': {
+              include: ['title'],
+              exclude: [],
+            },
           },
         ],
         'no-shadow': 'off',

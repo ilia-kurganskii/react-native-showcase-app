@@ -1,0 +1,22 @@
+{
+  "login": {
+    "email-label": "Почта",
+    "login-btn": "Войти",
+    "password-label": "Пароль",
+    "title": "Вход"
+  },
+  "lunch": {
+    "create-account-btn": "Создать аккаунт",
+    "logo-end": "learn",
+    "logo-start": "you"
+  },
+  "profile": {
+    "account-information": "Информация",
+    "logout": "Выйти"
+  },
+  "sign-up": {
+    "create-account-btn": "Создать аккаунт",
+    "email-label": "Почта",
+    "password-label": "Пароль"
+  }
+}
