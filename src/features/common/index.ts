@@ -4,3 +4,4 @@ export * from './theme';
 export * from './hooks';
 export * from './components';
 export * from './configuration';
+export * from './tests/test-ids';

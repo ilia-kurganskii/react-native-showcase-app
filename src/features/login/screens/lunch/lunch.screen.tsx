@@ -1,8 +1,10 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 import { Button } from 'react-native-nucleus-ui';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { TestIds } from '~features/common';
 
 import { Carousel } from './component/carousel';
 import { useLunchScreenController } from './lunch.controller';
@@ -36,7 +38,10 @@ function LunchScreenComponent() {
 
   const { t } = useTranslation();
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
+    <ScrollView
+      contentContainerStyle={styles.scrollContainer}
+      testID={TestIds.Lunch.Screen}
+    >
       <SafeAreaView style={styles.safeContainer}>
         <Text style={styles.logo}>
           <Text style={styles.logo__start}>{t('lunch.logo-start')}</Text>
@@ -49,12 +54,12 @@ function LunchScreenComponent() {
           onPress={goToSignUpScreen}
           size="large"
           style={styles.button}
-          testID="create-account-btn"
+          testID={TestIds.Lunch.SignUpButton}
           title={t('lunch.create-account-btn')}
         />
         <Trans
           i18nKey="lunch.have-an-account"
-          parent={Text}
+          parent={View}
           style={styles.loginHelper}
         >
           <Text style={styles.loginHelper__text}>
@@ -63,7 +68,7 @@ function LunchScreenComponent() {
           <Text
             onPress={goToSignInScreen}
             style={styles.loginHelper__link}
-            testID="login-btn"
+            testID={TestIds.Lunch.LoginButton}
           >
             Login
           </Text>

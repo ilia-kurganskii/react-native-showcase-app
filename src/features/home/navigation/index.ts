@@ -1,1 +1,1 @@
-export * from './home.navigation';
+export * from './tabs.navigation';

@@ -8,5 +8,12 @@
   "reporters": [
     "detox/runners/jest/streamlineReporter"
   ],
+  "transform": {
+    "^.+\\.(ts|js)x?$": "ts-jest"
+  },
+  "setupFiles": ["dotenv/config"],
+  "moduleNameMapper": {
+    "^~features/common/tests$": "<rootDir>/src/features/common/tests"
+  },
   "verbose": true
 }

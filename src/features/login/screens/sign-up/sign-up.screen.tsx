@@ -33,6 +33,7 @@ function SignUpScreenComponent() {
     >
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
+        keyboardShouldPersistTaps="handled"
         testID="sign-up-screen"
       >
         <SafeAreaView edges={['bottom']} style={styles.safeContainer}>

@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
-import { Image, Text, TouchableOpacity } from 'react-native';
+import { Image, Text, TouchableOpacity, ViewProps } from 'react-native';
 import { useTheme } from 'react-native-nucleus-ui';
 
 import { extendThemeWithHome } from '../../home.theme';
 import { getNewsHeaderItemStyle } from './news-header-item.style';
 
-export interface HomeHeaderItemProps {
+export interface HomeHeaderItemProps extends ViewProps {
   title: string;
   subtitle: string;
   imageUrl: string;
@@ -14,12 +14,16 @@ export interface HomeHeaderItemProps {
 }
 
 function NewsHeaderItemComponent(props: HomeHeaderItemProps) {
-  let { imageUrl, title, subtitle, onPress, id } = props;
+  let { imageUrl, title, style, subtitle, onPress, id, ...viewProps } = props;
   const theme = useTheme();
   const onItemPress = useCallback(() => onPress(id), [id, onPress]);
   const styles = getNewsHeaderItemStyle(extendThemeWithHome(theme));
   return (
-    <TouchableOpacity onPress={onItemPress} style={styles.container}>
+    <TouchableOpacity
+      {...viewProps}
+      onPress={onItemPress}
+      style={[style, styles.container]}
+    >
       {/* eslint-disable-next-line i18next/no-literal-string */}
       <Text style={styles.title}>Good morning</Text>
       <Image source={{ uri: imageUrl }} style={styles.image} />

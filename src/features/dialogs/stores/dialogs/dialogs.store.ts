@@ -90,6 +90,7 @@ export class DialogsStore {
     const dialogActions = this.getDialogActions(dialogId);
     return {
       title: buttonParams.title,
+      testID: buttonParams.testID,
       onPress: () => buttonParams.action(dialogActions),
     };
   };
