@@ -1,4 +1,5 @@
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import { ScrollView, Text } from 'react-native';
 import { Button } from 'react-native-nucleus-ui';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -32,12 +33,14 @@ const CAROUSEL_VALUES = [
 function LunchScreenComponent() {
   const { styles, goToSignInScreen, goToSignUpScreen } =
     useLunchScreenController();
+
+  const { t } = useTranslation();
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <SafeAreaView style={styles.safeContainer}>
         <Text style={styles.logo}>
-          <Text style={styles.logo__start}>you</Text>
-          <Text style={styles.logo__end}>learn</Text>
+          <Text style={styles.logo__start}>{t('lunch.logo-start')}</Text>
+          <Text style={styles.logo__end}>{t('lunch.logo-end')}</Text>
         </Text>
         <Carousel style={styles.carousel} values={CAROUSEL_VALUES} />
 
@@ -47,19 +50,24 @@ function LunchScreenComponent() {
           size="large"
           style={styles.button}
           testID="create-account-btn"
-          title="Create account"
+          title={t('lunch.create-account-btn')}
         />
-
-        <Text style={styles.loginHelper}>
-          <Text style={styles.loginHelper__text}>Have an account? </Text>
+        <Trans
+          i18nKey="lunch.have-an-account"
+          parent={Text}
+          style={styles.loginHelper}
+        >
+          <Text style={styles.loginHelper__text}>
+            Already have an account?{' '}
+          </Text>
           <Text
             onPress={goToSignInScreen}
             style={styles.loginHelper__link}
             testID="login-btn"
           >
-            Log in
+            Login
           </Text>
-        </Text>
+        </Trans>
       </SafeAreaView>
     </ScrollView>
   );

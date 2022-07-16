@@ -20,6 +20,7 @@ function NewsHeaderItemComponent(props: HomeHeaderItemProps) {
   const styles = getNewsHeaderItemStyle(extendThemeWithHome(theme));
   return (
     <TouchableOpacity onPress={onItemPress} style={styles.container}>
+      {/* eslint-disable-next-line i18next/no-literal-string */}
       <Text style={styles.title}>Good morning</Text>
       <Image source={{ uri: imageUrl }} style={styles.image} />
       <Text lineBreakMode="tail" numberOfLines={2} style={styles.text__title}>

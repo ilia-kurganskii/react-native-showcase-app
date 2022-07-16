@@ -19,17 +19,20 @@ import {
 import { DialogsScreen } from '~features/dialogs';
 import { HomeTabNavigation } from '~features/home';
 import { NewsNavigator } from '~features/home/navigation/news.navigator';
+import { useI18nStore } from '~features/i18n';
 import { LoginNavigation } from '~features/login';
 
 const Stack = createNativeStackNavigator();
 
 const AppComponent = () => {
   const authStore = useAuthStore();
+  const i18nStore = useI18nStore();
 
   useEffect(() => {
     authStore.onCreate();
+    i18nStore.init();
     return () => authStore.onDestroy();
-  });
+  }, [authStore, i18nStore]);
 
   const deviceTheme = useColorScheme();
 
