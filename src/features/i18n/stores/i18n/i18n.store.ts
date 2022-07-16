@@ -19,6 +19,7 @@ export class I18nStore {
   async init() {
     await i18n.use(initReactI18next).init({
       resources,
+      compatibilityJSON: 'v3',
       fallbackLng: 'en',
       interpolation: {
         escapeValue: false,

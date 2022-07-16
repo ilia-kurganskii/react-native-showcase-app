@@ -4,14 +4,14 @@ export const TestIds = {
   },
   Lunch: {
     Screen: 'lunch-screen',
-    LoginButton: 'login-btn',
-    SignUpButton: 'sing-up',
+    LoginButton: 'lunch-login-btn',
+    SignUpButton: 'lunch-sing-up',
   },
   Login: {
     Screen: 'login-screen',
-    LoginButton: 'login-btn',
-    EmailInput: 'email-input',
-    PasswordInput: 'password-input',
+    LoginButton: 'login-login-btn',
+    EmailInput: 'login-email-input',
+    PasswordInput: 'login-password-input',
   },
   Tabs: {
     HomeTab: 'home-tab',

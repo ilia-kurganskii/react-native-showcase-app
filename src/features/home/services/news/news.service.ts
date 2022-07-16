@@ -1,4 +1,4 @@
-import { Axios } from 'axios';
+import axios from 'axios';
 
 import { AppConfiguration } from '~features/common';
 import { NEWS_HOST, PAGE_SIZE } from '~features/home/services/news/news.const';
@@ -9,7 +9,7 @@ import {
 
 export class NewsService {
   constructor(
-    private readonly axios = new Axios({
+    private readonly httpService = axios.create({
       baseURL: NEWS_HOST,
       headers: {
         'content-type': 'application/json',
@@ -18,8 +18,8 @@ export class NewsService {
   ) {}
 
   async loadNews(params: { page: number }): Promise<NewsSearchListResponse> {
-    return this.axios
-      .get('/search', {
+    return this.httpService
+      .get<NewsSearchListResponse>('/search', {
         params: {
           'api-key': AppConfiguration.NewsKeyAPI,
           'show-fields': 'thumbnail',
@@ -27,11 +27,11 @@ export class NewsService {
           'page': params.page,
         },
       })
-      .then((response) => JSON.parse(response.data));
+      .then((response) => response.data);
   }
 
   async loadNewsById(params: { id: string }): Promise<NewsDetailsResponse> {
-    return this.axios
+    return this.httpService
       .get(`/${params.id}`, {
         params: {
           'api-key': AppConfiguration.NewsKeyAPI,
@@ -39,7 +39,7 @@ export class NewsService {
           'show-fields': 'thumbnail',
         },
       })
-      .then((response) => JSON.parse(response.data));
+      .then((response) => response.data);
   }
 }
 
