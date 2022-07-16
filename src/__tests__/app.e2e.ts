@@ -3,9 +3,12 @@ import { by, device, element, expect } from 'detox';
 import { login, TestIds } from '~features/common/tests';
 
 describe('App', () => {
-  beforeAll(async () => {
-    await device.clearKeychain();
+  beforeEach(async () => {
     await device.launchApp({ delete: true });
+  });
+
+  afterEach(async () => {
+    await device.clearKeychain();
   });
 
   it('Demo', async () => {

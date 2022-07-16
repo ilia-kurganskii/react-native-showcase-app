@@ -3,14 +3,17 @@ import { by, device, element, expect } from 'detox';
 import { login, TestIds } from '~features/common/tests';
 
 describe('Home', () => {
-  beforeAll(async () => {
-    await device.clearKeychain();
+  beforeEach(async () => {
     await device.launchApp({ delete: true });
   });
 
   describe('News flow', () => {
     beforeEach(async () => {
       await login();
+    });
+
+    afterEach(async () => {
+      await device.clearKeychain();
     });
 
     it('Open header news', async () => {

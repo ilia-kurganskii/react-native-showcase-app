@@ -4,8 +4,11 @@ import { login } from '~features/common/tests';
 
 describe('Login', () => {
   beforeAll(async () => {
-    await device.clearKeychain();
     await device.launchApp({ delete: true });
+  });
+
+  afterEach(async () => {
+    await device.clearKeychain();
   });
 
   describe('Login flow', () => {
