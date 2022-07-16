@@ -3,17 +3,14 @@ import { by, device, element, expect } from 'detox';
 import { login, TestIds } from '~features/common/tests';
 
 describe('Profile', () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
+    await device.clearKeychain();
     await device.launchApp({ delete: true });
   });
 
   describe('Logout flow', () => {
     beforeEach(async () => {
       await login();
-    });
-
-    afterEach(async () => {
-      await device.clearKeychain();
     });
 
     it('Logout after login', async () => {
