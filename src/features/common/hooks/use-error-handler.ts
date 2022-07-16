@@ -1,9 +1,11 @@
 import { useCallback } from 'react';
 
+import { useLoggerService } from '~features/common';
 import { useDialogStore } from '~features/dialogs';
 
 export function useErrorHandler() {
   const dialogsStore = useDialogStore();
+  const loggerService = useLoggerService();
   return useCallback(
     (error: any) => {
       if (error instanceof Error) {
@@ -16,7 +18,8 @@ export function useErrorHandler() {
           },
         });
       }
+      loggerService.warn('Something went wrong', error);
     },
-    [dialogsStore]
+    [loggerService, dialogsStore]
   );
 }
