@@ -14,8 +14,9 @@ My hobby sandbox application where I test approaches or solutions
 - Axios
 - Flipper-ready
 - Firebase App + Auth
-- UI Kit maintained by myself (https://github.com/ilia-kurganskii/react-native-nucleus-ui)
-
+- UI Kit (https://github.com/ilia-kurganskii/react-native-nucleus-ui)
+- i18n
+- Logging
 
 ## Features
 
