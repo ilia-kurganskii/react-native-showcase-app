@@ -21,13 +21,14 @@ function SplashComponent(props: SplashProps) {
 
   useEffect(() => {
     if (isEnabled) {
-      lottieRef.current?.play();
+      setTimeout(() => lottieRef.current?.play(), 100);
     }
   }, [isEnabled]);
 
   const onLottieAnimationFinish = useCallback(() => {
     Animated.timing(opacityRef.current, {
       toValue: 0,
+      delay: 30,
       duration: 1000,
       useNativeDriver: true,
     }).start(onAnimationFinish);
