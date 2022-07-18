@@ -25,6 +25,7 @@ export function useAppController() {
         await authStore.onCreate();
         await i18nStore.init();
       } finally {
+        await new Promise((resolve) => setTimeout(resolve, 100));
         SplashScreen.hide();
         setIsSplashScreenEnabled(true);
         setIsLoading(false);
