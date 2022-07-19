@@ -16,6 +16,7 @@ export function useHomeController() {
   const theme = useTheme();
   const styles = getHomeStyle(extendThemeWithHome(theme));
   const [isRefreshing, setRefreshing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const openDetails = useCallback(
     (id: string) => {
@@ -47,14 +48,24 @@ export function useHomeController() {
   }, [newsStore, errorHandler]);
 
   useEffect(() => {
-    loadNextNews();
-  }, [loadNextNews]);
+    loadNextNews().catch((e) => {
+      if (e instanceof Error) {
+        setError(e.message);
+      } else {
+        errorHandler(e);
+      }
+    });
+  }, [loadNextNews, errorHandler, setError]);
+
+  const isShowErrorPlaceholder = error && newsStore.news.length === 0;
 
   const headerNews = newsStore.news[0];
   return {
     styles,
     headerNews,
     openDetails,
+    error,
+    isShowErrorPlaceholder,
     loadMore: loadNextNews,
     refresh,
     isRefreshing,
