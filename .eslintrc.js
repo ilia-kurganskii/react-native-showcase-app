@@ -6,7 +6,7 @@ module.exports = {
     'plugin:i18next/recommended',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'import', 'i18next'],
+  plugins: ['@typescript-eslint', 'import', 'i18next', 'jest'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
