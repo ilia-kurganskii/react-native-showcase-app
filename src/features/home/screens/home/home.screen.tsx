@@ -26,8 +26,8 @@ function HomeScreenComponent() {
         id={info.item.id}
         imageUrl={info.item.thumbnail}
         onPress={openDetails}
-        subtitle={info.item.pillarName}
-        title={info.item.title}
+        subtitle=""
+        title={info.item.title ?? ''}
       />
     ),
     [openDetails]
@@ -39,9 +39,9 @@ function HomeScreenComponent() {
         id={headerNews?.id}
         imageUrl={headerNews?.thumbnail}
         onPress={openDetails}
-        subtitle={headerNews?.pillarName}
+        subtitle=""
         testID={TestIds.Home.HeaderNews}
-        title={headerNews?.title}
+        title={headerNews?.title ?? ''}
       />
     ),
     [headerNews, openDetails]
