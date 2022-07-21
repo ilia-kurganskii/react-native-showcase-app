@@ -1,0 +1,26 @@
+overwrite: true
+schema: "./schema.graphql"
+documents: './src/**/!(*.generated).ts'
+generates:
+  src/types.ts:
+    plugins:
+      - "typescript"
+    config:
+      avoidOptionals: true
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.ts
+      baseTypesPath: types.ts
+      folder: __generated__
+    plugins:
+      - "typescript-operations"
+    config:
+      avoidOptionals: true
+      immutableTypes: true
+      flattenGeneratedTypes: true
+
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+    - eslint --fix

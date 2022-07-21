@@ -27,7 +27,6 @@ function NewsListItemComponent(props: HomeNewsItemProps) {
   const styles = getNewsListItemStyle(extendThemeWithHome(theme));
   return (
     <TouchableOpacity onPress={onItemPress} style={styles.container}>
-      <Image source={{ uri: imageUrl }} style={styles.image} />
       <View style={styles.text}>
         <Text lineBreakMode="tail" numberOfLines={2} style={styles.text__title}>
           {title}
@@ -40,6 +39,9 @@ function NewsListItemComponent(props: HomeNewsItemProps) {
           {subtitle}
         </Text>
       </View>
+      {imageUrl ? (
+        <Image source={{ uri: imageUrl }} style={styles.image} />
+      ) : null}
     </TouchableOpacity>
   );
 }

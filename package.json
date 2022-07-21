@@ -22,7 +22,8 @@
     "detox:test:android": "detox test -c android",
     "detox:test:ios-tdd": "detox test -c ios.tdd",
     "detox:test:android-tdd": "detox test -c android.tdd",
-    "detox:cache": "detox build-framework-cache"
+    "detox:cache": "detox build-framework-cache",
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@react-native-firebase/app": "14.11.1",
@@ -33,8 +34,10 @@
     "@react-navigation/native-stack": "6.7.0",
     "axios": "0.27.2",
     "formik": "2.2.9",
+    "graphql": "16.5.0",
     "i18next": "21.8.14",
     "lottie-react-native": "5.1.3",
+    "markdown-to-jsx": "7.1.7",
     "mobx": "6.6.1",
     "mobx-react-lite": "3.4.0",
     "react": "18.2.0",
@@ -46,12 +49,18 @@
     "react-native-screens": "3.15.0",
     "react-native-splash-screen": "3.3.0",
     "react-native-svg": "12.4.0",
+    "urql": "2.2.2",
     "yup": "0.32.11"
   },
   "devDependencies": {
     "@babel/core": "7.18.9",
     "@babel/plugin-proposal-decorators": "7.18.9",
     "@babel/runtime": "7.18.9",
+    "@graphql-codegen/cli": "2.9.1",
+    "@graphql-codegen/near-operation-file-preset": "2.4.0",
+    "@graphql-codegen/typescript": "2.7.2",
+    "@graphql-codegen/typescript-operations": "2.5.2",
+    "@graphql-codegen/typescript-document-nodes": "2.3.2",
     "@react-native-community/eslint-config": "3.0.3",
     "@types/detox": "18.1.0",
     "@types/jest": "28.1.6",

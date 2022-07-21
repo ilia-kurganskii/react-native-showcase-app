@@ -16,7 +16,7 @@ export const getNewsListItemStyle = createThemedStyleSheet(
     image: {
       width: 64,
       height: 64,
-      marginRight: 16,
+      marginLeft: 16,
       borderRadius: 4,
       overflow: 'hidden',
     },

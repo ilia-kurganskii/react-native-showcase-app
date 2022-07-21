@@ -11,12 +11,13 @@ export const getNewsDetailsStyles = createThemedStyleSheet(
     scrollContainer: {
       flexDirection: 'column',
       paddingTop: 32,
-      paddingHorizontal: 24,
     },
     title: {
       ...TypographyPresets.Title2,
       color: theme.newsDetails.title,
-      marginBottom: 12,
+      alignSelf: 'center',
+      textAlign: 'center',
+      marginBottom: 24,
     },
     image: {
       width: '100%',
@@ -25,9 +26,8 @@ export const getNewsDetailsStyles = createThemedStyleSheet(
       marginBottom: 24,
     },
     text: {
-      ...TypographyPresets.Regular.Normal.Regular,
       marginBottom: 12,
-      color: theme.newsDetails.text,
+      paddingHorizontal: 24,
     },
   })
 );
