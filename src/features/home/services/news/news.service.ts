@@ -1,12 +1,12 @@
 import { Client, gql } from 'urql';
 
+import { NEWS_HOST } from './news.const';
 import {
   GetNewsQuery,
   GetNewsQueryVariables,
   GetNewsByIdQuery,
   GetNewsByIdQueryVariables,
-} from './__generated__/news.service.generated';
-import { NEWS_HOST } from './news.const';
+} from './news.service.types.gen';
 
 const GetNews = gql`
   query GetNews($pageIndex: Int!) {

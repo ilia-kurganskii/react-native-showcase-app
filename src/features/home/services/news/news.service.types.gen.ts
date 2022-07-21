@@ -1,4 +1,4 @@
-import * as Types from '../../../../../types';
+import * as Types from '../../../../types';
 
 export type GetNewsQueryVariables = Types.Exact<{
   pageIndex: Types.Scalars['Int'];
