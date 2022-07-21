@@ -1,7 +1,10 @@
+schema: "https://api.hashnode.com"
+documents: './src/**/!(*.gen).ts'
 overwrite: true
-schema: "./schema.graphql"
-documents: './src/**/!(*.generated).ts'
 generates:
+  ./schema.graphql:
+    plugins:
+      - schema-ast
   src/types.ts:
     plugins:
       - "typescript"
@@ -10,9 +13,8 @@ generates:
   src/:
     preset: near-operation-file
     presetConfig:
-      extension: .generated.ts
+      extension: .types.gen.ts
       baseTypesPath: types.ts
-      folder: __generated__
     plugins:
       - "typescript-operations"
     config:
