@@ -6,8 +6,9 @@ My hobby sandbox application where I test approaches or solutions
 
 ## Tech Stack
 
-- React Native 
+- React Native (0.69.*)
 - React Navigation 6
+- Detox
 - MobX
 - MobX-React-Lite
 - TypeScript
@@ -17,6 +18,8 @@ My hobby sandbox application where I test approaches or solutions
 - UI Kit (https://github.com/ilia-kurganskii/react-native-nucleus-ui)
 - i18n
 - Logging
+- GraphQL
+- - GraphQL code generation for TypeScript
 
 ## Features
 
