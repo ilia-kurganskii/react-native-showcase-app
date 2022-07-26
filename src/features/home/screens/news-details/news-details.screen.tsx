@@ -17,11 +17,7 @@ function NewsDetailsScreenComponent() {
       <SafeAreaView edges={['bottom']}>
         <Text style={styles.title}>{news?.title}</Text>
         <Image source={{ uri: news?.thumbnail }} style={styles.image} />
-        {news?.content.map((text, index) => (
-          <Text key={index} style={styles.text}>
-            {text}
-          </Text>
-        ))}
+        <Text style={styles.text}>{news?.content}</Text>
       </SafeAreaView>
     </ScrollView>
   );
