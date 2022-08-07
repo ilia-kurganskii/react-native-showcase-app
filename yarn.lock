@@ -3150,10 +3150,10 @@ detox@*:
     yargs-parser "^20.2.2"
     yargs-unparser "^2.0.0"
 
-detox@19.9.0:
-  version "19.9.0"
-  resolved "https://registry.yarnpkg.com/detox/-/detox-19.9.0.tgz#008f648b7b5f17597c15fbcb3a01cbb6d884c9dd"
-  integrity sha512-VDUzE5XgW/UasyxayD/bPftqdAOK4akHeZdPx3jaH5AKlfi4qobZlZ20hi1RMeMfFChs8isa4TdTZ6kU1jaEzQ==
+detox@19.9.1:
+  version "19.9.1"
+  resolved "https://registry.yarnpkg.com/detox/-/detox-19.9.1.tgz#5f357b5e6bc6a4249e01ce9e0dc6cbca956b3241"
+  integrity sha512-SNhmS6VMycYVF/FHNfPR7rhpc/G/ft4c/Pqv6qt3TasBBjfdw5uI7SBAmIPMkPRkWtmAGdRycrFeJGFtBzpriA==
   dependencies:
     ajv "^8.6.3"
     bunyan "^1.8.12"
