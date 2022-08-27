@@ -38,7 +38,7 @@
     "mobx": "6.6.1",
     "mobx-react-lite": "3.4.0",
     "react": "18.2.0",
-    "react-i18next": "11.18.4",
+    "react-i18next": "11.18.5",
     "react-native": "0.69.1",
     "react-native-file-logger": "0.3.0",
     "react-native-nucleus-ui": "0.3.0",
