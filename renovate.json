@@ -40,9 +40,9 @@
       "separateMinorPatch": true
     },
     {
-      "matchPackagePatterns": "react-native",
+      "matchPackagePatterns": ["react-native"],
       "postUpgradeTasks": {
-        "commands": ["yarn install --frozen-lockfile", "cd ios && pod install --no-ansi"],
+        "commands": ["yarn install --frozen-lockfile", "cd ios && LC_ALL='en_US.UTF-8' pod install"],
         "fileFilters": ["ios/Podfile.lock"],
         "executionMode": "update"
       }
