@@ -38,6 +38,15 @@
       "groupName": "react",
       "matchPackageNames": ["react", "@types/react", "@types/react-test-renderer", "react-test-renderer"],
       "separateMinorPatch": true
+    },
+    {
+      "matchPackagePatterns": "*react-native*",
+      "skipInstall": false,
+      "postUpgradeTasks": {
+        "commands": ["npx pod-install ios"],
+        "fileFilters": ["ios/Podfile.lock"],
+        "executionMode": "update"
+      }
     }
   ],
   "fetchReleaseNotes": true,
@@ -49,5 +58,6 @@
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true
-  }
+  },
+  "allowedPostUpgradeCommands": ["*"]
 }
