@@ -10,8 +10,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Self-hosted Renovate
-        uses: renovatebot/github-action@v32.118.0
+      - uses: actions/setup-node@v3
         with:
-          configurationFile: renovate.json
-          token: ${{ secrets.RENOVATE_GITHUB_TOKEN }}
+          node-version: 14
+
+      - name: Self-hosted Renovate
+        env:
+          RENOVATE_TOKEN: ${{ secrets.RENOVATE_GITHUB_TOKEN }}
+        run: npx renovate
