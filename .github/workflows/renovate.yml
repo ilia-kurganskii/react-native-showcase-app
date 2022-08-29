@@ -1,8 +1,5 @@
 name: Renovate
 on:
-  push:
-    branches:
-      - renovate-react-native
   workflow_dispatch:
   schedule:
     - cron: '0/15 * * * *'
