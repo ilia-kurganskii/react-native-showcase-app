@@ -17,5 +17,6 @@ jobs:
       - name: Self-hosted Renovate
         env:
           LOG_LEVEL: "debug"
+          LANG: "en_US:UTF-8"
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_GITHUB_TOKEN }}
         run: npx renovate
