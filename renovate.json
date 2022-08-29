@@ -40,10 +40,9 @@
       "separateMinorPatch": true
     },
     {
-      "matchPackagePatterns": "*react-native*",
-      "skipInstall": false,
+      "matchPackagePatterns": "react-native",
       "postUpgradeTasks": {
-        "commands": ["npx pod-install ios"],
+        "commands": ["yarn install --frozen-lockfile", "npx pod-install ios"],
         "fileFilters": ["ios/Podfile.lock"],
         "executionMode": "update"
       }
