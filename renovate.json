@@ -1,7 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
-  "baseBranches": ["renovate-react-native"],
   "packageRules": [
     {
       "matchDepTypes": ["devDependencies"],
