@@ -42,7 +42,7 @@
     {
       "matchPackagePatterns": "react-native",
       "postUpgradeTasks": {
-        "commands": ["yarn install --frozen-lockfile", "npx pod-install ios"],
+        "commands": ["yarn install --frozen-lockfile", "cd ios && pod install --no-ansi"],
         "fileFilters": ["ios/Podfile.lock"],
         "executionMode": "update"
       }
