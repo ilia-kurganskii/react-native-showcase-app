@@ -58,5 +58,6 @@
     "enabled": true,
     "automerge": true
   },
-  "allowedPostUpgradeCommands": ["*"]
+  "allowedPostUpgradeCommands": ["*"],
+  "autodiscover": true
 }
