@@ -1,5 +1,5 @@
 module.exports = {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  allowedPostUpgradeCommands: ['*'],
+  allowedPostUpgradeCommands: ['.*'],
   repositories: ['ilia-kurganskii/react-native-showcase-app'],
 };
