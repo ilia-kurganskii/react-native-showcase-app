@@ -41,6 +41,7 @@
     },
     {
       "matchPackagePatterns": [".*react-native.*"],
+      "matchPackagePrefixes": ["@react-navigation"],
       "postUpgradeTasks": {
         "commands": ["yarn install --frozen-lockfile", "cd ios && LC_ALL='en_US.UTF-8' pod install"],
         "fileFilters": ["ios/Podfile.lock"],
@@ -49,7 +50,7 @@
     }
   ],
   "fetchReleaseNotes": true,
-  "prConcurrentLimit": 20,
+  "prConcurrentLimit": 3,
   "pruneBranchAfterAutomerge": true,
   "platformAutomerge": true,
   "automergeType": "pr",
