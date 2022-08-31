@@ -441,7 +441,7 @@ PODS:
   - RNFileLogger (0.3.0):
     - CocoaLumberjack
     - React
-  - RNScreens (3.15.0):
+  - RNScreens (3.17.0):
     - React-Core
     - React-RCTImage
   - RNSVG (12.4.3):
@@ -697,7 +697,7 @@ SPEC CHECKSUMS:
   RNFBAuth: af943e3ba071b5f4d18896c31e6cba3a77b1fa08
   RNFBCrashlytics: f2b5e456c4969bdec60482e83d973d873ff17f1d
   RNFileLogger: 677ab4bfd2cc920a70f0820d47fc5c353bb7a000
-  RNScreens: 4a1af06327774490d97342c00aee0c2bafb497b7
+  RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
   RNSVG: f3b60aeeaa81960e2e0536c3a9eef50b667ef3a9
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: c2b1f2494060865ac1f27e49639e72371b1205fa
