@@ -1,6 +1,8 @@
 import { Client, gql } from 'urql';
 
-import { NEWS_HOST } from './news.const';
+import { AppConfiguration } from '~features/common';
+import { PAGE_SIZE } from '~features/home/services/news/news.const';
+
 import {
   GetNewsQuery,
   GetNewsQueryVariables,
@@ -9,29 +11,37 @@ import {
 } from './news.service.types.gen';
 
 const GetNews = gql`
-  query GetNews($pageIndex: Int!) {
-    storiesFeed(type: FEATURED, page: $pageIndex) {
-      _id
-      slug
-      title
-      coverImage
-      author {
-        name
+  query GetNews($skip: Int!) {
+    postCollection(skip: $skip) {
+      items {
+        sys {
+          id
+        }
+        title
+        author
+        date
+        thumbnail {
+          url
+        }
       }
     }
   }
 `;
 
 const GetNewsById = gql`
-  query GetNewsById($id: String!, $hostName: String!) {
-    post(slug: $id, hostname: $hostName) {
-      _id
-      slug
+  query GetNewsById($id: String!) {
+    post(id: $id) {
+      sys {
+        id
+      }
       title
-      coverImage
-      contentMarkdown
-      author {
-        name
+      author
+      date
+      thumbnail {
+        url
+      }
+      content {
+        json
       }
     }
   }
@@ -40,14 +50,21 @@ const GetNewsById = gql`
 export class NewsService {
   constructor(
     private readonly client = new Client({
-      url: NEWS_HOST,
+      url:
+        AppConfiguration.ContentfulHost +
+        `/content/v1/spaces/${AppConfiguration.ContentfulSpace}`,
+      fetchOptions: {
+        headers: {
+          Authorization: `Bearer ${AppConfiguration.ContentfulPublicApiKey}`,
+        },
+      },
     })
   ) {}
 
   loadNews(options: { page: number }): Promise<GetNewsQuery> {
     return this.client
       .query<GetNewsQuery, GetNewsQueryVariables>(GetNews, {
-        pageIndex: options.page,
+        skip: options.page * PAGE_SIZE,
       })
       .toPromise()
       .then((response) => {
@@ -63,7 +80,6 @@ export class NewsService {
     return this.client
       .query<GetNewsByIdQuery, GetNewsByIdQueryVariables>(GetNewsById, {
         id: options.id,
-        hostName: NEWS_HOST,
       })
       .toPromise()
       .then((response) => {

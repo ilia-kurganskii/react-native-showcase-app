@@ -16,579 +16,578 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  DateTime: any;
+  Dimension: any;
+  HexColor: any;
+  JSON: any;
+  Quality: any;
 };
 
-export type Contributor = {
-  __typename?: 'Contributor';
-  _id: Maybe<Scalars['ID']>;
-  stamp: Maybe<Scalars['String']>;
-  user: Maybe<User>;
+/** Represents a binary file in a space. An asset can be any file type. */
+export type Asset = {
+  __typename?: 'Asset';
+  contentType: Maybe<Scalars['String']>;
+  contentfulMetadata: ContentfulMetadata;
+  description: Maybe<Scalars['String']>;
+  fileName: Maybe<Scalars['String']>;
+  height: Maybe<Scalars['Int']>;
+  linkedFrom: Maybe<AssetLinkingCollections>;
+  size: Maybe<Scalars['Int']>;
+  sys: Sys;
+  title: Maybe<Scalars['String']>;
+  url: Maybe<Scalars['String']>;
+  width: Maybe<Scalars['Int']>;
 };
 
-export type CreatePostOutput = MutationOutput & {
-  __typename?: 'CreatePostOutput';
-  code: Scalars['Int'];
-  message: Scalars['String'];
-  post: Maybe<PostDetailed>;
-  success: Scalars['Boolean'];
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetContentTypeArgs = {
+  locale: InputMaybe<Scalars['String']>;
 };
 
-export type CreateStoryInput = {
-  contentMarkdown: Scalars['String'];
-  coverImageURL: InputMaybe<Scalars['String']>;
-  isAnonymous: InputMaybe<Scalars['Boolean']>;
-  isRepublished: InputMaybe<IsRepublished>;
-  publishAs: InputMaybe<Scalars['String']>;
-  slug: InputMaybe<Scalars['String']>;
-  sourcedFromGithub: InputMaybe<Scalars['Boolean']>;
-  subtitle: InputMaybe<Scalars['String']>;
-  tags: Array<InputMaybe<TagsInput>>;
-  title: Scalars['String'];
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetDescriptionArgs = {
+  locale: InputMaybe<Scalars['String']>;
 };
 
-export type DeleteOutput = MutationOutput & {
-  __typename?: 'DeleteOutput';
-  code: Scalars['Int'];
-  message: Scalars['String'];
-  success: Scalars['Boolean'];
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetFileNameArgs = {
+  locale: InputMaybe<Scalars['String']>;
 };
 
-export enum FeedType {
-  Best = 'BEST',
-  Community = 'COMMUNITY',
-  Featured = 'FEATURED',
-  New = 'NEW',
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetHeightArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetLinkedFromArgs = {
+  allowedLocales: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetSizeArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetTitleArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetUrlArgs = {
+  locale: InputMaybe<Scalars['String']>;
+  transform: InputMaybe<ImageTransformOptions>;
+};
+
+/** Represents a binary file in a space. An asset can be any file type. */
+export type AssetWidthArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+export type AssetCollection = {
+  __typename?: 'AssetCollection';
+  items: Array<Maybe<Asset>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type AssetFilter = {
+  AND: InputMaybe<Array<InputMaybe<AssetFilter>>>;
+  OR: InputMaybe<Array<InputMaybe<AssetFilter>>>;
+  contentType: InputMaybe<Scalars['String']>;
+  contentType_contains: InputMaybe<Scalars['String']>;
+  contentType_exists: InputMaybe<Scalars['Boolean']>;
+  contentType_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contentType_not: InputMaybe<Scalars['String']>;
+  contentType_not_contains: InputMaybe<Scalars['String']>;
+  contentType_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
+  description: InputMaybe<Scalars['String']>;
+  description_contains: InputMaybe<Scalars['String']>;
+  description_exists: InputMaybe<Scalars['Boolean']>;
+  description_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description_not: InputMaybe<Scalars['String']>;
+  description_not_contains: InputMaybe<Scalars['String']>;
+  description_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  fileName: InputMaybe<Scalars['String']>;
+  fileName_contains: InputMaybe<Scalars['String']>;
+  fileName_exists: InputMaybe<Scalars['Boolean']>;
+  fileName_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  fileName_not: InputMaybe<Scalars['String']>;
+  fileName_not_contains: InputMaybe<Scalars['String']>;
+  fileName_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  height: InputMaybe<Scalars['Int']>;
+  height_exists: InputMaybe<Scalars['Boolean']>;
+  height_gt: InputMaybe<Scalars['Int']>;
+  height_gte: InputMaybe<Scalars['Int']>;
+  height_in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  height_lt: InputMaybe<Scalars['Int']>;
+  height_lte: InputMaybe<Scalars['Int']>;
+  height_not: InputMaybe<Scalars['Int']>;
+  height_not_in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  size: InputMaybe<Scalars['Int']>;
+  size_exists: InputMaybe<Scalars['Boolean']>;
+  size_gt: InputMaybe<Scalars['Int']>;
+  size_gte: InputMaybe<Scalars['Int']>;
+  size_in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  size_lt: InputMaybe<Scalars['Int']>;
+  size_lte: InputMaybe<Scalars['Int']>;
+  size_not: InputMaybe<Scalars['Int']>;
+  size_not_in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  sys: InputMaybe<SysFilter>;
+  title: InputMaybe<Scalars['String']>;
+  title_contains: InputMaybe<Scalars['String']>;
+  title_exists: InputMaybe<Scalars['Boolean']>;
+  title_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not: InputMaybe<Scalars['String']>;
+  title_not_contains: InputMaybe<Scalars['String']>;
+  title_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  url: InputMaybe<Scalars['String']>;
+  url_contains: InputMaybe<Scalars['String']>;
+  url_exists: InputMaybe<Scalars['Boolean']>;
+  url_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  url_not: InputMaybe<Scalars['String']>;
+  url_not_contains: InputMaybe<Scalars['String']>;
+  url_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  width: InputMaybe<Scalars['Int']>;
+  width_exists: InputMaybe<Scalars['Boolean']>;
+  width_gt: InputMaybe<Scalars['Int']>;
+  width_gte: InputMaybe<Scalars['Int']>;
+  width_in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  width_lt: InputMaybe<Scalars['Int']>;
+  width_lte: InputMaybe<Scalars['Int']>;
+  width_not: InputMaybe<Scalars['Int']>;
+  width_not_in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+};
+
+export type AssetLinkingCollections = {
+  __typename?: 'AssetLinkingCollections';
+  entryCollection: Maybe<EntryCollection>;
+  postCollection: Maybe<PostCollection>;
+};
+
+export type AssetLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export type AssetLinkingCollectionsPostCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum AssetOrder {
+  ContentTypeAsc = 'contentType_ASC',
+  ContentTypeDesc = 'contentType_DESC',
+  FileNameAsc = 'fileName_ASC',
+  FileNameDesc = 'fileName_DESC',
+  HeightAsc = 'height_ASC',
+  HeightDesc = 'height_DESC',
+  SizeAsc = 'size_ASC',
+  SizeDesc = 'size_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC',
+  WidthAsc = 'width_ASC',
+  WidthDesc = 'width_DESC',
 }
 
-export type FollowUserOutput = MutationOutput & {
-  __typename?: 'FollowUserOutput';
-  code: Scalars['Int'];
-  message: Scalars['String'];
-  success: Scalars['Boolean'];
+export type ContentfulMetadata = {
+  __typename?: 'ContentfulMetadata';
+  tags: Array<Maybe<ContentfulTag>>;
 };
 
-export type Links = {
-  __typename?: 'Links';
-  github: Maybe<Scalars['String']>;
-  hashnode: Maybe<Scalars['String']>;
-  twitter: Maybe<Scalars['String']>;
-  website: Maybe<Scalars['String']>;
+export type ContentfulMetadataFilter = {
+  tags: InputMaybe<ContentfulMetadataTagsFilter>;
+  tags_exists: InputMaybe<Scalars['Boolean']>;
 };
 
-export type Mutation = {
-  __typename?: 'Mutation';
-  createPublicationStory: CreatePostOutput;
-  createReply: CreateReplyOutput;
-  createResponse: CreateResponseOutput;
-  createStory: CreatePostOutput;
-  deletePost: DeleteOutput;
-  deleteReply: DeleteOutput;
-  deleteResponse: DeleteOutput;
-  followUser: FollowUserOutput;
-  reactToReply: ReactToReplyOutput;
-  reactToResponse: ReactToResponseOutput;
-  reactToStory: ReactToPostOutput;
-  updateReply: CreateReplyOutput;
-  updateResponse: CreateResponseOutput;
-  updateStory: CreatePostOutput;
+export type ContentfulMetadataTagsFilter = {
+  id_contains_all: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_none: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_some: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type MutationCreatePublicationStoryArgs = {
-  hideFromHashnodeFeed?: InputMaybe<Scalars['Boolean']>;
-  input: CreateStoryInput;
-  publicationId: Scalars['String'];
+/**
+ * Represents a tag entity for finding and organizing content easily.
+ *     Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
+ */
+export type ContentfulTag = {
+  __typename?: 'ContentfulTag';
+  id: Maybe<Scalars['String']>;
+  name: Maybe<Scalars['String']>;
 };
 
-export type MutationCreateReplyArgs = {
-  input: CreateReplyInput;
+export type Entry = {
+  contentfulMetadata: ContentfulMetadata;
+  sys: Sys;
 };
 
-export type MutationCreateResponseArgs = {
-  input: CreateResponseInput;
+export type EntryCollection = {
+  __typename?: 'EntryCollection';
+  items: Array<Maybe<Entry>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
 };
 
-export type MutationCreateStoryArgs = {
-  input: CreateStoryInput;
+export type EntryFilter = {
+  AND: InputMaybe<Array<InputMaybe<EntryFilter>>>;
+  OR: InputMaybe<Array<InputMaybe<EntryFilter>>>;
+  contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
+  sys: InputMaybe<SysFilter>;
 };
 
-export type MutationDeletePostArgs = {
-  id: Scalars['String'];
+export enum EntryOrder {
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+}
+
+export enum ImageFormat {
+  Avif = 'AVIF',
+  /** JPG image format. */
+  Jpg = 'JPG',
+  /**
+   * Progressive JPG format stores multiple passes of an image in progressively higher detail.
+   *         When a progressive image is loading, the viewer will first see a lower quality pixelated version which
+   *         will gradually improve in detail, until the image is fully downloaded. This is to display an image as
+   *         early as possible to make the layout look as designed.
+   */
+  JpgProgressive = 'JPG_PROGRESSIVE',
+  /** PNG image format */
+  Png = 'PNG',
+  /**
+   * 8-bit PNG images support up to 256 colors and weigh less than the standard 24-bit PNG equivalent.
+   *         The 8-bit PNG format is mostly used for simple images, such as icons or logos.
+   */
+  Png8 = 'PNG8',
+  /** WebP image format. */
+  Webp = 'WEBP',
+}
+
+export enum ImageResizeFocus {
+  /** Focus the resizing on the bottom. */
+  Bottom = 'BOTTOM',
+  /** Focus the resizing on the bottom left. */
+  BottomLeft = 'BOTTOM_LEFT',
+  /** Focus the resizing on the bottom right. */
+  BottomRight = 'BOTTOM_RIGHT',
+  /** Focus the resizing on the center. */
+  Center = 'CENTER',
+  /** Focus the resizing on the largest face. */
+  Face = 'FACE',
+  /** Focus the resizing on the area containing all the faces. */
+  Faces = 'FACES',
+  /** Focus the resizing on the left. */
+  Left = 'LEFT',
+  /** Focus the resizing on the right. */
+  Right = 'RIGHT',
+  /** Focus the resizing on the top. */
+  Top = 'TOP',
+  /** Focus the resizing on the top left. */
+  TopLeft = 'TOP_LEFT',
+  /** Focus the resizing on the top right. */
+  TopRight = 'TOP_RIGHT',
+}
+
+export enum ImageResizeStrategy {
+  /** Crops a part of the original image to fit into the specified dimensions. */
+  Crop = 'CROP',
+  /** Resizes the image to the specified dimensions, cropping the image if needed. */
+  Fill = 'FILL',
+  /** Resizes the image to fit into the specified dimensions. */
+  Fit = 'FIT',
+  /**
+   * Resizes the image to the specified dimensions, padding the image if needed.
+   *         Uses desired background color as padding color.
+   */
+  Pad = 'PAD',
+  /** Resizes the image to the specified dimensions, changing the original aspect ratio if needed. */
+  Scale = 'SCALE',
+  /** Creates a thumbnail from the image. */
+  Thumb = 'THUMB',
+}
+
+export type ImageTransformOptions = {
+  /**
+   * Desired background color, used with corner radius or `PAD` resize strategy.
+   *         Defaults to transparent (for `PNG`, `PNG8` and `WEBP`) or white (for `JPG` and `JPG_PROGRESSIVE`).
+   */
+  backgroundColor: InputMaybe<Scalars['HexColor']>;
+  /**
+   * Desired corner radius in pixels.
+   *         Results in an image with rounded corners (pass `-1` for a full circle/ellipse).
+   *         Defaults to `0`. Uses desired background color as padding color,
+   *         unless the format is `JPG` or `JPG_PROGRESSIVE` and resize strategy is `PAD`, then defaults to white.
+   */
+  cornerRadius: InputMaybe<Scalars['Int']>;
+  /** Desired image format. Defaults to the original image format. */
+  format: InputMaybe<ImageFormat>;
+  /** Desired height in pixels. Defaults to the original image height. */
+  height: InputMaybe<Scalars['Dimension']>;
+  /**
+   * Desired quality of the image in percents.
+   *         Used for `PNG8`, `JPG`, `JPG_PROGRESSIVE` and `WEBP` formats.
+   */
+  quality: InputMaybe<Scalars['Quality']>;
+  /** Desired resize focus area. Defaults to `CENTER`. */
+  resizeFocus: InputMaybe<ImageResizeFocus>;
+  /** Desired resize strategy. Defaults to `FIT`. */
+  resizeStrategy: InputMaybe<ImageResizeStrategy>;
+  /** Desired width in pixels. Defaults to the original image width. */
+  width: InputMaybe<Scalars['Dimension']>;
 };
 
-export type MutationDeleteReplyArgs = {
-  postId: Scalars['String'];
-  replyId: Scalars['String'];
-  responseId: Scalars['String'];
-};
-
-export type MutationDeleteResponseArgs = {
-  postId: Scalars['String'];
-  responseId: Scalars['String'];
-};
-
-export type MutationFollowUserArgs = {
-  userId: Scalars['String'];
-};
-
-export type MutationReactToReplyArgs = {
-  input: ReactToReplyInput;
-};
-
-export type MutationReactToResponseArgs = {
-  input: ReactToResponseInput;
-};
-
-export type MutationReactToStoryArgs = {
-  input: ReactToPostInput;
-};
-
-export type MutationUpdateReplyArgs = {
-  contentInMarkdown: Scalars['String'];
-  postId: Scalars['String'];
-  replyId: Scalars['String'];
-  responseId: Scalars['String'];
-};
-
-export type MutationUpdateResponseArgs = {
-  contentInMarkdown: Scalars['String'];
-  postId: InputMaybe<Scalars['String']>;
-  responseId: Scalars['String'];
-};
-
-export type MutationUpdateStoryArgs = {
-  input: UpdateStoryInput;
-  postId: Scalars['String'];
-};
-
-export type MutationOutput = {
-  code: Scalars['Int'];
-  message: Scalars['String'];
-  success: Scalars['Boolean'];
-};
-
-export type Poll = {
-  __typename?: 'Poll';
-  pollClosingDate: Maybe<Scalars['String']>;
-  pollOptions: Maybe<Array<Maybe<PollOption>>>;
-  pollRunningTime: Maybe<Scalars['String']>;
-  totalVotes: Maybe<Scalars['Int']>;
-};
-
-export type PollOption = {
-  __typename?: 'PollOption';
-  _id: Scalars['ID'];
-  option: Scalars['String'];
-  votes: Scalars['Int'];
-};
-
-export type PollOptionInput = {
-  content: Scalars['String'];
-};
-
-export type Post = {
+/** [See type definition](https://app.contentful.com/spaces/qt9s9bzsq0aj/content_types/post) */
+export type Post = Entry & {
   __typename?: 'Post';
-  _id: Scalars['ID'];
-  author: Maybe<User>;
-  bookmarkedIn: Maybe<Array<Maybe<Scalars['String']>>>;
-  brief: Maybe<Scalars['String']>;
-  contentMarkdown: Maybe<Scalars['String']>;
-  contributors: Maybe<Array<Maybe<Contributor>>>;
-  coverImage: Scalars['String'];
-  cuid: Maybe<Scalars['String']>;
-  dateAdded: Maybe<Scalars['String']>;
-  dateFeatured: Maybe<Scalars['String']>;
-  dateUpdated: Maybe<Scalars['String']>;
-  followersCount: Maybe<Scalars['Int']>;
-  isActive: Maybe<Scalars['Boolean']>;
-  isAnonymous: Maybe<Scalars['Boolean']>;
-  numUniqueUsersWhoReacted: Maybe<Scalars['Int']>;
-  partOfPublication: Maybe<Scalars['Boolean']>;
-  poll: Maybe<Poll>;
-  popularity: Maybe<Scalars['Float']>;
-  reactions: Maybe<Array<Maybe<Reaction>>>;
-  reactionsByCurrentUser: Maybe<Array<Maybe<Reaction>>>;
-  replyCount: Maybe<Scalars['Int']>;
-  responseCount: Maybe<Scalars['Int']>;
-  slug: Maybe<Scalars['String']>;
-  tags: Maybe<Array<Maybe<Tag>>>;
-  title: Maybe<Scalars['String']>;
-  totalReactions: Maybe<Scalars['Int']>;
-  type: Scalars['String'];
-};
-
-export type PostDetailed = {
-  __typename?: 'PostDetailed';
-  _id: Scalars['ID'];
-  author: Maybe<User>;
-  bookmarkedIn: Maybe<Array<Maybe<Scalars['String']>>>;
-  brief: Maybe<Scalars['String']>;
-  content: Maybe<Scalars['String']>;
-  contentMarkdown: Maybe<Scalars['String']>;
-  contributors: Maybe<Array<Maybe<Contributor>>>;
-  coverImage: Maybe<Scalars['String']>;
-  cuid: Maybe<Scalars['String']>;
-  dateAdded: Maybe<Scalars['String']>;
-  dateUpdated: Maybe<Scalars['String']>;
-  followersCount: Maybe<Scalars['Int']>;
-  isActive: Maybe<Scalars['Boolean']>;
-  isAnonymous: Maybe<Scalars['Boolean']>;
-  isDelisted: Maybe<Scalars['Boolean']>;
-  isFeatured: Maybe<Scalars['Boolean']>;
-  isRepublished: Maybe<Scalars['Boolean']>;
-  numCollapsed: Maybe<Scalars['Int']>;
-  partOfPublication: Maybe<Scalars['Boolean']>;
-  poll: Maybe<Poll>;
-  popularity: Maybe<Scalars['Float']>;
-  publication: Maybe<Publication>;
-  reactions: Maybe<Array<Maybe<ReactionsAndCount>>>;
-  reactionsByCurrentUser: Maybe<Array<Maybe<Reaction>>>;
-  replyCount: Maybe<Scalars['Int']>;
-  responseCount: Maybe<Scalars['Int']>;
-  responses: Array<Response>;
-  slug: Maybe<Scalars['String']>;
-  sourcedFromGithub: Maybe<Scalars['Boolean']>;
-  tags: Maybe<Array<Maybe<Tag>>>;
-  title: Maybe<Scalars['String']>;
-  totalReactions: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
-  untaggedFrom: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-export type PostDetailedResponsesArgs = {
-  page?: InputMaybe<Scalars['Int']>;
-};
-
-export type Publication = {
-  __typename?: 'Publication';
-  _id: Scalars['ID'];
   author: Maybe<Scalars['String']>;
-  description: Maybe<Scalars['String']>;
-  displayTitle: Maybe<Scalars['String']>;
-  domain: Maybe<Scalars['String']>;
-  embedCode: Maybe<Scalars['String']>;
-  favicon: Maybe<Scalars['String']>;
-  fbPixelID: Maybe<Scalars['String']>;
-  gaTrackingID: Maybe<Scalars['String']>;
-  headerColor: Maybe<Scalars['String']>;
-  imprint: Maybe<Scalars['String']>;
-  imprintMarkdown: Maybe<Scalars['String']>;
-  isAMPEnabled: Maybe<Scalars['Boolean']>;
-  isActive: Maybe<Scalars['Boolean']>;
-  layout: Maybe<Scalars['String']>;
-  links: Maybe<Links>;
-  logo: Maybe<Scalars['String']>;
-  meta: Maybe<Scalars['String']>;
-  metaHTML: Maybe<Scalars['String']>;
-  metaTags: Maybe<Scalars['String']>;
-  ogImage: Maybe<Scalars['String']>;
-  posts: Maybe<Array<Maybe<Post>>>;
-  sitemapSubmitted: Maybe<Scalars['Boolean']>;
+  content: Maybe<PostContent>;
+  contentfulMetadata: ContentfulMetadata;
+  date: Maybe<Scalars['DateTime']>;
+  linkedFrom: Maybe<PostLinkingCollections>;
+  sys: Sys;
+  thumbnail: Maybe<Asset>;
   title: Maybe<Scalars['String']>;
-  tweetedAboutBlog: Maybe<Scalars['Boolean']>;
-  username: Maybe<Scalars['String']>;
 };
 
-export type PublicationPostsArgs = {
-  page?: InputMaybe<Scalars['Int']>;
+/** [See type definition](https://app.contentful.com/spaces/qt9s9bzsq0aj/content_types/post) */
+export type PostAuthorArgs = {
+  locale: InputMaybe<Scalars['String']>;
 };
 
-export type PublicationDetails = {
-  publicationId: Scalars['String'];
+/** [See type definition](https://app.contentful.com/spaces/qt9s9bzsq0aj/content_types/post) */
+export type PostContentArgs = {
+  locale: InputMaybe<Scalars['String']>;
 };
+
+/** [See type definition](https://app.contentful.com/spaces/qt9s9bzsq0aj/content_types/post) */
+export type PostDateArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/qt9s9bzsq0aj/content_types/post) */
+export type PostLinkedFromArgs = {
+  allowedLocales: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/qt9s9bzsq0aj/content_types/post) */
+export type PostThumbnailArgs = {
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/qt9s9bzsq0aj/content_types/post) */
+export type PostTitleArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+export type PostCollection = {
+  __typename?: 'PostCollection';
+  items: Array<Maybe<Post>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type PostContent = {
+  __typename?: 'PostContent';
+  json: Scalars['JSON'];
+  links: PostContentLinks;
+};
+
+export type PostContentAssets = {
+  __typename?: 'PostContentAssets';
+  block: Array<Maybe<Asset>>;
+  hyperlink: Array<Maybe<Asset>>;
+};
+
+export type PostContentEntries = {
+  __typename?: 'PostContentEntries';
+  block: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  inline: Array<Maybe<Entry>>;
+};
+
+export type PostContentLinks = {
+  __typename?: 'PostContentLinks';
+  assets: PostContentAssets;
+  entries: PostContentEntries;
+};
+
+export type PostFilter = {
+  AND: InputMaybe<Array<InputMaybe<PostFilter>>>;
+  OR: InputMaybe<Array<InputMaybe<PostFilter>>>;
+  author: InputMaybe<Scalars['String']>;
+  author_contains: InputMaybe<Scalars['String']>;
+  author_exists: InputMaybe<Scalars['Boolean']>;
+  author_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  author_not: InputMaybe<Scalars['String']>;
+  author_not_contains: InputMaybe<Scalars['String']>;
+  author_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  content_contains: InputMaybe<Scalars['String']>;
+  content_exists: InputMaybe<Scalars['Boolean']>;
+  content_not_contains: InputMaybe<Scalars['String']>;
+  contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
+  date: InputMaybe<Scalars['DateTime']>;
+  date_exists: InputMaybe<Scalars['Boolean']>;
+  date_gt: InputMaybe<Scalars['DateTime']>;
+  date_gte: InputMaybe<Scalars['DateTime']>;
+  date_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  date_lt: InputMaybe<Scalars['DateTime']>;
+  date_lte: InputMaybe<Scalars['DateTime']>;
+  date_not: InputMaybe<Scalars['DateTime']>;
+  date_not_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  sys: InputMaybe<SysFilter>;
+  thumbnail_exists: InputMaybe<Scalars['Boolean']>;
+  title: InputMaybe<Scalars['String']>;
+  title_contains: InputMaybe<Scalars['String']>;
+  title_exists: InputMaybe<Scalars['Boolean']>;
+  title_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not: InputMaybe<Scalars['String']>;
+  title_not_contains: InputMaybe<Scalars['String']>;
+  title_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PostLinkingCollections = {
+  __typename?: 'PostLinkingCollections';
+  entryCollection: Maybe<EntryCollection>;
+};
+
+export type PostLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum PostOrder {
+  AuthorAsc = 'author_ASC',
+  AuthorDesc = 'author_DESC',
+  DateAsc = 'date_ASC',
+  DateDesc = 'date_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+}
 
 export type Query = {
   __typename?: 'Query';
-  amas: Maybe<Array<Maybe<Post>>>;
-  post: Maybe<PostDetailed>;
-  storiesFeed: Maybe<Array<Maybe<Post>>>;
-  tagCategories: Maybe<Array<Maybe<TagCategory>>>;
-  user: Maybe<User>;
+  asset: Maybe<Asset>;
+  assetCollection: Maybe<AssetCollection>;
+  entryCollection: Maybe<EntryCollection>;
+  post: Maybe<Post>;
+  postCollection: Maybe<PostCollection>;
 };
 
-export type QueryAmasArgs = {
-  page: InputMaybe<Scalars['Int']>;
+export type QueryAssetArgs = {
+  id: Scalars['String'];
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+};
+
+export type QueryAssetCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  order: InputMaybe<Array<InputMaybe<AssetOrder>>>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<AssetFilter>;
+};
+
+export type QueryEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  order: InputMaybe<Array<InputMaybe<EntryOrder>>>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<EntryFilter>;
 };
 
 export type QueryPostArgs = {
-  hostname: InputMaybe<Scalars['String']>;
-  slug: Scalars['String'];
+  id: Scalars['String'];
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
 };
 
-export type QueryStoriesFeedArgs = {
-  page?: InputMaybe<Scalars['Int']>;
-  type: FeedType;
+export type QueryPostCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  order: InputMaybe<Array<InputMaybe<PostOrder>>>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<PostFilter>;
 };
 
-export type QueryUserArgs = {
-  username: Scalars['String'];
+export type Sys = {
+  __typename?: 'Sys';
+  environmentId: Scalars['String'];
+  firstPublishedAt: Maybe<Scalars['DateTime']>;
+  id: Scalars['String'];
+  publishedAt: Maybe<Scalars['DateTime']>;
+  publishedVersion: Maybe<Scalars['Int']>;
+  spaceId: Scalars['String'];
 };
 
-export type ReactToPostInput = {
-  postId: Scalars['String'];
-  reaction: ReactionName;
-};
-
-export type ReactToPostOutput = MutationOutput & {
-  __typename?: 'ReactToPostOutput';
-  code: Scalars['Int'];
-  message: Scalars['String'];
-  success: Scalars['Boolean'];
-};
-
-export type ReactToReplyInput = {
-  postId: Scalars['String'];
-  reaction: ReactionName;
-  replyId: Scalars['String'];
-  responseId: Scalars['String'];
-};
-
-export type ReactToReplyOutput = MutationOutput & {
-  __typename?: 'ReactToReplyOutput';
-  code: Scalars['Int'];
-  message: Scalars['String'];
-  success: Scalars['Boolean'];
-};
-
-export type ReactToResponseInput = {
-  postId: Scalars['String'];
-  reaction: ReactionName;
-  responseId: Scalars['String'];
-};
-
-export type ReactToResponseOutput = MutationOutput & {
-  __typename?: 'ReactToResponseOutput';
-  code: Scalars['Int'];
-  message: Scalars['String'];
-  success: Scalars['Boolean'];
-};
-
-export type Reaction = {
-  __typename?: 'Reaction';
-  image: Scalars['String'];
-  name: ReactionName;
-};
-
-export enum ReactionName {
-  Beer = 'BEER',
-  Clap = 'CLAP',
-  HeartEyes = 'HEART_EYES',
-  Love = 'LOVE',
-  Party = 'PARTY',
-  Rocket = 'ROCKET',
-  TakeMyMoney = 'TAKE_MY_MONEY',
-  ThumbsUp = 'THUMBS_UP',
-  Trophy = 'TROPHY',
-  Unicorn = 'UNICORN',
-}
-
-export type ReactionsAndCount = {
-  __typename?: 'ReactionsAndCount';
-  count: Scalars['Int'];
-  reaction: Reaction;
-};
-
-export type Reply = {
-  __typename?: 'Reply';
-  _id: Scalars['ID'];
-  author: User;
-  content: Scalars['String'];
-  contentMarkdown: Scalars['String'];
-  dateAdded: Scalars['String'];
-  isActive: Maybe<Scalars['Boolean']>;
-  reactions: Maybe<Array<Maybe<ReactionsAndCount>>>;
-  reactionsByCurrentUser: Maybe<Array<Maybe<Reaction>>>;
-  stamp: Maybe<Scalars['String']>;
-  totalReactions: Maybe<Scalars['Int']>;
-};
-
-export type Response = {
-  __typename?: 'Response';
-  _id: Scalars['ID'];
-  author: Maybe<User>;
-  bookmarkedIn: Maybe<Array<Maybe<Scalars['String']>>>;
-  content: Maybe<Scalars['String']>;
-  contentMarkdown: Maybe<Scalars['String']>;
-  dateAdded: Maybe<Scalars['String']>;
-  isActive: Maybe<Scalars['Boolean']>;
-  isCollapsed: Maybe<Scalars['Boolean']>;
-  popularity: Maybe<Scalars['Float']>;
-  post: Maybe<Scalars['String']>;
-  reactions: Maybe<Array<Maybe<ReactionsAndCount>>>;
-  reactionsByCurrentUser: Maybe<Array<Maybe<Reaction>>>;
-  replies: Maybe<Array<Maybe<Reply>>>;
-  stamp: Maybe<Scalars['String']>;
-  totalReactions: Maybe<Scalars['Int']>;
-};
-
-export type SocialMedia = {
-  __typename?: 'SocialMedia';
-  facebook: Maybe<Scalars['String']>;
-  github: Maybe<Scalars['String']>;
-  google: Maybe<Scalars['String']>;
-  linkedin: Maybe<Scalars['String']>;
-  stackoverflow: Maybe<Scalars['String']>;
-  twitter: Maybe<Scalars['String']>;
-  website: Maybe<Scalars['String']>;
-};
-
-export type Tag = {
-  __typename?: 'Tag';
-  _id: Scalars['ID'];
-  contributors: Maybe<TagContributors>;
-  followersCount: Maybe<Scalars['Int']>;
-  isActive: Maybe<Scalars['Boolean']>;
-  isApproved: Maybe<Scalars['Boolean']>;
-  leaderboard: Maybe<TagLeaderBoard>;
-  logo: Maybe<Scalars['String']>;
-  managers: Maybe<Array<Maybe<TagManager>>>;
-  name: Maybe<Scalars['String']>;
-  numPosts: Maybe<Scalars['Int']>;
-  posts: Maybe<Array<Maybe<Post>>>;
-  slug: Maybe<Scalars['String']>;
-  socialMedia: Maybe<TagSocialMedia>;
-  stats: Maybe<TagStats>;
-  tagline: Maybe<Scalars['String']>;
-  wiki: Maybe<Scalars['String']>;
-  wikiMarkdown: Maybe<Scalars['String']>;
-};
-
-export type TagPostsArgs = {
-  filter: TagsPostFilter;
-  page?: InputMaybe<Scalars['Int']>;
-};
-
-export type TagCategory = {
-  __typename?: 'TagCategory';
-  _id: Scalars['ID'];
-  isActive: Scalars['Boolean'];
-  name: Scalars['String'];
-  priority: Maybe<Scalars['Int']>;
-  slug: Scalars['String'];
-  tags: Maybe<Array<Maybe<Tag>>>;
-};
-
-export type TagContributorLeaders = {
-  __typename?: 'TagContributorLeaders';
-  allTimeTopDevelopers: Maybe<Array<Maybe<TagLeaderBoardMember>>>;
-  monthlyTopDevelopers: Maybe<Array<Maybe<TagLeaderBoardMember>>>;
-};
-
-export type TagContributors = {
-  __typename?: 'TagContributors';
-  leaders: Maybe<TagContributorLeaders>;
-  managers: Maybe<Array<Maybe<TagManager>>>;
-};
-
-export type TagLeaderBoard = {
-  __typename?: 'TagLeaderBoard';
-  allTimeTopDevelopers: Maybe<Array<Maybe<TagLeaderBoardMember>>>;
-  monthlyTopDevelopers: Maybe<Array<Maybe<TagLeaderBoardMember>>>;
-};
-
-export type TagLeaderBoardMember = {
-  __typename?: 'TagLeaderBoardMember';
-  appreciations: Maybe<Scalars['Int']>;
-  upvotes: Maybe<Scalars['Int']>;
-  user: Maybe<User>;
-};
-
-export type TagManager = {
-  __typename?: 'TagManager';
-  _id: Scalars['ID'];
-  role: Scalars['String'];
-  user: Maybe<User>;
-};
-
-export type TagSocialMedia = {
-  __typename?: 'TagSocialMedia';
-  github: Maybe<Scalars['String']>;
-  officialWebsite: Maybe<Scalars['String']>;
-  twitter: Maybe<Scalars['String']>;
-};
-
-export type TagStats = {
-  __typename?: 'TagStats';
-  currentWeekFollowersCount: Maybe<Scalars['Int']>;
-  currentWeekPostsCount: Maybe<Scalars['Int']>;
-  lastWeekFollowersCount: Maybe<Scalars['Int']>;
-  lastWeekPostsCount: Maybe<Scalars['Int']>;
-};
-
-export type TagsInput = {
-  _id: Scalars['ID'];
-  name: InputMaybe<Scalars['String']>;
-  slug: InputMaybe<Scalars['String']>;
-};
-
-export enum TagsPostFilter {
-  Best = 'BEST',
-  Hot = 'HOT',
-  Recent = 'RECENT',
-}
-
-export type UpdateStoryInput = {
-  contentMarkdown: Scalars['String'];
-  coverImageURL: InputMaybe<Scalars['String']>;
-  isPartOfPublication: PublicationDetails;
-  isRepublished: InputMaybe<IsRepublished>;
-  publishAs: InputMaybe<Scalars['String']>;
-  slug: InputMaybe<Scalars['String']>;
-  sourcedFromGithub: InputMaybe<Scalars['Boolean']>;
-  subtitle: InputMaybe<Scalars['String']>;
-  tags: Array<InputMaybe<TagsInput>>;
-  title: Scalars['String'];
-};
-
-export type User = {
-  __typename?: 'User';
-  _id: Scalars['ID'];
-  blogHandle: Maybe<Scalars['String']>;
-  coverImage: Maybe<Scalars['String']>;
-  dateJoined: Maybe<Scalars['String']>;
-  followers: Maybe<Array<Maybe<User>>>;
-  isDeactivated: Maybe<Scalars['Boolean']>;
-  isEvangelist: Maybe<Scalars['Boolean']>;
-  location: Maybe<Scalars['String']>;
-  name: Maybe<Scalars['String']>;
-  numFollowers: Maybe<Scalars['Int']>;
-  numFollowing: Maybe<Scalars['Int']>;
-  numPosts: Maybe<Scalars['Int']>;
-  numReactions: Maybe<Scalars['Int']>;
-  photo: Maybe<Scalars['String']>;
-  publication: Maybe<Publication>;
-  publicationDomain: Maybe<Scalars['String']>;
-  socialMedia: Maybe<SocialMedia>;
-  tagline: Maybe<Scalars['String']>;
-  username: Maybe<Scalars['String']>;
-};
-
-export type CreateReplyInput = {
-  contentInMarkdown: Scalars['String'];
-  postId: Scalars['String'];
-  responseId: Scalars['String'];
-};
-
-export type CreateReplyOutput = MutationOutput & {
-  __typename?: 'createReplyOutput';
-  code: Scalars['Int'];
-  message: Scalars['String'];
-  reply: Maybe<Response>;
-  success: Scalars['Boolean'];
-};
-
-export type CreateResponseInput = {
-  contentInMarkdown: Scalars['String'];
-  postId: Scalars['String'];
-};
-
-export type CreateResponseOutput = MutationOutput & {
-  __typename?: 'createResponseOutput';
-  code: Scalars['Int'];
-  message: Scalars['String'];
-  response: Maybe<Response>;
-  success: Scalars['Boolean'];
-};
-
-export type IsRepublished = {
-  originalArticleURL: Scalars['String'];
+export type SysFilter = {
+  firstPublishedAt: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_exists: InputMaybe<Scalars['Boolean']>;
+  firstPublishedAt_gt: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_gte: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  firstPublishedAt_lt: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_lte: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_not: InputMaybe<Scalars['DateTime']>;
+  firstPublishedAt_not_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  id: InputMaybe<Scalars['String']>;
+  id_contains: InputMaybe<Scalars['String']>;
+  id_exists: InputMaybe<Scalars['Boolean']>;
+  id_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_not: InputMaybe<Scalars['String']>;
+  id_not_contains: InputMaybe<Scalars['String']>;
+  id_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  publishedAt: InputMaybe<Scalars['DateTime']>;
+  publishedAt_exists: InputMaybe<Scalars['Boolean']>;
+  publishedAt_gt: InputMaybe<Scalars['DateTime']>;
+  publishedAt_gte: InputMaybe<Scalars['DateTime']>;
+  publishedAt_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedAt_lt: InputMaybe<Scalars['DateTime']>;
+  publishedAt_lte: InputMaybe<Scalars['DateTime']>;
+  publishedAt_not: InputMaybe<Scalars['DateTime']>;
+  publishedAt_not_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedVersion: InputMaybe<Scalars['Float']>;
+  publishedVersion_exists: InputMaybe<Scalars['Boolean']>;
+  publishedVersion_gt: InputMaybe<Scalars['Float']>;
+  publishedVersion_gte: InputMaybe<Scalars['Float']>;
+  publishedVersion_in: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  publishedVersion_lt: InputMaybe<Scalars['Float']>;
+  publishedVersion_lte: InputMaybe<Scalars['Float']>;
+  publishedVersion_not: InputMaybe<Scalars['Float']>;
+  publishedVersion_not_in: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
 };

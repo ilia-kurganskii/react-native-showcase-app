@@ -1,5 +1,7 @@
 import { Configuration } from './configuration.type';
 
 export const AppConfiguration: Configuration = {
-  NewsKeyAPI: 'c7a713ea-c50c-44b4-9ddc-3b32db0cf335',
+  ContentfulHost: 'https://graphql.contentful.com',
+  ContentfulPublicApiKey: 'bkIl_QAK8bQwRVfgD2Jz99RQlIPDqoAjOVM02fhOXbw',
+  ContentfulSpace: 'qt9s9bzsq0aj',
 };

@@ -2,28 +2,27 @@ import { GetNewsQuery, GetNewsByIdQuery } from '../services/news';
 import { NewsItem } from '../stores/news';
 
 function listServiceToStore(input: GetNewsQuery): NewsItem[] {
-  if (!input.storiesFeed) {
+  if (!input.postCollection) {
     return [];
   }
-  return input.storiesFeed.filter(Boolean).map((item) => ({
-    id: item!.slug ?? item!._id,
-    title: item!.title ?? null,
-    thumbnail: item!.coverImage,
-    pillarName: '',
+  return input.postCollection.items.map((inputItem) => ({
+    id: inputItem!.sys.id,
+    title: inputItem!.title!,
+    thumbnail: inputItem!.thumbnail!.url!,
   }));
 }
 
-function detailsServiceToStore(input: GetNewsByIdQuery): NewsItem | null {
-  const { post } = input;
+function detailsServiceToStore(inputItem: GetNewsByIdQuery): NewsItem | null {
+  const { post } = inputItem;
   if (!post) {
     return null;
   }
 
   return {
-    id: post.slug ?? post._id,
-    title: post.title ?? null,
-    thumbnail: post.coverImage!,
-    content: post.contentMarkdown,
+    id: post.sys.id,
+    title: post.title!,
+    content: post.content?.json,
+    thumbnail: post.thumbnail!.url!,
   };
 }
 

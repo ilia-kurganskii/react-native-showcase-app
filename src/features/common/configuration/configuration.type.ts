@@ -1,3 +1,5 @@
 export interface Configuration {
-  NewsKeyAPI: string;
+  ContentfulHost: string;
+  ContentfulSpace: string;
+  ContentfulPublicApiKey: string;
 }

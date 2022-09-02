@@ -45,6 +45,8 @@ jobs:
           yarn typescript
 
       - name: GraphQL
+        env:
+          CONTENTFUL_API_KEY: ${{ secrets.CONTENTFUL_API_KEY }}
         run: |
           yarn generate  >outout.txt 2> error.txt
           ! grep "FAILED" ./error.txt
