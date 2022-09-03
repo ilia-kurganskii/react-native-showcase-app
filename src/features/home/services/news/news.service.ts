@@ -1,45 +1,94 @@
-import axios from 'axios';
+import { Client, gql } from 'urql';
 
 import { AppConfiguration } from '~features/common';
-import { NEWS_HOST, PAGE_SIZE } from '~features/home/services/news/news.const';
+import { PAGE_SIZE } from '~features/home/services/news/news.const';
+
 import {
-  NewsDetailsResponse,
-  NewsSearchListResponse,
-} from '~features/home/services/news/news.type';
+  GetNewsQuery,
+  GetNewsQueryVariables,
+  GetNewsByIdQuery,
+  GetNewsByIdQueryVariables,
+} from './news.service.types.gen';
+
+const GetNews = gql`
+  query GetNews($skip: Int!) {
+    postCollection(skip: $skip) {
+      items {
+        sys {
+          id
+        }
+        title
+        author
+        date
+        thumbnail {
+          url
+        }
+      }
+    }
+  }
+`;
+
+const GetNewsById = gql`
+  query GetNewsById($id: String!) {
+    post(id: $id) {
+      sys {
+        id
+      }
+      title
+      author
+      date
+      thumbnail {
+        url
+      }
+      content {
+        json
+      }
+    }
+  }
+`;
 
 export class NewsService {
   constructor(
-    private readonly httpService = axios.create({
-      baseURL: NEWS_HOST,
-      headers: {
-        'content-type': 'application/json',
+    private readonly client = new Client({
+      url:
+        AppConfiguration.ContentfulHost +
+        `/content/v1/spaces/${AppConfiguration.ContentfulSpace}`,
+      fetchOptions: {
+        headers: {
+          Authorization: `Bearer ${AppConfiguration.ContentfulPublicApiKey}`,
+        },
       },
     })
   ) {}
 
-  async loadNews(params: { page: number }): Promise<NewsSearchListResponse> {
-    return this.httpService
-      .get<NewsSearchListResponse>('/search', {
-        params: {
-          'api-key': AppConfiguration.NewsKeyAPI,
-          'show-fields': 'thumbnail',
-          'page-size': PAGE_SIZE,
-          'page': params.page,
-        },
+  loadNews(options: { page: number }): Promise<GetNewsQuery> {
+    return this.client
+      .query<GetNewsQuery, GetNewsQueryVariables>(GetNews, {
+        skip: options.page * PAGE_SIZE,
       })
-      .then((response) => response.data);
+      .toPromise()
+      .then((response) => {
+        if (response.error) {
+          throw response.error;
+        } else {
+          return response.data!;
+        }
+      });
   }
 
-  async loadNewsById(params: { id: string }): Promise<NewsDetailsResponse> {
-    return this.httpService
-      .get(`/${params.id}`, {
-        params: {
-          'api-key': AppConfiguration.NewsKeyAPI,
-          'show-blocks': 'all',
-          'show-fields': 'thumbnail',
-        },
+  loadNewsById(options: { id: string }): Promise<GetNewsByIdQuery> {
+    return this.client
+      .query<GetNewsByIdQuery, GetNewsByIdQueryVariables>(GetNewsById, {
+        id: options.id,
       })
-      .then((response) => response.data);
+      .toPromise()
+      .then((response) => {
+        if (response.error) {
+          throw response.error;
+        } else {
+          return response.data!;
+        }
+      });
   }
 }
 

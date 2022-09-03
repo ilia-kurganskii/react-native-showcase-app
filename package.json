@@ -22,9 +22,12 @@
     "detox:test:android": "detox test -c android",
     "detox:test:ios-tdd": "detox test -c ios.tdd",
     "detox:test:android-tdd": "detox test -c android.tdd",
-    "detox:cache": "detox build-framework-cache"
+    "detox:cache": "detox build-framework-cache",
+    "generate": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "15.12.1",
+    "@contentful/rich-text-types": "15.12.1",
     "@react-native-firebase/app": "14.11.1",
     "@react-native-firebase/auth": "14.11.1",
     "@react-native-firebase/crashlytics": "14.11.1",
@@ -33,6 +36,7 @@
     "@react-navigation/native-stack": "6.8.0",
     "axios": "0.27.2",
     "formik": "2.2.9",
+    "graphql": "16.5.0",
     "i18next": "21.9.1",
     "lottie-react-native": "5.1.4",
     "mobx": "6.6.1",
@@ -46,12 +50,19 @@
     "react-native-screens": "3.17.0",
     "react-native-splash-screen": "3.3.0",
     "react-native-svg": "13.1.0",
+    "urql": "2.2.2",
     "yup": "0.32.11"
   },
   "devDependencies": {
     "@babel/core": "7.18.9",
     "@babel/plugin-proposal-decorators": "7.18.9",
     "@babel/runtime": "7.18.9",
+    "@graphql-codegen/cli": "2.12.0",
+    "@graphql-codegen/near-operation-file-preset": "2.4.0",
+    "@graphql-codegen/schema-ast": "^2.5.0",
+    "@graphql-codegen/typescript": "2.7.2",
+    "@graphql-codegen/typescript-document-nodes": "2.3.2",
+    "@graphql-codegen/typescript-operations": "2.5.2",
     "@react-native-community/eslint-config": "3.1.0",
     "@types/detox": "18.1.0",
     "@types/jest": "29.0.0",
@@ -63,7 +74,7 @@
     "babel-plugin-module-resolver": "4.1.0",
     "detox": "19.11.0",
     "dotenv": "16.0.2",
-    "eslint": "8.23.0",
+    "eslint": "8.22.0",
     "eslint-plugin-i18next": "6.0.0-4",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jest": "27.0.1",
@@ -77,7 +88,7 @@
     "react-native-svg-transformer": "1.0.0",
     "react-test-renderer": "18.2.0",
     "ts-jest": "28.0.8",
-    "typescript": "4.8.2"
+    "typescript": "4.7.4"
   },
   "resolutions": {
     "@types/react": "18"

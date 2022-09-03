@@ -1,7 +1,8 @@
+import { Document } from '@contentful/rich-text-types';
+
 export interface NewsItem {
   id: string;
-  title: string;
-  pillarName: string;
+  title: string | null;
   thumbnail: string;
-  content: string[];
+  content?: Document | null;
 }
