@@ -50,7 +50,7 @@
     "react-native-screens": "3.17.0",
     "react-native-splash-screen": "3.3.0",
     "react-native-svg": "13.1.0",
-    "urql": "2.2.2",
+    "urql": "2.2.3",
     "yup": "0.32.11"
   },
   "devDependencies": {
