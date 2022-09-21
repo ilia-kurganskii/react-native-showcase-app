@@ -82,7 +82,10 @@ import com.android.build.OutputFile
 project.ext.react = [
     bundleInDetox: true,
     devDisabledInDetox: true,
-    enableHermes: true,  // clean and rebuild if changing
+    enableHermes: true,  // clean and rebuild if changing,
+    deleteDebugFilesForVariant: {
+         def variant -> ["release", "detox"].contains(variant.name)
+    }
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
