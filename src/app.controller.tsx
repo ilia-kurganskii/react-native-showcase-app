@@ -3,14 +3,16 @@ import { useColorScheme } from 'react-native';
 import { DARK_THEME, LIGHT_THEME } from 'react-native-nucleus-ui';
 import SplashScreen from 'react-native-splash-screen';
 
-import { useAuthStore } from '~features/auth';
+import { useAppSelector, useAppService } from '~features/app';
+import { AuthStore } from '~features/auth';
+import { isSignerIdSelector } from '~features/auth/stores/auth/auth.selectors';
 import { NavigationThemeDark, NavigationThemeLight } from '~features/common';
-import { useI18nStore } from '~features/i18n';
+import { I18nStore } from '~features/i18n';
 
 export function useAppController() {
-  const authStore = useAuthStore();
-  const i18nStore = useI18nStore();
-  const [isLoading, setIsLoading] = useState(false);
+  const authStore = useAppService(AuthStore);
+  const i18nStore = useAppService(I18nStore);
+  const [isLoading, setIsLoading] = useState(true);
   const [isSplashScreenVisible, setIsSplashScreenVisible] = useState(true);
   const [isSplashScreenEnabled, setIsSplashScreenEnabled] = useState(false);
 
@@ -22,8 +24,8 @@ export function useAppController() {
   useEffect(() => {
     async function init() {
       try {
-        await authStore.onCreate();
         await i18nStore.init();
+        await authStore.onCreate();
       } finally {
         await new Promise((resolve) => setTimeout(resolve, 100));
         SplashScreen.hide();
@@ -41,10 +43,13 @@ export function useAppController() {
     deviceTheme === 'dark'
       ? [DARK_THEME, NavigationThemeDark]
       : [LIGHT_THEME, NavigationThemeLight];
+
+  const isSignedIn = useAppSelector(isSignerIdSelector);
+
   return {
     theme,
     navigationTheme,
-    isSignedIn: authStore.state === 'signedIn',
+    isSignedIn,
     isLoading,
     onSplashScreenAnimationFinished,
     isSplashScreenVisible,

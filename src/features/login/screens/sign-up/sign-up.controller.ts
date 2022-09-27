@@ -2,7 +2,8 @@ import { useCallback, useRef } from 'react';
 import { TextInput } from 'react-native';
 import { useTheme } from 'react-native-nucleus-ui';
 
-import { useAuthStore } from '~features/auth';
+import { useAppService } from '~features/app';
+import { AuthStore } from '~features/auth';
 import { useLoadingState } from '~features/common';
 import { useDialogStore } from '~features/dialogs';
 
@@ -13,7 +14,7 @@ import { extendThemeWithSignUp } from './sign-up.theme';
 export function useSignUpController() {
   const passwordRef = useRef<TextInput>(null);
   const [isLoading, setIsLoading] = useLoadingState();
-  const authStore = useAuthStore();
+  const authStore = useAppService(AuthStore);
   const dialogsStore = useDialogStore();
   const theme = useTheme();
   const signup = useCallback(

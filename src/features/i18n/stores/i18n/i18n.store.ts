@@ -1,4 +1,5 @@
 import i18n from 'i18next';
+import { injectable } from 'inversify';
 import { initReactI18next } from 'react-i18next';
 
 import enTranslation from '../../resources/en/translation.json';
@@ -13,6 +14,7 @@ const resources = {
   },
 };
 
+@injectable()
 export class I18nStore {
   constructor() {}
 
@@ -27,5 +29,3 @@ export class I18nStore {
     });
   }
 }
-
-export const i18nStoreSingleton = new I18nStore();

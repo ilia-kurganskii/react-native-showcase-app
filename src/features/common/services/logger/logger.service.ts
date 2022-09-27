@@ -1,10 +1,13 @@
+import { injectable } from 'inversify';
+
 import { LoggerLevel, LoggerTransport } from './logger.type';
 import {
-  CrashlyticsTransport,
   ConsoleTransport,
+  CrashlyticsTransport,
   FileTransport,
 } from './transports';
 
+@injectable()
 export class LoggerService {
   private transports: LoggerTransport[];
 
@@ -38,5 +41,3 @@ export class LoggerService {
     );
   }
 }
-
-export const loggerSingleton = new LoggerService();

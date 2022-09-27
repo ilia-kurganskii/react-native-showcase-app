@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 import { useTheme } from 'react-native-nucleus-ui';
 
-import { useAuthStore } from '~features/auth';
+import { useAppService } from '~features/app';
+import { AuthStore } from '~features/auth';
 import { TestIds } from '~features/common';
 import { useDialogStore } from '~features/dialogs';
 
@@ -12,8 +13,7 @@ export function useProfileController() {
   const theme = useTheme();
   const dialogsStore = useDialogStore();
   const styles = getProfileScreenStyles(extendThemeWithProfile(theme));
-  const authStore = useAuthStore();
-  const user = authStore.user;
+  const authStore = useAppService(AuthStore);
 
   const logout = useCallback(async () => {
     dialogsStore.showDialog({
@@ -36,8 +36,8 @@ export function useProfileController() {
   }, [dialogsStore, authStore]);
 
   return {
-    userName: user?.displayName,
-    email: user?.email,
+    userName: '2',
+    email: '22',
     styles,
     logout,
   };
