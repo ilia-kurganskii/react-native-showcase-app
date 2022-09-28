@@ -1,3 +1,4 @@
+import { injectable } from 'inversify';
 import { Client, gql } from 'urql';
 
 import { AppConfiguration } from '~features/common';
@@ -47,6 +48,7 @@ const GetNewsById = gql`
   }
 `;
 
+@injectable()
 export class NewsService {
   constructor(
     private readonly client = new Client({

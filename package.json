@@ -53,6 +53,7 @@
     "react-native-splash-screen": "3.3.0",
     "react-native-svg": "13.1.0",
     "react-redux": "8.0.4",
+    "redux-saga": "^1.2.1",
     "reflect-metadata": "0.1.13",
     "urql": "2.2.3",
     "yup": "0.32.11"

@@ -1,22 +1,27 @@
 import { useNavigation } from '@react-navigation/native';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useTheme } from 'react-native-nucleus-ui';
 
+import { useAppSelector, useAppService } from '~features/app';
 import { FLOWS, SCREENS } from '~features/common';
-import { useErrorHandler } from '~features/common/hooks/use-error-handler';
+import { NewsStore } from '~features/home';
 import { getHomeStyle } from '~features/home/screens/home/home.style';
+import { newsSelectors } from '~features/home/stores/news/news.selectors';
 
-import { useNewsStore } from '../../stores/news';
 import { extendThemeWithHome } from './home.theme';
 
 export function useHomeController() {
-  const newsStore = useNewsStore();
+  const newsStore = useAppService(NewsStore);
   const navigation = useNavigation();
-  const errorHandler = useErrorHandler();
   const theme = useTheme();
   const styles = getHomeStyle(extendThemeWithHome(theme));
-  const [isRefreshing, setRefreshing] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+
+  // Data from state
+  const error = useAppSelector(newsSelectors.error);
+  const news = useAppSelector(newsSelectors.selectAll);
+
+  const headerNews = news[0];
+  const otherNews = useMemo(() => news.slice(1), [news]);
 
   const openDetails = useCallback(
     (id: string) => {
@@ -28,47 +33,21 @@ export function useHomeController() {
     [navigation]
   );
 
-  const loadNextNews = useCallback(async () => {
-    try {
-      await newsStore.loadNextNews();
-    } catch (e) {
-      errorHandler(e);
-    }
-  }, [newsStore, errorHandler]);
-
-  const refresh = useCallback(async () => {
-    try {
-      setRefreshing(true);
-      await newsStore.reload();
-    } catch (e) {
-      errorHandler(e);
-    } finally {
-      setRefreshing(false);
-    }
-  }, [newsStore, errorHandler]);
-
   useEffect(() => {
-    loadNextNews().catch((e) => {
-      if (e instanceof Error) {
-        setError(e.message);
-      } else {
-        errorHandler(e);
-      }
-    });
-  }, [loadNextNews, errorHandler, setError]);
+    newsStore.loadNextNews();
+  }, [newsStore]);
 
-  const isShowErrorPlaceholder = error && newsStore.news.length === 0;
+  const isShowErrorPlaceholder = error && news.length === 0;
 
-  const headerNews = newsStore.news[0];
   return {
     styles,
     headerNews,
     openDetails,
     error,
     isShowErrorPlaceholder,
-    loadMore: loadNextNews,
-    refresh,
-    isRefreshing,
-    news: newsStore.news.slice(1),
+    loadMore: newsStore.loadNextNews,
+    refresh: newsStore.refresh,
+    isRefreshing: false,
+    news: otherNews,
   };
 }
