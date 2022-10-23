@@ -39,7 +39,7 @@
     "graphql": "16.5.0",
     "i18next": "21.9.1",
     "lottie-react-native": "5.1.4",
-    "mobx": "6.6.1",
+    "mobx": "6.6.2",
     "mobx-react-lite": "3.4.0",
     "react": "18.1.0",
     "react-i18next": "11.18.5",
