@@ -1,2 +1,2 @@
-export * from './dialogs.hook';
-export * from './dialogs.store';
+export * from './dialogs.sagas';
+export * from './dialogs.slice';

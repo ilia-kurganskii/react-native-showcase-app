@@ -1,5 +1,4 @@
-import { observer } from 'mobx-react-lite';
-import React, { useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -67,4 +66,4 @@ function extractId(newsItem: NewsItem) {
   return newsItem.id;
 }
 
-export const HomeScreen = observer(HomeScreenComponent);
+export const HomeScreen = memo(HomeScreenComponent);

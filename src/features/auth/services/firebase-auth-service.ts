@@ -1,15 +1,14 @@
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import { inject, injectable } from 'inversify';
 
-import { LoggerService, loggerSingleton } from '~features/common';
+import { LoggerService } from '~features/common';
 
-export enum UserState {
-  Logged,
-  Anonymous,
-  Unauthorized,
-}
-
+@injectable()
 export class FirebaseAuthService {
-  constructor(private readonly logger: LoggerService = loggerSingleton) {}
+  @inject(LoggerService)
+  private readonly logger!: LoggerService;
+
+  constructor() {}
 
   subscribeToAuthChanges(
     listener: (user: FirebaseAuthTypes.User | null) => void
@@ -40,5 +39,3 @@ export class FirebaseAuthService {
     await auth().signOut();
   };
 }
-
-export const firebaseAuthServiceSingleton = new FirebaseAuthService();

@@ -1,56 +1,53 @@
-import { observer } from 'mobx-react-lite';
-import React from 'react';
+import React, { memo } from 'react';
 import { Popover } from 'react-native-nucleus-ui';
 
 import { BottomSheet, CenterSheet } from '~features/dialogs/components';
-import { DialogState } from '~features/dialogs/stores/dialogs/dialogs.type';
 
 import { useDialogsController } from './dialogs.controller';
 
-function renderDialog(dialog: DialogState) {
-  switch (dialog.position) {
-    case 'bottom':
-      return (
-        <BottomSheet
-          key={dialog.id}
-          closable={dialog.closable}
-          isClosing={dialog.isClosing}
-          onClose={dialog.closeDialog}
-          onCloseAnimationFinish={dialog.onCloseAnimationFinish}
-        >
-          <Popover
-            actionButton={dialog.actionButton}
-            cancelButton={dialog.secondButton}
-            message={dialog.message}
-            title={dialog.title}
-          />
-        </BottomSheet>
-      );
-
-    case 'center':
-      return (
-        <CenterSheet
-          key={dialog.id}
-          closable={dialog.closable}
-          isClosing={dialog.isClosing}
-          onClose={dialog.closeDialog}
-          onCloseAnimationFinish={dialog.onCloseAnimationFinish}
-        >
-          <Popover
-            actionButton={dialog.actionButton}
-            cancelButton={dialog.secondButton}
-            message={dialog.message}
-            title={dialog.title}
-          />
-        </CenterSheet>
-      );
-  }
-}
-
 function DialogsScreensComponent() {
-  const { dialogs } = useDialogsController();
-  return dialogs.map(renderDialog);
+  const { dialogs, closeDialog, onFinishAnimation, getButtonProps } =
+    useDialogsController();
+  return dialogs.map((dialog) => {
+    switch (dialog.position) {
+      case 'bottom':
+        return (
+          <BottomSheet
+            key={dialog.id}
+            closable={dialog.closable}
+            isClosing={dialog.isClosing}
+            onClose={() => closeDialog(dialog.id)}
+            onCloseAnimationFinish={() => onFinishAnimation(dialog.id)}
+          >
+            <Popover
+              actionButton={getButtonProps(dialog.id, dialog.actionButton)}
+              cancelButton={getButtonProps(dialog.id, dialog.secondButton)}
+              message={dialog.message}
+              title={dialog.title}
+            />
+          </BottomSheet>
+        );
+
+      case 'center':
+        return (
+          <CenterSheet
+            key={dialog.id}
+            closable={dialog.closable}
+            isClosing={dialog.isClosing}
+            onClose={() => closeDialog(dialog.id)}
+            onCloseAnimationFinish={() => onFinishAnimation(dialog.id)}
+          >
+            <Popover
+              actionButton={getButtonProps(dialog.id, dialog.actionButton)}
+              cancelButton={getButtonProps(dialog.id, dialog.secondButton)}
+              message={dialog.message}
+              title={dialog.title}
+            />
+          </CenterSheet>
+        );
+    }
+  });
 }
 
 // @ts-ignore ignore typing issue with array
-export const DialogsScreen = observer(DialogsScreensComponent);
+export const DialogsScreen = memo(DialogsScreensComponent);

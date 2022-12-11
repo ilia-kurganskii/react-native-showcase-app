@@ -1,35 +1,29 @@
 import { FirebaseAuthTypes } from '@react-native-firebase/auth';
-import { computed, makeAutoObservable, observable } from 'mobx';
+import { inject, injectable } from 'inversify';
 
-import {
-  FirebaseAuthService,
-  firebaseAuthServiceSingleton,
-} from '../services/firebase-auth-service';
+import { RootStore } from '~features/app/stores/root/root.store';
+import { FirebaseAuthService } from '~features/auth/services/firebase-auth-service';
+import { LoggerService } from '~features/common';
 
+import { authActions } from './auth.slice';
+
+@injectable()
 export class AuthStore {
-  @observable
-  public user: FirebaseAuthTypes.User | null | undefined = undefined;
+  @inject(RootStore)
+  private readonly rootStore!: RootStore;
+
+  @inject(FirebaseAuthService)
+  private readonly firebaseAuthService!: FirebaseAuthService;
+
+  @inject(LoggerService)
+  private readonly loggerService!: LoggerService;
 
   private unsubscribeFromAuthChanges: () => void = () => undefined;
 
-  @computed
-  get state(): 'loading' | 'signedIn' | 'unauthorized' {
-    if (this.user === undefined) {
-      return 'loading';
-    }
-    if (this.user === null) {
-      return 'unauthorized';
-    }
-    return 'signedIn';
-  }
-
-  constructor(
-    private readonly firebaseAuthService: FirebaseAuthService = firebaseAuthServiceSingleton
-  ) {
-    makeAutoObservable(this);
-  }
+  constructor() {}
 
   onCreate = () => {
+    this.unsubscribeFromAuthChanges();
     this.unsubscribeFromAuthChanges =
       this.firebaseAuthService.subscribeToAuthChanges(this.updateAuthState);
   };
@@ -45,10 +39,6 @@ export class AuthStore {
     await this.firebaseAuthService.loginByEmailAndPassword(params);
   };
 
-  loginAnonymously = async () => {
-    await this.firebaseAuthService.loginAnonymously();
-  };
-
   signUpEmailAndPassword = async (params: {
     login: string;
     password: string;
@@ -61,8 +51,14 @@ export class AuthStore {
   };
 
   private updateAuthState = (user: FirebaseAuthTypes.User | null) => {
-    this.user = user;
+    if (user) {
+      this.rootStore.store.dispatch(
+        authActions.updateAuthState({
+          email: user.email!,
+        })
+      );
+    } else {
+      this.rootStore.store.dispatch(authActions.updateAuthState(null));
+    }
   };
 }
-
-export const authStoreSingleton = new AuthStore();

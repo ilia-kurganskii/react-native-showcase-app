@@ -1,5 +1,4 @@
-import { observer } from 'mobx-react-lite';
-import React from 'react';
+import React, { memo } from 'react';
 import { Image, ScrollView, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -25,4 +24,4 @@ function NewsDetailsScreenComponent() {
   );
 }
 
-export const NewsDetailsScreen = observer(NewsDetailsScreenComponent);
+export const NewsDetailsScreen = memo(NewsDetailsScreenComponent);
