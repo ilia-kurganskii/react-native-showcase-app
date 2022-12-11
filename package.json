@@ -41,8 +41,6 @@
     "i18next": "21.9.1",
     "inversify": "6.0.1",
     "lottie-react-native": "5.1.4",
-    "mobx": "6.6.1",
-    "mobx-react-lite": "3.4.0",
     "react": "18.1.0",
     "react-i18next": "11.18.5",
     "react-native": "0.70.1",

@@ -1,5 +1,4 @@
-import { observer } from 'mobx-react-lite';
-import React from 'react';
+import React, { memo } from 'react';
 import { Popover } from 'react-native-nucleus-ui';
 
 import { BottomSheet, CenterSheet } from '~features/dialogs/components';
@@ -51,4 +50,4 @@ function DialogsScreensComponent() {
 }
 
 // @ts-ignore ignore typing issue with array
-export const DialogsScreen = observer(DialogsScreensComponent);
+export const DialogsScreen = memo(DialogsScreensComponent);
