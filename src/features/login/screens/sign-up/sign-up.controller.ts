@@ -1,11 +1,11 @@
 import { useCallback, useRef } from 'react';
 import { TextInput } from 'react-native';
 import { useTheme } from 'react-native-nucleus-ui';
+import { useDispatch } from 'react-redux';
 
-import { useAppService } from '~features/app';
-import { AuthStore } from '~features/auth';
-import { useLoadingState } from '~features/common';
-import { useDialogStore } from '~features/dialogs';
+import { useAppSelector } from '~features/app';
+import { authSelectors } from '~features/auth/stores/auth/auth.selectors';
+import { authActions } from '~features/auth/stores/auth/auth.slice';
 
 import { SignUpFormValues, useSignUpForm } from './sign-up.form';
 import { getSignUpScreenStyles } from './sign-up.style';
@@ -13,33 +13,19 @@ import { extendThemeWithSignUp } from './sign-up.theme';
 
 export function useSignUpController() {
   const passwordRef = useRef<TextInput>(null);
-  const [isLoading, setIsLoading] = useLoadingState();
-  const authStore = useAppService(AuthStore);
-  const dialogsStore = useDialogStore();
+  const isLoading = useAppSelector(authSelectors.selectIsLoading);
+  const dispatch = useDispatch();
   const theme = useTheme();
   const signup = useCallback(
     async (values: SignUpFormValues) => {
-      try {
-        setIsLoading(true);
-        await authStore.signUpEmailAndPassword({
-          login: values.email,
+      dispatch(
+        authActions.signUpByEmail({
+          email: values.email,
           password: values.password,
-        });
-      } catch (e: unknown) {
-        const message = e instanceof Error ? e.message : 'Try again later';
-        dialogsStore.showDialog({
-          title: 'Something went wrong',
-          message: message,
-          actionButton: {
-            title: 'Okay',
-            action: (actions) => actions.close(),
-          },
-        });
-      } finally {
-        setIsLoading(false);
-      }
+        })
+      );
     },
-    [setIsLoading, authStore, dialogsStore]
+    [dispatch]
   );
   const form = useSignUpForm(signup);
   const styles = getSignUpScreenStyles(extendThemeWithSignUp(theme));

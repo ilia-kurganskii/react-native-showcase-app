@@ -1,48 +1,32 @@
 import { useCallback, useRef } from 'react';
 import { TextInput } from 'react-native';
 import { useTheme } from 'react-native-nucleus-ui';
+import { useDispatch } from 'react-redux';
 
-import { useAppService } from '~features/app';
-import { AuthStore } from '~features/auth';
-import { useLoggerService, useLoadingState } from '~features/common';
-import { useDialogStore } from '~features/dialogs';
+import { useAppSelector } from '~features/app';
+import { authSelectors } from '~features/auth/stores/auth/auth.selectors';
+import { authActions } from '~features/auth/stores/auth/auth.slice';
 
 import { LoginFormValues, useLoginForm } from './login.form';
 import { getLoginScreenStyles } from './login.style';
 import { extendThemeWithLogin } from './login.theme';
 
 export function useLoginController() {
-  const [isLoading, setIsLoading] = useLoadingState();
   const passwordRef = useRef<TextInput>(null);
-  const authStore = useAppService(AuthStore);
-  const loggerService = useLoggerService();
-  const dialogsStore = useDialogStore();
+  const dispatch = useDispatch();
+  const isLoading = useAppSelector(authSelectors.selectIsLoading);
   const theme = useTheme();
   const styles = getLoginScreenStyles(extendThemeWithLogin(theme));
   const login = useCallback(
-    async (values: LoginFormValues) => {
-      try {
-        setIsLoading(true);
-        await authStore.loginByEmailPassword({
-          login: values.email,
+    (values: LoginFormValues) => {
+      dispatch(
+        authActions.loginByEmail({
+          email: values.email,
           password: values.password,
-        });
-      } catch (e: unknown) {
-        const message = e instanceof Error ? e.message : 'Try again later';
-        dialogsStore.showDialog({
-          title: 'Something went wrong',
-          message: message,
-          actionButton: {
-            title: 'Okay',
-            action: (actions) => actions.close(),
-          },
-        });
-        loggerService.warn('Login error', e);
-      } finally {
-        setIsLoading(false);
-      }
+        })
+      );
     },
-    [loggerService, setIsLoading, authStore, dialogsStore]
+    [dispatch]
   );
   const form = useLoginForm(login);
 

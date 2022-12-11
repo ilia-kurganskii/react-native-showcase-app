@@ -2,9 +2,17 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import { RootState } from '~features/app';
 
-export const isSignerIdSelector = createSelector(
-  (state: RootState) => state.auth,
-  (auth) => {
-    return !!auth.user;
-  }
-);
+const selectSelf = (state: RootState) => state.auth;
+
+const selectIsSignedIn = createSelector(selectSelf, (auth) => {
+  return !!auth.user;
+});
+
+const selectIsLoading = createSelector(selectSelf, (auth) => {
+  return auth.isLoading;
+});
+
+export const authSelectors = {
+  selectIsLoading,
+  selectIsSignedIn,
+};

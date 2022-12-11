@@ -5,7 +5,7 @@ import SplashScreen from 'react-native-splash-screen';
 
 import { useAppSelector, useAppService } from '~features/app';
 import { AuthStore } from '~features/auth';
-import { isSignerIdSelector } from '~features/auth/stores/auth/auth.selectors';
+import { authSelectors } from '~features/auth/stores/auth/auth.selectors';
 import { NavigationThemeDark, NavigationThemeLight } from '~features/common';
 import { I18nStore } from '~features/i18n';
 
@@ -44,7 +44,7 @@ export function useAppController() {
       ? [DARK_THEME, NavigationThemeDark]
       : [LIGHT_THEME, NavigationThemeLight];
 
-  const isSignedIn = useAppSelector(isSignerIdSelector);
+  const isSignedIn = useAppSelector(authSelectors.selectIsSignedIn);
 
   return {
     theme,

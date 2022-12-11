@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 
 import { authReducer, FirebaseAuthService } from '~features/auth';
+import { dialogReducer } from '~features/dialogs/stores/dialogs/dialogs.slice';
 import { NewsService } from '~features/home/services/news';
 import { newsReducer } from '~features/home/stores/news/news.slice';
 
@@ -48,6 +49,7 @@ function createStore(services: AppServices) {
     reducer: {
       auth: authReducer,
       news: newsReducer,
+      dialogs: dialogReducer,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
