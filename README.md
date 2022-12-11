@@ -46,3 +46,4 @@ More about renovate https://github.com/renovatebot/renovate
 - Charts
 - Increase coverage for unit tests
 - Code Push
+- Root Error handling
