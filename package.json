@@ -37,7 +37,7 @@
     "@reduxjs/toolkit": "1.8.5",
     "axios": "0.27.2",
     "formik": "2.2.9",
-    "graphql": "16.5.0",
+    "graphql": "16.6.0",
     "i18next": "21.9.1",
     "inversify": "6.0.1",
     "lottie-react-native": "5.1.4",
@@ -53,7 +53,7 @@
     "react-redux": "8.0.4",
     "redux-saga": "^1.2.1",
     "reflect-metadata": "0.1.13",
-    "urql": "2.2.3",
+    "urql": "3.0.3",
     "yup": "0.32.11"
   },
   "devDependencies": {
