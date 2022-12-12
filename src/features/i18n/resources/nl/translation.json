@@ -1,0 +1,22 @@
+{
+  "login": {
+    "email-label": "Email",
+    "login-btn": "Inloggen",
+    "password-label": "Wachtwoord",
+    "title": "Inloggen"
+  },
+  "lunch": {
+    "create-account-btn": "Account aanmaken",
+    "logo-end": "learn",
+    "logo-start": "you"
+  },
+  "profile": {
+    "account-information": "Account informatie",
+    "logout": "Uitloggen"
+  },
+  "sign-up": {
+    "create-account-btn": "Account aanmaken",
+    "email-label": "Email",
+    "password-label": "Wachtwoord"
+  }
+}
