@@ -1,3 +1,4 @@
+import { useNavigationContainerRef } from '@react-navigation/native';
 import { useCallback, useEffect, useState } from 'react';
 import { useColorScheme } from 'react-native';
 import { DARK_THEME, LIGHT_THEME } from 'react-native-nucleus-ui';
@@ -10,6 +11,7 @@ import { NavigationThemeDark, NavigationThemeLight } from '~features/common';
 import { I18nStore } from '~features/i18n';
 
 export function useAppController() {
+  const navigationRef = useNavigationContainerRef();
   const authStore = useAppService(AuthStore);
   const i18nStore = useAppService(I18nStore);
   const [isLoading, setIsLoading] = useState(true);
@@ -47,6 +49,7 @@ export function useAppController() {
   const isSignedIn = useAppSelector(authSelectors.selectIsSignedIn);
 
   return {
+    navigationRef,
     theme,
     navigationTheme,
     isSignedIn,

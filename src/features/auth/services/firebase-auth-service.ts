@@ -20,7 +20,6 @@ export class FirebaseAuthService {
     login: string;
     password: string;
   }) => {
-    this.logger.info('Login with email: ' + params.login);
     await auth().signInWithEmailAndPassword(params.login, params.password);
   };
 

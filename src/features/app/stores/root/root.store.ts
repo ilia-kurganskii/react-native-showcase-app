@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import * as Sentry from '@sentry/react';
 import { inject, injectable, postConstruct } from 'inversify';
 import { useSelector } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
@@ -45,6 +46,8 @@ function createStore(services: AppServices) {
   const sagaMiddleware = createSagaMiddleware({
     context: services,
   });
+  const sentryReduxEnhancer = Sentry.createReduxEnhancer({});
+
   const store = configureStore({
     reducer: {
       auth: authReducer,
@@ -57,6 +60,8 @@ function createStore(services: AppServices) {
         immutableCheck: true,
         serializableCheck: true,
       }).concat(sagaMiddleware),
+    enhancers: (defaultEnhancers) =>
+      defaultEnhancers.concat(sentryReduxEnhancer),
   });
   sagaMiddleware.run(rootSagas);
   return store;

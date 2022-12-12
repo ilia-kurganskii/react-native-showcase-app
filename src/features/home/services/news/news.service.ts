@@ -53,11 +53,11 @@ export class NewsService {
   constructor(
     private readonly client = new Client({
       url:
-        AppConfiguration.ContentfulHost +
-        `/content/v1/spaces/${AppConfiguration.ContentfulSpace}`,
+        AppConfiguration.contentful.host +
+        `/content/v1/spaces/${AppConfiguration.contentful.space}`,
       fetchOptions: {
         headers: {
-          Authorization: `Bearer ${AppConfiguration.ContentfulPublicApiKey}`,
+          Authorization: `Bearer ${AppConfiguration.contentful.publicKey}`,
         },
       },
     })

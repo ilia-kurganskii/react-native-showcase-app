@@ -1,11 +1,7 @@
 import { injectable } from 'inversify';
 
 import { LoggerLevel, LoggerTransport } from './logger.type';
-import {
-  ConsoleTransport,
-  CrashlyticsTransport,
-  FileTransport,
-} from './transports';
+import { SentryTransport, ConsoleTransport, FileTransport } from './transports';
 
 @injectable()
 export class LoggerService {
@@ -15,7 +11,7 @@ export class LoggerService {
     this.transports = [
       new ConsoleTransport(),
       new FileTransport(),
-      new CrashlyticsTransport(),
+      new SentryTransport(),
     ];
   }
 
@@ -32,7 +28,7 @@ export class LoggerService {
   }
 
   warn(message: string, error?: Error | unknown) {
-    this.log('warn', message, error);
+    this.log('warning', message, error);
   }
 
   log(level: LoggerLevel, message: string, error?: Error | unknown) {

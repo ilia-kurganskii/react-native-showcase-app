@@ -74,6 +74,7 @@ export function LoginScreen() {
 
           <Button
             onPress={submitForm}
+            sentry-label={TestIds.Login.LoginButton}
             size="block"
             style={styles.button}
             testID={TestIds.Login.LoginButton}

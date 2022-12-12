@@ -1,12 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React, { ReactNode } from 'react';
+import * as Sentry from '@sentry/react-native';
+import React, { ReactNode, useCallback } from 'react';
 import { ThemeProvider } from 'react-native-nucleus-ui';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 
 import { container, DIProvider, RootStore } from '~features/app';
 import { FLOWS, Splash } from '~features/common';
+import { AppConfiguration } from '~features/common';
 import { DialogsScreen } from '~features/dialogs';
 import { HomeTabNavigation } from '~features/home';
 import { NewsNavigator } from '~features/home/navigation/news.navigator';
@@ -15,6 +17,23 @@ import { LoginNavigation } from '~features/login';
 import { useAppController } from './app.controller';
 
 const Stack = createNativeStackNavigator();
+
+const routingInstrumentation = new Sentry.ReactNavigationInstrumentation();
+
+Sentry.init({
+  dsn: AppConfiguration.sentry.dsn,
+  environment: AppConfiguration.environment,
+  debug: AppConfiguration.environment === 'development',
+  enabled: AppConfiguration.environment !== 'development',
+  // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+  // We recommend adjusting this value in production.
+  tracesSampleRate: 0.25,
+  integrations: [
+    new Sentry.ReactNativeTracing({
+      routingInstrumentation,
+    }),
+  ],
+});
 
 function Providers(props: { children: ReactNode }) {
   return (
@@ -37,11 +56,20 @@ function MainComponent() {
     isSignedIn,
     theme,
     navigationTheme,
+    navigationRef,
   } = useAppController();
+
+  const onNavigationReady = useCallback(() => {
+    routingInstrumentation.registerNavigationContainer(navigationRef);
+  }, [navigationRef]);
 
   return (
     <ThemeProvider value={theme}>
-      <NavigationContainer theme={navigationTheme}>
+      <NavigationContainer
+        ref={navigationRef}
+        onReady={onNavigationReady}
+        theme={navigationTheme}
+      >
         {!isLoading ? (
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             {isSignedIn ? (
@@ -76,4 +104,4 @@ export function AppComponent() {
   );
 }
 
-export const App = AppComponent;
+export const App = Sentry.wrap(AppComponent);

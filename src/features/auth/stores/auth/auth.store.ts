@@ -3,7 +3,6 @@ import { inject, injectable } from 'inversify';
 
 import { RootStore } from '~features/app/stores/root/root.store';
 import { FirebaseAuthService } from '~features/auth/services/firebase-auth-service';
-import { LoggerService } from '~features/common';
 
 import { authActions } from './auth.slice';
 
@@ -14,9 +13,6 @@ export class AuthStore {
 
   @inject(FirebaseAuthService)
   private readonly firebaseAuthService!: FirebaseAuthService;
-
-  @inject(LoggerService)
-  private readonly loggerService!: LoggerService;
 
   private unsubscribeFromAuthChanges: () => void = () => undefined;
 
@@ -30,24 +26,6 @@ export class AuthStore {
 
   onDestroy = () => {
     this.unsubscribeFromAuthChanges();
-  };
-
-  loginByEmailPassword = async (params: {
-    login: string;
-    password: string;
-  }) => {
-    await this.firebaseAuthService.loginByEmailAndPassword(params);
-  };
-
-  signUpEmailAndPassword = async (params: {
-    login: string;
-    password: string;
-  }) => {
-    await this.firebaseAuthService.signUpEmailAndPassword(params);
-  };
-
-  logout = async () => {
-    await this.firebaseAuthService.logout();
   };
 
   private updateAuthState = (user: FirebaseAuthTypes.User | null) => {

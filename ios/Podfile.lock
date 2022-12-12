@@ -18,9 +18,6 @@ PODS:
     - FirebaseAuth (~> 8.15.0)
   - Firebase/CoreOnly (8.15.0):
     - FirebaseCore (= 8.15.0)
-  - Firebase/Crashlytics (8.15.0):
-    - Firebase/CoreOnly
-    - FirebaseCrashlytics (~> 8.15.0)
   - FirebaseAuth (8.15.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
@@ -35,18 +32,6 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (~> 2.30908.0)
-  - FirebaseCrashlytics (8.15.0):
-    - FirebaseCore (~> 8.0)
-    - FirebaseInstallations (~> 8.0)
-    - GoogleDataTransport (~> 9.1)
-    - GoogleUtilities/Environment (~> 7.7)
-    - nanopb (~> 2.30908.0)
-    - PromisesObjC (< 3.0, >= 1.2)
-  - FirebaseInstallations (8.15.0):
-    - FirebaseCore (~> 8.0)
-    - GoogleUtilities/Environment (~> 7.7)
-    - GoogleUtilities/UserDefaults (~> 7.7)
-    - PromisesObjC (< 3.0, >= 1.2)
   - Flipper (0.175.0):
     - Flipper-Folly (~> 2.6)
   - Flipper-Boost-iOSX (1.76.0.1.11)
@@ -127,8 +112,6 @@ PODS:
     - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (7.10.0)"
   - GoogleUtilities/Reachability (7.10.0):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (7.10.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.7.2)
   - hermes-engine (0.70.6)
@@ -451,18 +434,18 @@ PODS:
     - Firebase/Auth (= 8.15.0)
     - React-Core
     - RNFBApp
-  - RNFBCrashlytics (14.11.1):
-    - Firebase/Crashlytics (= 8.15.0)
-    - React-Core
-    - RNFBApp
   - RNFileLogger (0.3.0):
     - CocoaLumberjack
     - React
   - RNScreens (3.17.0):
     - React-Core
     - React-RCTImage
+  - RNSentry (4.11.0):
+    - React-Core
+    - Sentry/HybridSDK (= 7.31.2)
   - RNSVG (13.1.0):
     - React-Core
+  - Sentry/HybridSDK (7.31.2)
   - SocketRocket (0.6.0)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -532,9 +515,9 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
-  - "RNFBCrashlytics (from `../node_modules/@react-native-firebase/crashlytics`)"
   - RNFileLogger (from `../node_modules/react-native-file-logger`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - "RNSentry (from `../node_modules/@sentry/react-native`)"
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -546,8 +529,6 @@ SPEC REPOS:
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
-    - FirebaseCrashlytics
-    - FirebaseInstallations
     - Flipper
     - Flipper-Boost-iOSX
     - Flipper-DoubleConversion
@@ -566,6 +547,7 @@ SPEC REPOS:
     - nanopb
     - OpenSSL-Universal
     - PromisesObjC
+    - Sentry
     - SocketRocket
     - YogaKit
 
@@ -646,12 +628,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBAuth:
     :path: "../node_modules/@react-native-firebase/auth"
-  RNFBCrashlytics:
-    :path: "../node_modules/@react-native-firebase/crashlytics"
   RNFileLogger:
     :path: "../node_modules/react-native-file-logger"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSentry:
+    :path: "../node_modules/@sentry/react-native"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Yoga:
@@ -668,8 +650,6 @@ SPEC CHECKSUMS:
   FirebaseAuth: 3e73bf8abf4fbb40f8b421f361f4cc48ee57388c
   FirebaseCore: 5743c5785c074a794d35f2fff7ecc254a91e08b1
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
-  FirebaseCrashlytics: feb07e4e9187be3c23c6a846cce4824e5ce2dd0b
-  FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
   Flipper: d9d1aa67916620c9a6af11cb8275f06cd522943e
   Flipper-Boost-iOSX: fd1e2b8cbef7e662a122412d7ac5f5bea715403c
   Flipper-DoubleConversion: 2dc99b02f658daf147069aad9dbd29d8feb06d30
@@ -722,10 +702,11 @@ SPEC CHECKSUMS:
   ReactCommon: 349be31adeecffc7986a0de875d7fb0dcf4e251c
   RNFBApp: 9646e09d041ea159b84584865212e4cf33acd179
   RNFBAuth: af943e3ba071b5f4d18896c31e6cba3a77b1fa08
-  RNFBCrashlytics: f2b5e456c4969bdec60482e83d973d873ff17f1d
   RNFileLogger: 677ab4bfd2cc920a70f0820d47fc5c353bb7a000
   RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
+  RNSentry: f052387ebe939949c74c2cae0c850e76f6d14ddb
   RNSVG: 1153e8eeb34c788841016c517dba9f57f20b762f
+  Sentry: b15765d11769852fe78c9add942f7df60ed5dbf5
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: 99caf8d5ab45e9d637ee6e0174ec16fbbb01bcfc
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
