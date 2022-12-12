@@ -15,7 +15,7 @@
     "logout": "Выйти"
   },
   "sign-up": {
-    "create-account-btn": "Создать аккаунт",
+    "create-account-btn": "Зарегистрироваться",
     "email-label": "Почта",
     "password-label": "Пароль"
   }
