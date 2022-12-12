@@ -1,7 +1,7 @@
 {
   "login": {
     "email-label": "Почта",
-    "login-btn": "Войти",
+    "login-btn": "Вход",
     "password-label": "Пароль",
     "title": "Вход"
   },
@@ -11,7 +11,7 @@
     "logo-start": "you"
   },
   "profile": {
-    "account-information": "Информация",
+    "account-information": "Информация об аккаунте",
     "logout": "Выйти"
   },
   "sign-up": {
