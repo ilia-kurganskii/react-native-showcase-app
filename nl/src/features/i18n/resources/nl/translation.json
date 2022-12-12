@@ -1,22 +1,22 @@
 {
   "login": {
-    "email-label": "Почта",
-    "login-btn": "Войти",
-    "password-label": "Пароль",
-    "title": "Вход"
+    "email-label": "Email",
+    "login-btn": "Inloggen",
+    "password-label": "Wachtwoord",
+    "title": "Inloggen"
   },
   "lunch": {
-    "create-account-btn": "Создать аккаунт",
+    "create-account-btn": "Account aanmaken",
     "logo-end": "learn",
     "logo-start": "you"
   },
   "profile": {
-    "account-information": "Информация",
-    "logout": "Выйти"
+    "account-information": "Account informatie",
+    "logout": "Uitloggen"
   },
   "sign-up": {
-    "create-account-btn": "Создать аккаунт",
-    "email-label": "Почта",
-    "password-label": "Пароль"
+    "create-account-btn": "Account aanmaken",
+    "email-label": "Email",
+    "password-label": "Wachtwoord"
   }
 }
