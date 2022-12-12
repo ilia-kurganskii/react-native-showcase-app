@@ -7,6 +7,7 @@
   },
   "lunch": {
     "create-account-btn": "Создать аккаунт",
+    "have-an-account": "<0>Already have an account? </0><1>Login</1>",
     "logo-end": "learn",
     "logo-start": "you"
   },
