@@ -1,0 +1,22 @@
+{
+  "login": {
+    "email-label": "Email",
+    "login-btn": "Login",
+    "password-label": "Password",
+    "title": "Login"
+  },
+  "lunch": {
+    "create-account-btn": "Create account",
+    "logo-end": "learn",
+    "logo-start": "you"
+  },
+  "profile": {
+    "account-information": "Account information",
+    "logout": "Logout"
+  },
+  "sign-up": {
+    "create-account-btn": "Create account",
+    "email-label": "Email",
+    "password-label": "Password"
+  }
+}
