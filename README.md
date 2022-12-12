@@ -1,3 +1,5 @@
+[![Crowdin](https://badges.crowdin.net/show-case-app/localized.svg)](https://crowdin.com/project/show-case-app)
+
 # Show case app
 
 My hobby sandbox application where I test approaches or solutions
