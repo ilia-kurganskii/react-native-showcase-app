@@ -4,7 +4,7 @@ import { login } from '~features/common/tests';
 
 describe('Login', () => {
   beforeAll(async () => {
-    await device.clearKeychain();
+    await device.resetContentAndSettings();
     await device.launchApp({ delete: true });
   });
 
