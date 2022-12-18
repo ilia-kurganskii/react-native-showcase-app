@@ -14,5 +14,7 @@
     "^~features/common/tests$": "<rootDir>/src/features/common/tests"
   },
   "verbose": true,
-  "reporters": ["detox/runners/jest/reporter"]
+  "reporters": ["detox/runners/jest/reporter"],
+  "globalSetup": "detox/runners/jest/globalSetup",
+  "globalTeardown": "detox/runners/jest/globalTeardown"
 }
