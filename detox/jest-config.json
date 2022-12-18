@@ -1,13 +1,11 @@
 {
   "preset": "ts-jest",
+  "maxWorkers": 1,
   "testRunner": "jest-circus/runner",
   "testEnvironment": "./detox/environment.ts",
   "testTimeout": 120000,
-  "testRegex": "\\.e2e.ts$",
+  "testMatch": ["<rootDir>/**/*.e2e.ts"],
   "rootDir": "../",
-  "reporters": [
-    "detox/runners/jest/streamlineReporter"
-  ],
   "transform": {
     "^.+\\.(ts|js)x?$": "ts-jest"
   },
@@ -15,5 +13,11 @@
   "moduleNameMapper": {
     "^~features/common/tests$": "<rootDir>/src/features/common/tests"
   },
-  "verbose": true
+  "session": {
+    "debugSynchronization": 20000
+  },
+  "verbose": true,
+  "reporters": ["detox/runners/jest/reporter"],
+  "globalSetup": "detox/runners/jest/globalSetup",
+  "globalTeardown": "detox/runners/jest/globalTeardown"
 }
