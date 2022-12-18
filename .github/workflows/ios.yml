@@ -119,7 +119,7 @@ jobs:
           DETOX_DEFAULT_LOGIN_EMAIL: ${{ secrets.DETOX_DEFAULT_LOGIN_EMAIL }}
           DETOX_DEFAULT_LOGIN_PASSWORD: ${{ secrets.DETOX_DEFAULT_LOGIN_PASSWORD }}
         run: |
-          yarn detox:test:ios-ci  --workers=1 --maxWorkers=1 --retries=3 --artifacts-location ./artifacts/ --record-videos all
+          yarn detox:test:ios-ci --retries=3 --artifacts-location ./artifacts/ --record-videos all
 
       - name: Upload detox artifacts
         if: ${{ failure() }}

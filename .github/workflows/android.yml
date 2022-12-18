@@ -125,7 +125,7 @@ jobs:
           disable-animations: true
           profile: 5.1in WVGA
           avd-name: 5.1_WVGA
-          script: yarn detox:test:android --workers=1 --retries=3 --maxWorkers=1 --artifacts-location ./artifacts/
+          script: yarn detox:test:android --retries=3 --artifacts-location ./artifacts/
 
       - name: Upload detox artifacts
         if: ${{ failure() }}
