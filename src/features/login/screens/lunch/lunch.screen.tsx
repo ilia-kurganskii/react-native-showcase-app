@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { Button } from 'react-native-nucleus-ui';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -59,7 +59,7 @@ function LunchScreenComponent() {
         />
         <Trans
           i18nKey="lunch.have-an-account"
-          parent={Text}
+          parent={View}
           style={styles.loginHelper}
         >
           <Text style={styles.loginHelper__text}>
