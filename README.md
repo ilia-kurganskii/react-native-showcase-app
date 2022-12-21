@@ -4,8 +4,6 @@
 
 My hobby sandbox application where I test approaches or solutions
 
-
-
 ## Tech Stack
 
 - React Native (0.69.*)
@@ -21,11 +19,13 @@ My hobby sandbox application where I test approaches or solutions
 - i18n
 - Logging
 - GraphQL
-- - GraphQL code generation for TypeScript
+- GraphQL code generation for TypeScript
 
 ## Features
 
 ### GitHub actions
+
+This project is tested with BrowserStack.
 
 Every PR trigger checks:
 - Detox
