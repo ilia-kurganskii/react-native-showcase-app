@@ -52,7 +52,7 @@ function* handleLoginByEmail(
 }
 
 function* handleSignUpByEmail(
-  action: ReturnType<typeof authActions.loginByEmail>
+  action: ReturnType<typeof authActions.signUpByEmail>
 ): SagaIterator {
   try {
     const firebaseAuth: FirebaseAuthService = yield getContext('firebaseAuth');
