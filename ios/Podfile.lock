@@ -455,7 +455,7 @@ PODS:
     - Firebase/Crashlytics (= 8.15.0)
     - React-Core
     - RNFBApp
-  - RNFileLogger (0.3.0):
+  - RNFileLogger (0.4.0):
     - CocoaLumberjack
     - React
   - RNScreens (3.17.0):
@@ -723,7 +723,7 @@ SPEC CHECKSUMS:
   RNFBApp: 9646e09d041ea159b84584865212e4cf33acd179
   RNFBAuth: af943e3ba071b5f4d18896c31e6cba3a77b1fa08
   RNFBCrashlytics: f2b5e456c4969bdec60482e83d973d873ff17f1d
-  RNFileLogger: 677ab4bfd2cc920a70f0820d47fc5c353bb7a000
+  RNFileLogger: 87fc2a50db74403f9a97b4b6731a0177dd8a631a
   RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
   RNSVG: 1153e8eeb34c788841016c517dba9f57f20b762f
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
