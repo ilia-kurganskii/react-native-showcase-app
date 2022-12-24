@@ -8959,10 +8959,10 @@ react-native-codegen@^0.70.6:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
-react-native-file-logger@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-file-logger/-/react-native-file-logger-0.3.0.tgz#66e18fafac2622eb3155836db36e40647ddfb866"
-  integrity sha512-VEB7DYzdHmaMCQhnexL3k18vBiv20cRSUo81ANgbmlykMC8/xMGXAasQ6Lw5eUb37eQN0INf8fM5zD/eGYf3Wg==
+react-native-file-logger@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-file-logger/-/react-native-file-logger-0.4.0.tgz#de6532229d4a7675ece02376e2ecd907ca9bf7ad"
+  integrity sha512-MIXNu56yd+RF55mCnENVFv8wePPdUK8y2eKDFmHtnGp2vs1GwdFmX55x4pO/4pMo2vvs+2HqfQSe8tyMkGh4Tw==
 
 react-native-gradle-plugin@^0.70.3:
   version "0.70.3"
