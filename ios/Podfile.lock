@@ -444,14 +444,14 @@ PODS:
     - React-jsi (= 0.70.6)
     - React-logger (= 0.70.6)
     - React-perflogger (= 0.70.6)
-  - RNFBApp (14.11.1):
+  - RNFBApp (14.12.0):
     - Firebase/CoreOnly (= 8.15.0)
     - React-Core
-  - RNFBAuth (14.11.1):
+  - RNFBAuth (14.12.0):
     - Firebase/Auth (= 8.15.0)
     - React-Core
     - RNFBApp
-  - RNFBCrashlytics (14.11.1):
+  - RNFBCrashlytics (14.12.0):
     - Firebase/Crashlytics (= 8.15.0)
     - React-Core
     - RNFBApp
@@ -720,9 +720,9 @@ SPEC CHECKSUMS:
   React-RCTVibration: c75ceef7aa60a33b2d5731ebe5800ddde40cefc4
   React-runtimeexecutor: 15437b576139df27635400de0599d9844f1ab817
   ReactCommon: 349be31adeecffc7986a0de875d7fb0dcf4e251c
-  RNFBApp: 9646e09d041ea159b84584865212e4cf33acd179
-  RNFBAuth: af943e3ba071b5f4d18896c31e6cba3a77b1fa08
-  RNFBCrashlytics: f2b5e456c4969bdec60482e83d973d873ff17f1d
+  RNFBApp: e4439717c23252458da2b41b81b4b475c86f90c4
+  RNFBAuth: 50ac123123b27241927e639c0ac9c8af17f05aa1
+  RNFBCrashlytics: 94e1f78e2a9aa9e02edbfb0d3f1f0921ce00094b
   RNFileLogger: 87fc2a50db74403f9a97b4b6731a0177dd8a631a
   RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
   RNSVG: 3a79c0c4992213e4f06c08e62730c5e7b9e4dc17

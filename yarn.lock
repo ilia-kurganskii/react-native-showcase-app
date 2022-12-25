@@ -2142,24 +2142,24 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.2.0.tgz#7d6d789ae8edf73dc9bed1246cd48277edea8066"
   integrity sha512-o6aam+0Ug1xGK3ABYmBm0B1YuEKfM/5kaoZO0eHbZwSpw9UzDX4G5y4Nx/K20FHqUmJHkZmLvOUFYwN4N+HqKA==
 
-"@react-native-firebase/app@14.11.1":
-  version "14.11.1"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-14.11.1.tgz#5d3587bda0a8877863e59384a4d38f7ebc321835"
-  integrity sha512-fkvOK8c7e8MxIbfb2076kO3GtGUc3ZXNEkPyfamRKBnPgANpmnjQaTVIraXpeuIIOfjj5uDK4uw32znWiDusGA==
+"@react-native-firebase/app@14.12.0":
+  version "14.12.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-14.12.0.tgz#d9706973489485d8705ce8344e3b255115b381a8"
+  integrity sha512-r/4eP96U3StUs9t3QSlNwCIjjZpEAzI0u8GF8VlNNgrFxUKQXmwe63dRXQXVrI03MxnHgg87OpoWgIxhRlC9Rg==
   dependencies:
     "@expo/config-plugins" "^4.1.5"
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@14.11.1":
-  version "14.11.1"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-14.11.1.tgz#fc39a6ef58d4300b09a114bf256b688293d0d91d"
-  integrity sha512-IzgFakon2jkuC4FEP8q9wruz8Yu0yem/Yk0v8IwndV2h/5lYmmij/f5Pyk74U3tadGOr9UrBsGkrWZMceiAjHQ==
+"@react-native-firebase/auth@14.12.0":
+  version "14.12.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-14.12.0.tgz#1cb5815e623aa83b070df3e47680db5f5886e8cc"
+  integrity sha512-2XiVpppZuxHSjR1Tjtwg/Aigapk4R2yupqUFJplBSijbg4Mets3XuUWLYURDBQIH/+GuheQuOGHALix4afGpDg==
 
-"@react-native-firebase/crashlytics@14.11.1":
-  version "14.11.1"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/crashlytics/-/crashlytics-14.11.1.tgz#ef1fa650a2bad50531a1e76cf06b207b3745b633"
-  integrity sha512-GayAXUZdtTOJli78nYqOhH6eVMgj1KxTGiL8vdp6CGknLRano3Y06VkOee4/BfQEKmXjbZhBqPQ5Q6IQaFXukA==
+"@react-native-firebase/crashlytics@14.12.0":
+  version "14.12.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/crashlytics/-/crashlytics-14.12.0.tgz#5b619fc492a507e61847be3dbe14410c18152ebd"
+  integrity sha512-Qhcu8fYi9YjpBSwht/jTCW2aSyQzKhwc2PRqdp8frdVLsdgikOeGRElJ6DqUA8RgPtvsebAB1+v93lRfs6FTeQ==
   dependencies:
     "@expo/config-plugins" "^4.1.5"
     stacktrace-js "^2.0.0"
