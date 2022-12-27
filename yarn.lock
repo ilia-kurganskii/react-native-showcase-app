@@ -6045,10 +6045,10 @@ husky@8.0.2:
   resolved "https://registry.yarnpkg.com/husky/-/husky-8.0.2.tgz#5816a60db02650f1f22c8b69b928fd6bcd77a236"
   integrity sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==
 
-i18next-scanner@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/i18next-scanner/-/i18next-scanner-4.0.0.tgz#e18f63267012e6acdfff7a11ef22fc2e77fdaf02"
-  integrity sha512-jVSEDhpjbfSp7KYzM0CYTn+xMzLNuHeqp1q+9RZuPNuICX8jvsPJjNU9tFPlKPI5IHlZDvbc4bG+3QbUMfTS3A==
+i18next-scanner@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/i18next-scanner/-/i18next-scanner-4.1.0.tgz#15979dcfd6eca494e08c8a8ff784e8740ab7d318"
+  integrity sha512-KAZRc6ZBqtn/Qa5fRRTn7D8effB84K9m3g9SQcKD+tocMajEVW2zfFP397qNxROad1VFjUGT8aw1Y6ZcfnIzlg==
   dependencies:
     acorn "^8.0.4"
     acorn-dynamic-import "^4.0.0"
