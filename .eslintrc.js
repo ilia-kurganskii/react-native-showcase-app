@@ -64,5 +64,5 @@ module.exports = {
       },
     },
   ],
-  ignorePatterns: ['*.js'],
+  ignorePatterns: ['*.js', '*.graphql'],
 };

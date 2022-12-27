@@ -1,3 +1,76 @@
+"""
+[See type definition](https://app.contentful.com/spaces/qt9s9bzsq0aj/content_types/about)
+"""
+type About implements Entry {
+  article(locale: String): AboutArticle
+  contentfulMetadata: ContentfulMetadata!
+  linkedFrom(allowedLocales: [String]): AboutLinkingCollections
+  sys: Sys!
+  title(locale: String): String
+}
+
+type AboutArticle {
+  json: JSON!
+  links: AboutArticleLinks!
+}
+
+type AboutArticleAssets {
+  block: [Asset]!
+  hyperlink: [Asset]!
+}
+
+type AboutArticleEntries {
+  block: [Entry]!
+  hyperlink: [Entry]!
+  inline: [Entry]!
+}
+
+type AboutArticleLinks {
+  assets: AboutArticleAssets!
+  entries: AboutArticleEntries!
+}
+
+type AboutCollection {
+  items: [About]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+input AboutFilter {
+  AND: [AboutFilter]
+  OR: [AboutFilter]
+  article_contains: String
+  article_exists: Boolean
+  article_not_contains: String
+  contentfulMetadata: ContentfulMetadataFilter
+  sys: SysFilter
+  title: String
+  title_contains: String
+  title_exists: Boolean
+  title_in: [String]
+  title_not: String
+  title_not_contains: String
+  title_not_in: [String]
+}
+
+type AboutLinkingCollections {
+  entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): EntryCollection
+}
+
+enum AboutOrder {
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+}
+
 """Represents a binary file in a space. An asset can be any file type."""
 type Asset {
   contentType(locale: String): String
@@ -423,6 +496,8 @@ The 'Quality' type represents quality as whole numeric values between `1` and `1
 scalar Quality
 
 type Query {
+  about(id: String!, locale: String, preview: Boolean): About
+  aboutCollection(limit: Int = 100, locale: String, order: [AboutOrder], preview: Boolean, skip: Int = 0, where: AboutFilter): AboutCollection
   asset(id: String!, locale: String, preview: Boolean): Asset
   assetCollection(limit: Int = 100, locale: String, order: [AssetOrder], preview: Boolean, skip: Int = 0, where: AssetFilter): AssetCollection
   entryCollection(limit: Int = 100, locale: String, order: [EntryOrder], preview: Boolean, skip: Int = 0, where: EntryFilter): EntryCollection
