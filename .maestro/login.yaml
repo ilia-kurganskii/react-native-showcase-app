@@ -1,4 +1,4 @@
-appId: dev.kurganskii.showcaseapp
+appId: com.nucleusuipatternexamples
 name: Simple login flow
 ---
 - launchApp
