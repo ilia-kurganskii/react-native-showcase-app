@@ -1,0 +1,8 @@
+appId: dev.kurganskii.showcaseapp
+name: Simple login flow
+---
+- launchApp
+- tapOn:
+    id: "lunch-sing-up"
+- assertVisible: "Create account"
+
