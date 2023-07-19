@@ -1,4 +1,4 @@
-appId: com.nucleusuipatternexamples
+appId: ${APP_ID}
 name: Simple login flow
 ---
 - launchApp
