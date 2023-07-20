@@ -1,0 +1,8 @@
+appId: ${APP_ID}
+name: Simple login flow
+---
+- launchApp
+- tapOn:
+    id: "lunch-sing-up"
+- assertVisible: "Create account"
+
